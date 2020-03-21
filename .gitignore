@@ -1,0 +1,21 @@
+*.vagrant*
+*.sass-cache*
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+nbproject/
+.vscode/
+
+# nodejs
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# dist/
+**/*.hot-update*
+v8-compile-cache-0/
+old/
+.history/
+dist/
