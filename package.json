@@ -24,11 +24,11 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "tsc --noEmit && lint-staged"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
+    "*": [
       "eslint --ext .js,.jsx,.ts,.tsx src --color --fix",
       "git add"
     ]

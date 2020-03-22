@@ -9,10 +9,10 @@ import React, {
  * Util
  */
 type MergeElementProps<T extends ElementType, P extends object = {}> = Omit<
-  ComponentPropsWithRef<T>,
-  keyof P
+ComponentPropsWithRef<T>,
+keyof P
 > &
-  P;
+P;
 
 /**
  * Props
@@ -33,13 +33,13 @@ type ButtonModifiers = {
 };
 
 type ButtonProps = MergeElementProps<
-  'button',
-  {
-    id: string;
-    modifiers: ButtonModifiers;
-    loading?: boolean;
-    loadingText?: string;
-  }
+'button',
+{
+  id: string;
+  modifiers: ButtonModifiers;
+  loading?: boolean;
+  loadingText?: string;
+}
 >;
 
 /**
@@ -50,6 +50,7 @@ const Button = forwardRef(
     { children, modifiers, loading, loadingText, ...props }: ButtonProps,
     ref: Ref<HTMLButtonElement>
   ) => {
+    // eslint-disable-next-line no-param-reassign
     props.ref = ref;
 
     const classes = [
@@ -63,6 +64,7 @@ const Button = forwardRef(
       .trim();
 
     if (loading) {
+      // eslint-disable-next-line no-param-reassign
       props.disabled = true;
     }
     return (

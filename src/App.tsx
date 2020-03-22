@@ -1,12 +1,13 @@
-import React, { useState, MouseEvent, useRef } from 'react';
+import React, { useState, MouseEvent } from 'react';
 import { Button } from './components/button/index';
 
 export default function App() {
   const [loading, setLoading] = useState(false);
-  const buttonRef = useRef();
 
   function handleClick(event: MouseEvent<HTMLButtonElement>): void {
     event.preventDefault();
+    console.log(event);
+    console.log(event.currentTarget);
     setLoading(!loading);
   }
 
@@ -14,10 +15,9 @@ export default function App() {
     <h1>
       <Button
         id="button-id"
-        ref={buttonRef}
         modifiers={{
-          type: 'button--is-primary',
-          variants: ['button--is-large', 'button--is-outline'],
+				  type: 'button--is-primary',
+				  variants: ['button--is-large', 'button--is-outline'],
         }}
         onClick={handleClick}
         loading={loading}
