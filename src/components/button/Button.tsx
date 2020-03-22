@@ -2,7 +2,7 @@ import React, {
   ElementType,
   ComponentPropsWithRef,
   forwardRef,
-  Ref,
+  Ref
 } from 'react';
 
 /**
@@ -50,6 +50,10 @@ const Button = forwardRef(
     { children, modifiers, loading, loadingText, ...props }: ButtonProps,
     ref: Ref<HTMLButtonElement>
   ) => {
+
+
+
+
     // eslint-disable-next-line no-param-reassign
     props.ref = ref;
 
