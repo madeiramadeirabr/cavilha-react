@@ -1,10 +1,11 @@
 const path = require('path')
 const webpackMerge = require('webpack-merge')
+const webpackBase = require('./base')
 const webpackCommon = require('./common')
 const HotModuleReplacementPlugin = require('webpack/lib/HotModuleReplacementPlugin')
 const DefinePlugin = require('webpack/lib/DefinePlugin')
 
-module.exports = webpackMerge(webpackCommon, {
+module.exports = webpackMerge(webpackBase, webpackCommon, {
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {

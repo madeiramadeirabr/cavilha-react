@@ -16,8 +16,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --config config/webpack/development.js --open --mode development",
-    "build": "webpack --config config/webpack/production.js --mode production"
+    "start": "webpack-dev-server --config config/webpack/server.js --open --mode development",
+    "dist": "webpack --config config/webpack/dist.js --mode production",
+    "publish": "webpack --config config/webpack/publish.js --mode production"
   },
   "peerDependencies": {
     "react": "^16.0.0"
@@ -45,7 +46,6 @@
     "ts-loader": "^6.2.1",
     "typescript": "^3.8.3",
     "webpack-cli": "^3.3.11",
-    "webpack-dashboard": "^3.2.0",
     "webpack-dev-server": "^3.10.3",
     "webpack-merge": "^4.2.2"
   },
@@ -53,6 +53,6 @@
     "node": ">=6.0.0"
   },
   "files": [
-    "dist/button.js"
+    "components/*"
   ]
 }
