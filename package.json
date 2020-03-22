@@ -3,19 +3,29 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --config config/webpack/development.js --open --mode development",
-    "build": "webpack --config config/webpack/production.js --mode production"
-  },
+  "author": "William Novak <williamnvk@gmail.com> (https://github.com/williamnvk)",
+  "license": "MIT",
   "keywords": [
     "react",
     "typescript",
     "webpack"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/williamnvk/cavilha-react"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --config config/webpack/development.js --open --mode development",
+    "build": "webpack --config config/webpack/production.js --mode production"
+  },
+  "peerDependencies": {
+    "react": "^16.0.0"
+  },
   "dependencies": {
     "react": "^16.13.0",
-    "react-dom": "^16.13.0"
+    "react-dom": "^16.13.0",
+    "webpack": "^4.42.0"
   },
   "devDependencies": {
     "@types/react": "^16.9.25",
@@ -31,16 +41,18 @@
     "duplicate-package-checker-webpack-plugin": "^3.0.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-plugin": "^3.2.0",
-    "nodemon": "^2.0.2",
     "terser-webpack-plugin": "^2.3.5",
     "ts-loader": "^6.2.1",
     "typescript": "^3.8.3",
-    "webpack": "^4.42.0",
     "webpack-cli": "^3.3.11",
     "webpack-dashboard": "^3.2.0",
     "webpack-dev-server": "^3.10.3",
     "webpack-merge": "^4.2.2"
   },
-  "author": "William Novak <williamnvk@gmail.com> (https://github.com/williamnvk)",
-  "license": "MIT"
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "files": [
+    "dist/button.js"
+  ]
 }
