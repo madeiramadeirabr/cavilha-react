@@ -20,7 +20,8 @@
     "dist": "webpack --config config/webpack/dist.js --mode production",
     "publish": "webpack --config config/webpack/publish.js --mode production",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src --color --fix",
-    "format": "prettier --write src/**/*.{ts,tsx,scss,css,json}"
+    "format": "prettier --write src/**/*.{ts,tsx,scss,css,json}",
+    "precommit": "lint-staged"
   },
   "husky": {
     "hooks": {
@@ -28,7 +29,7 @@
     }
   },
   "lint-staged": {
-    "*": [
+    "*.{js,jsx,ts,tsx}": [
       "eslint --ext .js,.jsx,.ts,.tsx src --color --fix",
       "git add"
     ]
