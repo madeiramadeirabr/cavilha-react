@@ -51,9 +51,6 @@ const Button = forwardRef(
     ref: Ref<HTMLButtonElement>
   ) => {
 
-
-
-
     // eslint-disable-next-line no-param-reassign
     props.ref = ref;
 
