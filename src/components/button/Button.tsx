@@ -68,6 +68,7 @@ const Button = forwardRef(
       // eslint-disable-next-line no-param-reassign
       props.disabled = true;
     }
+
     return (
       <button type="button" className={classes} {...props}>
         {loading ? loadingText : children}
