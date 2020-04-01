@@ -1,46 +1,8 @@
 import React, {
-  ElementType,
-  ComponentPropsWithRef,
   forwardRef,
   Ref
 } from 'react';
-
-/**
- * Util
- */
-type MergeElementProps<T extends ElementType, P extends object = {}> = Omit<
-ComponentPropsWithRef<T>,
-keyof P
-> &
-P;
-
-/**
- * Props
- */
-type ButtonTypeModifiers = 'button--is-primary' | 'button--is-secondary';
-type ButtonVariantModifiers =
-  | 'button--is-outline'
-  | 'button--is-small'
-  | 'button--is-large'
-  | 'button--is-extra-large'
-  | 'button--is-disabled';
-type ButtonHelperModifiers = 'helper--is-full-width';
-
-type ButtonModifiers = {
-  type: ButtonTypeModifiers;
-  variants?: Array<ButtonVariantModifiers>;
-  helpers?: Array<ButtonHelperModifiers>;
-};
-
-type ButtonProps = MergeElementProps<
-'button',
-{
-  id: string;
-  modifiers: ButtonModifiers;
-  loading?: boolean;
-  loadingText?: string;
-}
->;
+import { ButtonProps } from './types';
 
 /**
  * Component
@@ -54,11 +16,12 @@ const Button = forwardRef(
     // eslint-disable-next-line no-param-reassign
     props.ref = ref;
 
-    const classes = [
+    const sass = [
       'button',
       modifiers.type,
       [modifiers.variants ? modifiers.variants.join(' ') : ''],
       [modifiers.helpers ? modifiers.helpers.join(' ') : ''],
+      [modifiers.misc ? modifiers.misc.join(' ') : ''],
     ]
       .filter(Boolean)
       .join(' ')
@@ -70,7 +33,7 @@ const Button = forwardRef(
     }
 
     return (
-      <button type="button" className={classes} {...props}>
+      <button type="button" className={sass} {...props}>
         {loading ? loadingText : children}
       </button>
     );

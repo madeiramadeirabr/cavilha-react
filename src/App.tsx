@@ -1,13 +1,12 @@
 import React, { useState, MouseEvent } from 'react';
 import { Button } from './components/button/index';
+import '@madeiramadeira/cavilha/cavilha.sass';
 
 export default function App() {
   const [loading, setLoading] = useState(false);
 
   function handleClick(event: MouseEvent<HTMLButtonElement>): void {
     event.preventDefault();
-    console.log(event);
-    console.log(event.currentTarget);
     setLoading(!loading);
   }
 
@@ -16,12 +15,13 @@ export default function App() {
       <Button
         id="button-id"
         modifiers={{
-				  type: 'button--is-primary',
-				  variants: ['button--is-large', 'button--is-outline'],
+          type: 'button--is-primary',
+          variants: ['button--is-disabled', 'button--is-large'],
+          helpers: ['helper--has-margin-top', 'helper--has-margin-top-mobile', 'helper--is-on-left']
         }}
         onClick={handleClick}
         loading={loading}
-        loadingText="aguarde"
+        loadingText="loading..."
       >
         Test me
       </Button>

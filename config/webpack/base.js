@@ -22,8 +22,16 @@ module.exports = {
         query: {
           presets: ['react', 'es2015']
         }
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+        ]
       }
-    ],
+    ]
   },
   plugins: [
     new CleanTerminalPlugin(),
