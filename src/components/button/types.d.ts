@@ -1,12 +1,5 @@
-import { ElementType, ComponentPropsWithRef } from 'react';
-import { HelperHasMarginModifiers, HelperIsFloatModifiers } from '../../cavilha';
-
-type MergeElementProps<T extends ElementType, P extends object = {}> = Omit<
-ComponentPropsWithRef<T>,
-keyof P
-> &
-P;
-
+import { ReactNode, Ref, MouseEvent, AnchorHTMLAttributes, ButtonHTMLAttributes, ComponentElement, ReactComponentElement } from 'react';
+import { HelperHasMarginModifiers, HelperIsFloatModifiers, HelperIsWidthModifiers, HelperIsDisplayModifiers } from '../../cavilha';
 
 export type ButtonTypeModifiers = 'button--is-primary' |
 'button--is-secondary' |
@@ -18,23 +11,37 @@ export type ButtonVariantModifiers =
   | 'button--is-small'
   | 'button--is-large'
   | 'button--is-extra-large'
-  | 'button--is-disabled';
+  | 'button--is-disabled'
+  | 'button--has-icon';
 
+export type ButtonElements = 'button__text';
 
 export type ButtonModifiers = {
   type: ButtonTypeModifiers;
   variants?: (ButtonVariantModifiers)[];
-  helpers?: (HelperHasMarginModifiers | HelperIsFloatModifiers)[]
+  helpers?: (HelperHasMarginModifiers | HelperIsFloatModifiers | HelperIsWidthModifiers | HelperIsDisplayModifiers)[]
   misc?: Array<string>
 };
 
-export type ButtonProps = MergeElementProps<
-'button',
-{
-  id: string;
-  modifiers: ButtonModifiers;
-  loading?: boolean;
-  loadingText?: string;
+export type ButtonTypes = HTMLAnchorElement | HTMLButtonElement;
+
+export type ButtonProps = {
+  key: string | number
+  myRef?: Ref<ButtonTypes>,
+  type?: string
+  options?: Array<unknown>
+  modifiers: ButtonModifiers
+  loading?: boolean
   disabled?: boolean
+  iconLeft?: ComponentElement
+  iconRight?: ComponentElement
+  children: ReactNode
+  href?: string
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void
+};
+
+export interface IButtonProps<T extends ButtonTypes>
+  extends
+  Omit<AnchorHTMLAttributes<T>, 'disabled'>,
+  ButtonHTMLAttributes<T>, ReactComponentElement, ButtonProps {
 }
->;

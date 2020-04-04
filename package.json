@@ -38,6 +38,8 @@
   },
   "dependencies": {
     "@madeiramadeira/cavilha": "git+https://github.com/williamnvk/cavilha.git#master",
+    "@material-ui/core": "^4.9.8",
+    "@material-ui/icons": "^4.9.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "webpack": "^4.42.0"
