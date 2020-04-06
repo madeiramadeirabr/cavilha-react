@@ -35,7 +35,7 @@
     "src/**/*.{js,jsx,ts,tsx}": [
       "eslint --ext .js,.jsx,.ts,.tsx src --color --fix",
       "npm run docz:deploy",
-      "git add"
+      "git add ."
     ]
   },
   "peerDependencies": {
