@@ -20,7 +20,11 @@
     "dist": "webpack --config config/webpack/dist.js --mode production",
     "publish": "webpack --config config/webpack/publish.js --mode production",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src --color --fix",
-    "format": "prettier --write src/**/*.{ts,tsx,scss,css,json}"
+    "format": "prettier --write src/**/*.{ts,tsx,scss,css,json}",
+    "docz:dev": "npm run docz:clean && docz dev",
+    "docz:build": "npm run docz:clean && docz build",
+    "docz:deploy": "npm run docz:clean && npm run docz:build",
+    "docz:clean": "rm -rf .docz && rm -rf docs"
   },
   "husky": {
     "hooks": {
@@ -30,6 +34,7 @@
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
       "eslint --ext .js,.jsx,.ts,.tsx src --color --fix",
+      "npm run docz:deploy",
       "git add"
     ]
   },
@@ -40,11 +45,14 @@
     "@madeiramadeira/cavilha": "git+https://github.com/williamnvk/cavilha.git#master",
     "@material-ui/core": "^4.9.8",
     "@material-ui/icons": "^4.9.1",
+    "docz": "^2.3.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "webpack": "^4.42.0"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-object-rest-spread": "^7.9.0",
+    "@babel/plugin-transform-react-jsx": "^7.9.4",
     "@types/react": "^16.9.25",
     "@types/react-dom": "^16.9.5",
     "@types/webpack": "4.41.8",
@@ -59,6 +67,7 @@
     "clean-webpack-plugin": "^3.0.0",
     "compression-webpack-plugin": "^3.1.0",
     "css-loader": "^3.4.2",
+    "docz-plugin-css": "^0.11.0",
     "duplicate-package-checker-webpack-plugin": "^3.0.0",
     "eslint": "6.8.0",
     "eslint-config-airbnb": "18.1.0",
@@ -67,13 +76,10 @@
     "eslint-config-react-app": "5.2.1",
     "eslint-import-resolver-typescript": "2.0.0",
     "eslint-loader": "3.0.3",
-    "eslint-plugin-flowtype": "4.6.0",
-    "eslint-plugin-import": "2.20.1",
-    "eslint-plugin-jsx-a11y": "6.2.3",
-    "eslint-plugin-prettier": "3.1.2",
+    "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "7.19.0",
-    "eslint-plugin-react-hooks": "2.5.1",
     "friendly-errors-webpack-plugin": "^1.7.0",
+    "gatsby-plugin-sass": "^2.2.1",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^4.2.3",
     "lint-staged": "^10.0.8",

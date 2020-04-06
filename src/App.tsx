@@ -7,23 +7,19 @@ import { ButtonProps } from './components/button/types';
 export default function App() {
   const [loading, setLoading] = useState(false);
 
-  const myRef: Ref<HTMLButtonElement> = createRef<HTMLButtonElement>();
+  const buttonRef: Ref<HTMLButtonElement> = createRef<HTMLButtonElement>();
 
   function onClick(event: MouseEvent<HTMLButtonElement>): void {
     event.preventDefault();
     setLoading(!loading);
-
-    console.log(myRef);
   }
 
   const anchorProps: ButtonProps = {
     key:'button-id',
     href: '/teste',
-    modifiers: {
-      type: 'button--is-primary',
-      variants: [],
-      helpers: []
-    },
+    type: 'button--is-primary',
+    variants: ['button--has-icon', 'button--is-small'],
+    helpers: ['helper--is-clearfix'],
     loading,
     iconLeft: loading || <AccessAlarm />,
     iconRight: loading ? <AccessAlarm /> : <ThreeDRotation />,
@@ -32,15 +28,9 @@ export default function App() {
   };
 
   const buttonProps: ButtonProps = {
-    key:'button-id-button',
-    modifiers: {
-      type: 'button--is-primary',
-      variants: [],
-      helpers: []
-    },
+    key:'button-id-button',    
+    type: 'button--is-secondary',
     loading,
-    iconLeft: loading || <AccessAlarm />,
-    iconRight: loading ? <AccessAlarm /> : <ThreeDRotation />,
     children: loading ? 'loading...' : 'test me',
     onClick
   };
@@ -48,7 +38,7 @@ export default function App() {
   return (
     <div>
       <Button {...anchorProps} key="1" />
-      <ButtonWithRef {...buttonProps} myRef={myRef} key="2" />
+      <ButtonWithRef {...buttonProps} buttonRef={buttonRef} key="2" />
     </div>
   );
 }

@@ -17,20 +17,20 @@ export type ButtonVariantModifiers =
 export type ButtonElements = 'button__text';
 
 export type ButtonModifiers = {
-  type: ButtonTypeModifiers;
-  variants?: (ButtonVariantModifiers)[];
-  helpers?: (HelperHasMarginModifiers | HelperIsFloatModifiers | HelperIsWidthModifiers | HelperIsDisplayModifiers)[]
-  misc?: Array<string>
+  
 };
 
 export type ButtonTypes = HTMLAnchorElement | HTMLButtonElement;
 
 export type ButtonProps = {
   key: string | number
-  myRef?: Ref<ButtonTypes>,
+  buttonRef?: Ref<ButtonTypes>
   type?: string
   options?: Array<unknown>
-  modifiers: ButtonModifiers
+  type: ButtonTypeModifiers
+  variants?: (ButtonVariantModifiers)[]
+  helpers?: (HelperHasMarginModifiers | HelperIsFloatModifiers | HelperIsWidthModifiers | HelperIsDisplayModifiers)[]
+  others?: (string)[]
   loading?: boolean
   disabled?: boolean
   iconLeft?: ComponentElement

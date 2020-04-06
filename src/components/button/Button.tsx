@@ -3,31 +3,38 @@ import React, {
   HTMLProps, forwardRef
 } from 'react';
 import { IButtonProps, ButtonTypes } from './types';
+import { BUTTON_BLOCK, BUTTON_MODIFIER_DISABLED } from './constants';
 
 
 const Button = <T extends ButtonTypes>({
-  href, iconLeft, iconRight, modifiers, children, loading, ...props
+  href, iconLeft, iconRight, type, variants, helpers, others, children, loading, ...props
 }: IButtonProps<T>, ref?: Ref<HTMLButtonElement>) => {
 
   const isAnchor = href || false;
   const hasIcon = (iconLeft || iconRight);
 
   // build css classes
-  const className = [
-    'button',
-    hasIcon ? 'button--has-icon' : '',
-    modifiers.type,
-    [modifiers.variants ? modifiers.variants.join(' ') : ''],
-    [modifiers.helpers ? modifiers.helpers.join(' ') : ''],
-    [modifiers.misc ? modifiers.misc.join(' ') : ''],
-  ].filter(Boolean).join(' ').trim();
+  const cavilha = [
+    BUTTON_BLOCK,
+    hasIcon ? 'button--has-icon' : null,
+    type || null,
+    [variants ? variants.join(' ') : null],
+    [helpers ? helpers.join(' ') : null],
+    [others ? others.join(' ') : null],
+  ].filter(Boolean);
 
   const text = hasIcon ? <span className="button__text">{children}</span> : children;
   const content = <>{ iconLeft || ''}{text}{ iconRight || ''}</>;
 
+  if (loading) {
+    if (!cavilha.includes(BUTTON_MODIFIER_DISABLED)) {
+      cavilha.push(BUTTON_MODIFIER_DISABLED);
+    }
+  }
+
+  const className = cavilha.join(' ').trim();
 
   if (isAnchor) {
-    // eslint-disable-next-line no-param-reassign
     return (
       <a {...(props as HTMLProps<HTMLAnchorElement>)} href={href} className={className}>
         {content}
@@ -45,9 +52,9 @@ const Button = <T extends ButtonTypes>({
 
 const ButtonForwardRef = forwardRef(Button);
 
-const ButtonWithRef = <T extends ButtonTypes>({ myRef, ...props }: IButtonProps<T> &
-{ myRef: React.Ref<HTMLButtonElement> }) =>
-  <ButtonForwardRef {...props} ref={myRef} />;
+const ButtonWithRef = <T extends ButtonTypes>({ buttonRef, ...props }: IButtonProps<T> &
+{ buttonRef: React.Ref<HTMLButtonElement> }) =>
+  <ButtonForwardRef {...props} ref={buttonRef} />;
 
 export { Button, ButtonWithRef };
 
