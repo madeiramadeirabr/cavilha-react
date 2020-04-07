@@ -7,7 +7,16 @@ import { BUTTON_BLOCK, BUTTON_MODIFIER_DISABLED } from './constants';
 
 
 const Button = <T extends ButtonTypes>({
-  href, iconLeft, iconRight, type, variants, helpers, others, children, loading, ...props
+  href, 
+  iconLeft, 
+  iconRight, 
+  type, 
+  variants, 
+  helpers, 
+  others, 
+  children, 
+  loading, 
+  ...props
 }: IButtonProps<T>, ref?: Ref<HTMLButtonElement>) => {
 
   const isAnchor = href || false;
@@ -23,7 +32,9 @@ const Button = <T extends ButtonTypes>({
     [others ? others.join(' ') : null],
   ].filter(Boolean);
 
-  const text = hasIcon ? <span className="button__text">{children}</span> : children;
+  const text = hasIcon ? 
+    <span className="button__text">{children}</span> 
+    : children;
   const content = <>{ iconLeft || ''}{text}{ iconRight || ''}</>;
 
   if (loading) {
@@ -36,14 +47,23 @@ const Button = <T extends ButtonTypes>({
 
   if (isAnchor) {
     return (
-      <a {...(props as HTMLProps<HTMLAnchorElement>)} href={href} className={className}>
+      <a 
+        {...(props as HTMLProps<HTMLAnchorElement>)} 
+        href={href} 
+        className={className}
+      >
         {content}
       </a>
     );
   }
 
   return (
-    <button {...(props as HTMLProps<HTMLButtonElement>)} type="button" ref={ref} className={className}>
+    <button 
+      {...(props as HTMLProps<HTMLButtonElement>)} 
+      type="button" 
+      ref={ref} 
+      className={className}
+    >
       {content}
     </button>
   );
@@ -52,7 +72,10 @@ const Button = <T extends ButtonTypes>({
 
 const ButtonForwardRef = forwardRef(Button);
 
-const ButtonWithRef = <T extends ButtonTypes>({ buttonRef, ...props }: IButtonProps<T> &
+const ButtonWithRef = <T extends ButtonTypes>({ 
+  buttonRef, 
+  ...props 
+}: IButtonProps<T> &
 { buttonRef: React.Ref<HTMLButtonElement> }) =>
   <ButtonForwardRef {...props} ref={buttonRef} />;
 

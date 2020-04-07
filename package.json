@@ -33,8 +33,7 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
-      "eslint --ext .js,.jsx,.ts,.tsx src --color --fix",
-      "npm run docz:deploy",
+      "npm run lint",
       "git add ."
     ]
   },

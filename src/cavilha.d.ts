@@ -89,6 +89,10 @@ export type HelperHasTextWeightModifiers =
 'helper--has-text-semibold' |
 'helper--has-text-bold';
 
+export type HelpersHeadingAvailable = 'helper--is-hero' | 
+Extract<HelperHasTextWeightModifiers, 'helper--has-text-semibold'> | 
+Extract<HelperHasTextWeightModifiers, 'helper--has-text-light'>;
+
 export type HelperHasTextAlignModifiers =
 'helper--has-text-left' |
 'helper--has-text-center' |

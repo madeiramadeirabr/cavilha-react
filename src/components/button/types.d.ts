@@ -1,5 +1,17 @@
-import { ReactNode, Ref, MouseEvent, AnchorHTMLAttributes, ButtonHTMLAttributes, ComponentElement, ReactComponentElement } from 'react';
-import { HelperHasMarginModifiers, HelperIsFloatModifiers, HelperIsWidthModifiers, HelperIsDisplayModifiers } from '../../cavilha';
+import { 
+  ReactNode, 
+  Ref, 
+  MouseEvent, 
+  AnchorHTMLAttributes, 
+  ButtonHTMLAttributes, 
+  ComponentElement, 
+  ReactComponentElement } from 'react';
+import { 
+  HelperHasMarginModifiers, 
+  HelperIsFloatModifiers, 
+  HelperIsWidthModifiers, 
+  HelperIsDisplayModifiers 
+} from '../../cavilha';
 
 export type ButtonTypeModifiers = 'button--is-primary' |
 'button--is-secondary' |
