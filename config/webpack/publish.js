@@ -11,7 +11,11 @@ module.exports = webpackMerge(webpackBase, {
   bail: true,
   devtool: "source-map",
   entry: {
-    button: path.join(__dirname, '../../src/components/button', 'index.tsx')
+    button: path.join(__dirname, '../../src/components/button', 'index.tsx'),
+    heading: path.join(__dirname, '../../src/components/heading', 'index.tsx'),
+    text: path.join(__dirname, '../../src/components/text', 'index.tsx'),
+    card: path.join(__dirname, '../../src/components/card', 'index.tsx'),
+    hero: path.join(__dirname, '../../src/components/hero', 'index.tsx')
   },
   output: {
     path: path.resolve(__dirname, '../../components'),

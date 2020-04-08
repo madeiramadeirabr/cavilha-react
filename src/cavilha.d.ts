@@ -159,3 +159,21 @@ export type HelperIsDisplayModifiers = 'helper--is-clearfix' |
 export type HelperIsWidthModifiers = 'helper--is-full-width';
 export type HelperIsHeightModifiers = 'helper--is-full-height';
 export type HelperHasCursorModifiers = 'helper--has-pointer';
+
+export type HeroVariantModifiers = 'hero--has-no-radius' | 
+'hero--is-medium' | 
+'hero--is-large' | 
+'hero--is-fullheight' | 
+'hero--is-primary' | 
+'hero--is-secondary' | 
+'hero--is-danger' | 
+'hero--is-success' | 
+'hero--is-gray-one' | 
+'hero--is-gray-two' | 
+'hero--is-gray-three' | 
+'hero--is-gray-four' | 
+'hero--is-gray-five' | 
+'hero--is-gray-six' | 
+'hero--is-gray-seven';
+
+export type CardVariantModifiers = 'card--no-border-radius';
