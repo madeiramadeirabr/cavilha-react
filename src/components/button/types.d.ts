@@ -28,10 +28,6 @@ export type ButtonVariantModifiers =
 
 export type ButtonElements = 'button__text';
 
-export type ButtonModifiers = {
-  
-};
-
 export type ButtonTypes = HTMLAnchorElement | HTMLButtonElement;
 
 export type ButtonProps = {

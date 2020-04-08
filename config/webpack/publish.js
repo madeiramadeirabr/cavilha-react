@@ -15,7 +15,9 @@ module.exports = webpackMerge(webpackBase, {
     heading: path.join(__dirname, '../../src/components/heading', 'index.tsx'),
     text: path.join(__dirname, '../../src/components/text', 'index.tsx'),
     card: path.join(__dirname, '../../src/components/card', 'index.tsx'),
-    hero: path.join(__dirname, '../../src/components/hero', 'index.tsx')
+    hero: path.join(__dirname, '../../src/components/hero', 'index.tsx'),
+    container: path.join(__dirname, '../../src/components/container', 'index.tsx'),
+    grid: path.join(__dirname, '../../src/components/grid', 'index.tsx')
   },
   output: {
     path: path.resolve(__dirname, '../../components'),

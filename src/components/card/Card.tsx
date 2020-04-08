@@ -8,11 +8,11 @@ import { CARD_ELEMENT, CARD_HEADER_ELEMENT, CARD_CONTENT_ELEMENT, CARD_FOOTER_EL
 
 function Wrapper({
   variants, helpers, others, children, ...props
-}: CardProps, el?: CardElements) {
+}: CardProps, el: CardElements) {
   return (
     <div 
       {...(props as HTMLProps<HTMLDivElement>)} 
-      className={classNames([el || 'card'], { variants, helpers, others })}
+      className={classNames([el], { variants, helpers, others })}
     >
       {children}
     </div>

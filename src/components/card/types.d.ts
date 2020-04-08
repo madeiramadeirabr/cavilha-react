@@ -2,8 +2,10 @@ import { ReactNode } from 'react';
 import { 
   HelperHasMarginModifiers, 
   HelperIsDisplayModifiers, 
-  HelperHasGapModifiers, 
-  CardVariantModifiers } from '../../cavilha';
+  HelperHasGapModifiers 
+} from '../../cavilha';
+
+export type CardVariantModifiers = 'card--no-border-radius';
 
 export type CardProps = {
   variants?: (CardVariantModifiers)[]

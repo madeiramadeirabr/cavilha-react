@@ -28,30 +28,57 @@ export type HelperHasBackgroundModifiers = 'helper--has-background-primary' |
 'helper--has-background-danger-four';
 
 export type HelperHasGapModifiers =
-'helper--has-no-gap' |
-'helper--has-gap' |
-'helper--has-gap-left' |
-'helper--has-gap-right' |
-'helper--has-gap-top' |
-'helper--has-gap-bottom' |
-'helper--has-gap-vertical' |
-'helper--has-gap-horizontal' |
-'helper--has-no-gap-tablet' |
-'helper--has-gap-tablet' |
-'helper--has-gap-left-tablet' |
-'helper--has-gap-right-tablet' |
-'helper--has-gap-top-tablet' |
-'helper--has-gap-bottom-tablet' |
-'helper--has-gap-vertical-tablet' |
-'helper--has-gap-horizontal-tablet' |
-'helper--has-no-gap-mobile' |
-'helper--has-gap-mobile' |
-'helper--has-gap-left-mobile' |
-'helper--has-gap-right-mobile' |
-'helper--has-gap-top-mobile' |
-'helper--has-gap-bottom-mobile' |
-'helper--has-gap-vertical-mobile' |
-'helper--has-gap-horizontal-mobile';
+  'helper--has-no-gap' |
+  'helper--has-gap' |
+  'helper--has-gap-left' |
+  'helper--has-gap-right' |
+  'helper--has-gap-top' |
+  'helper--has-gap-bottom' |
+  'helper--has-gap-vertical' |
+  'helper--has-gap-vertical-extra-small' |
+  'helper--has-gap-vertical-small' |
+  'helper--has-gap-vertical-large' |
+  'helper--has-gap-vertical-extra-large' |
+  'helper--has-gap-horizontal' |
+  'helper--has-gap-horizontal-extra-small' |
+  'helper--has-gap-horizontal-small' |
+  'helper--has-gap-horizontal-large' |
+  'helper--has-gap-horizontal-extra-large' |
+  // tablet
+  'helper--has-no-gap-tablet' |
+  'helper--has-gap-tablet' |
+  'helper--has-gap-left-tablet' |
+  'helper--has-gap-right-tablet' |
+  'helper--has-gap-top-tablet' |
+  'helper--has-gap-bottom-tablet' |
+  'helper--has-gap-vertical-tablet' |
+  'helper--has-gap-vertical-extra-small-tablet' |
+  'helper--has-gap-vertical-small-tablet' |
+  'helper--has-gap-vertical-large-tablet' |
+  'helper--has-gap-vertical-extra-large-tablet' |
+  'helper--has-gap-horizontal-tablet' |
+  'helper--has-gap-horizontal-extra-small-tablet' |
+  'helper--has-gap-horizontal-small-tablet' |
+  'helper--has-gap-horizontal-large-tablet' |
+  'helper--has-gap-horizontal-extra-large-tablet' |
+  // mobile
+  'helper--has-no-gap-mobile' |
+  'helper--has-gap-mobile' |
+  'helper--has-gap-left-mobile' |
+  'helper--has-gap-right-mobile' |
+  'helper--has-gap-top-mobile' |
+  'helper--has-gap-bottom-mobile' |
+  'helper--has-gap-vertical-mobile' |
+  'helper--has-gap-vertical-extra-small-mobile' |
+  'helper--has-gap-vertical-small-mobile' |
+  'helper--has-gap-vertical-large-mobile' |
+  'helper--has-gap-vertical-extra-large-mobile' |
+  'helper--has-gap-horizontal-mobile' |
+  'helper--has-gap-horizontal-extra-small-mobile' |
+  'helper--has-gap-horizontal-small-mobile' |
+  'helper--has-gap-horizontal-large-mobile' |
+  'helper--has-gap-horizontal-extra-large-mobile'
+;
 
 
 export type HelperHasMarginModifiers =
@@ -62,9 +89,16 @@ export type HelperHasMarginModifiers =
   'helper--has-margin-top' |
   'helper--has-margin-bottom' |
   'helper--has-margin-vertical' |
+  'helper--has-margin-vertical-extra-small' |
+  'helper--has-margin-vertical-small' |
   'helper--has-margin-vertical-large' |
+  'helper--has-margin-vertical-extra-large' |
   'helper--has-margin-horizontal' |
+  'helper--has-margin-horizontal-extra-small' |
+  'helper--has-margin-horizontal-small' |
   'helper--has-margin-horizontal-large' |
+  'helper--has-margin-horizontal-extra-large' |
+  // tablet
   'helper--has-no-margin-tablet' |
   'helper--has-margin-tablet' |
   'helper--has-margin-left-tablet' |
@@ -72,7 +106,16 @@ export type HelperHasMarginModifiers =
   'helper--has-margin-top-tablet' |
   'helper--has-margin-bottom-tablet' |
   'helper--has-margin-vertical-tablet' |
+  'helper--has-margin-vertical-extra-small-tablet' |
+  'helper--has-margin-vertical-small-tablet' |
+  'helper--has-margin-vertical-large-tablet' |
+  'helper--has-margin-vertical-extra-large-tablet' |
   'helper--has-margin-horizontal-tablet' |
+  'helper--has-margin-horizontal-extra-small-tablet' |
+  'helper--has-margin-horizontal-small-tablet' |
+  'helper--has-margin-horizontal-large-tablet' |
+  'helper--has-margin-horizontal-extra-large-tablet' |
+  // mobile
   'helper--has-no-margin-mobile' |
   'helper--has-margin-mobile' |
   'helper--has-margin-left-mobile' |
@@ -80,7 +123,16 @@ export type HelperHasMarginModifiers =
   'helper--has-margin-top-mobile' |
   'helper--has-margin-bottom-mobile' |
   'helper--has-margin-vertical-mobile' |
-  'helper--has-margin-horizontal-mobile';
+  'helper--has-margin-vertical-extra-small-mobile' |
+  'helper--has-margin-vertical-small-mobile' |
+  'helper--has-margin-vertical-large-mobile' |
+  'helper--has-margin-vertical-extra-large-mobile' |
+  'helper--has-margin-horizontal-mobile' |
+  'helper--has-margin-horizontal-extra-small-mobile' |
+  'helper--has-margin-horizontal-small-mobile' |
+  'helper--has-margin-horizontal-large-mobile' |
+  'helper--has-margin-horizontal-extra-large-mobile'
+;
 
 
 export type HelperHasTextWeightModifiers =
@@ -176,4 +228,3 @@ export type HeroVariantModifiers = 'hero--has-no-radius' |
 'hero--is-gray-six' | 
 'hero--is-gray-seven';
 
-export type CardVariantModifiers = 'card--no-border-radius';
