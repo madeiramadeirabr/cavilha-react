@@ -3,14 +3,14 @@ import React, {
   HTMLProps,
   HTMLAttributes
 } from 'react';
-import { classNames } from '../../core/utils/classNames';
+import { classNames } from '../core/utils/classNames';
 import {
   HelperMarginModifiers,
   HelperGapModifiers,
   HelperDisplayModifiers,
   HelperFlexAligmentModifiers,
   ElementColorProps
- } from '../../cavilha';
+ } from '../cavilha';
 
 enum CardElements {
   'card' = 'card',

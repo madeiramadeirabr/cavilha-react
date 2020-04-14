@@ -3,7 +3,7 @@ import React, {
   ReactNode,
   HTMLAttributes
 } from 'react';
-import { classNames } from '../../core/utils/classNames';
+import { classNames } from '../core/utils/classNames';
 import {
   HelperMarginModifiers,
   HelperDisplayModifiers,
@@ -11,7 +11,7 @@ import {
   HelperTextAlignModifiers,
   HelperGapModifiers,
   ElementColorProps
-} from '../../cavilha';
+} from '../cavilha';
 
 export type TextVariantModifiers =
   'text--is-body-one-regular' |

@@ -5,7 +5,7 @@ import React, {
 } from 'react';
 import {
   classNames
-} from '../../core/utils/classNames';
+} from '../core/utils/classNames';
 import {
   HelperMarginModifiers,
   HelperFloatModifiers,
@@ -14,7 +14,7 @@ import {
   HelperTextAlignModifiers,
   HelperTextWeightModifiers,
   ElementColorProps
-} from '../../cavilha';
+} from '../cavilha';
 
 export type HelpersHeadingAvailable =
   Extract<HelperTextWeightModifiers, 'helper--has-text-semibold'> |

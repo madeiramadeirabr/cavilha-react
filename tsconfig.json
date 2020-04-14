@@ -20,7 +20,7 @@
     "allowJs": false
   },
   "include": [
-    "cavilha.ts", "packages/**/*"
+    "packages/**/*"
   ],
   "exclude": [
     "node_modules",

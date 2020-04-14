@@ -3,7 +3,7 @@ import React, {
   HTMLProps,
   HTMLAttributes
 } from 'react';
-import { classNames } from '../../core/utils/classNames';
+import { classNames } from '../core/utils/classNames';
 import {
   HelperMarginModifiers,
   HelperGapModifiers,
@@ -11,13 +11,21 @@ import {
   HelperBackgroundModifiers,
   HelperFlexAligmentModifiers,
   ElementColorProps
-} from '../../cavilha';
+} from '../cavilha';
 
 export type HeroVariantModifiers =
   'hero--has-navbar' |
   'hero--has-no-radius';
 
+export type HeroSizesModifiers =
+  'hero--has-is-auto' |
+  'hero--has-is-extra-small' |
+  'hero--has-is-small' |
+  'hero--has-is-large' |
+  'hero--has-is-extra-large';
+
 export type HeroSizes =
+  'auto' |
   'extra-small' |
   'small' |
   'large' |
@@ -50,7 +58,7 @@ function Hero({
   ...props
 }: HeroProps) {
 
-  const sizes = isSize ? `hero--is-${isSize}` : ''
+  const sizes = isSize ? `hero--is-${isSize}` as HeroSizesModifiers : ''
   const className = classNames(['hero', sizes], {
     variants, helpers, customCss, hasColor, hasBackground
   })

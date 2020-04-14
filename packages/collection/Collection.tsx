@@ -5,7 +5,7 @@ import React, {
 } from 'react';
 import {
   classNames
-} from '../../core/utils/classNames';
+} from '../core/utils/classNames';
 import {
   HelperMarginModifiers,
   HelperDisplayModifiers,
@@ -16,7 +16,7 @@ import {
   HelperFlexAligmentModifiers,
   ElementColorProps,
   HelperWidthModifiers
-} from '../../cavilha';
+} from '../cavilha';
 
 enum CollectionElements {
   'block' = 'collection',

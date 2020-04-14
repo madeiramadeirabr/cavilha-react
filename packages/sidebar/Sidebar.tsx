@@ -1,7 +1,7 @@
 import React, {
   HTMLProps, ButtonHTMLAttributes, HTMLAttributes
 } from 'react';
-import { classNames } from '../../core/utils/classNames';
+import { classNames } from '../core/utils/classNames';
 import { ReactNode } from 'react';
 import {
   HelperBackgroundColorModifiers,
@@ -10,7 +10,7 @@ import {
   HelperHeightModifiers,
   HelperScrollModifiers,
   ElementColorProps
-} from '../../cavilha';
+} from '../cavilha';
 
 enum SidebarElements {
   'block' = 'sidebar',

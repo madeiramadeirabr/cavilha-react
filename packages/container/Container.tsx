@@ -3,7 +3,7 @@ import React, {
   HTMLProps,
   HTMLAttributes
 } from 'react';
-import { classNames } from '../../core/utils/classNames';
+import { classNames } from '../core/utils/classNames';
 import {
   HelperBackgroundModifiers,
   HelperMarginVerticalModifiers,
@@ -11,7 +11,7 @@ import {
   HelperGapHorizontalModifiers,
   HelperFlexAligmentModifiers,
   ElementColorProps
-} from '../../cavilha';
+} from '../cavilha';
 
 export type ContainerVariantModifiers =
 'container--has-sidebar' |

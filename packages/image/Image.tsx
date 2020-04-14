@@ -1,13 +1,13 @@
 import React, {
   HTMLProps, HTMLAttributes
 } from 'react';
-import { classNames } from '../../core/utils/classNames';
+import { classNames } from '../core/utils/classNames';
 import {
   HelperMarginModifiers,
   HelperDisplayModifiers,
   HelperBackgroundModifiers,
   ElementColorProps
-} from '../../cavilha';
+} from '../cavilha';
 
 const BLOCK = 'image'
 

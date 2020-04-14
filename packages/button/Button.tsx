@@ -9,7 +9,7 @@ import {
   HelperFloatModifiers,
   HelperWidthModifiers,
   HelperDisplayModifiers
-} from '../../cavilha';
+} from '../cavilha';
 
 export type ButtonColorModifier =
   'primary' |
@@ -17,7 +17,17 @@ export type ButtonColorModifier =
   'danger' |
   'success';
 
-export type ButtonSizeModifiers = 'extra-small' | 'small' | 'large' | 'extra-large';
+export type ButtonColorModifiers =
+  'button--is-primary' |
+  'button--is-secondary' |
+  'button--is-danger' |
+  'button--is-sucess';
+
+export type ButtonSizeModifier =
+  'extra-small' |
+  'small' |
+  'large' |
+  'extra-large';
 
 export type ButtonVariantModifiers =
   'button--is-outline' |
@@ -29,6 +39,13 @@ export type ButtonVariantModifiers =
   'button--is-extra-large' |
   'button--has-icon';
 
+export type ButtonSizeModifiers =
+  Omit<ButtonVariantModifiers, 'button--is-outline'> |
+  Omit<ButtonVariantModifiers, 'button--is-link'> |
+  Omit<ButtonVariantModifiers, 'button--is-disabled'> |
+  Omit<ButtonVariantModifiers, 'button--has-icon'>
+;
+
 export type ButtonTypes = HTMLAnchorElement | HTMLButtonElement;
 
 export interface ButtonProps {
@@ -36,7 +53,7 @@ export interface ButtonProps {
   isColor?: ButtonColorModifier
   isOutline?: boolean
   isLink?: boolean
-  isSize?: ButtonSizeModifiers
+  isSize?: ButtonSizeModifier
   buttonRef?: Ref<ButtonTypes>
   variants?: (ButtonVariantModifiers)[]
   helpers?: (
@@ -86,11 +103,12 @@ const Button: SFC<ButtonProps> = ({
   const hasIcon = (iconLeft || iconRight);
   const cavilha = [
     BUTTON_BLOCK,
-    isColor ? `button--is-${isColor}` : null,
-    isSize ? `button--is-${isSize}` : null,
+    isColor ? `button--is-${isColor}` as ButtonColorModifiers : null,
+    isSize ? `button--is-${isSize}` as ButtonSizeModifiers : null,
     isOutline ? 'button--is-outline' : null,
     isLink ? 'button--is-link' : null,
     hasIcon ? 'button--has-icon' : null,
+    isDisabled ? 'button--is-disabled' : null,
     [variants ? variants.join(' ') : null],
     [helpers ? helpers.join(' ') : null],
     customCss,

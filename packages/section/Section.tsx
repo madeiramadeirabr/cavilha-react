@@ -5,7 +5,7 @@ import React, {
 } from 'react';
 import {
   classNames
-} from '../../core/utils/classNames';
+} from '../core/utils/classNames';
 import {
   HelperMarginModifiers,
   HelperDisplayModifiers,
@@ -15,7 +15,7 @@ import {
   HelperTextAlignModifiers,
   HelperFlexAligmentModifiers,
   ElementColorProps
-} from '../../cavilha';
+} from '../cavilha';
 
 export type SectionProps = {
   variants?: (string)[]

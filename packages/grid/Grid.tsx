@@ -3,13 +3,13 @@ import React, {
   HTMLProps,
   HTMLAttributes
 } from 'react';
-import { classNames } from '../../core/utils/classNames';
+import { classNames } from '../core/utils/classNames';
 import {
   HelperDisplayModifiers,
   HelperMarginVerticalModifiers,
   HelperGapVerticalModifiers,
   HelperFlexAligmentModifiers
-} from '../../cavilha';
+} from '../cavilha';
 
 export type GridRowVariantModifiers =
 'grid__row--is-reverse' |
