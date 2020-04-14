@@ -1,30 +1,28 @@
 {
-  "name": "cavilha-react",
+  "name": "@madeiramadeira/cavilha-react",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A MadeiraMadeira React UI kit",
+  "main": "lib/cavilha.js",
+  "types": "lib/cavilha.d.ts",
   "author": "William Novak <williamnvk@gmail.com> (https://github.com/williamnvk)",
   "license": "MIT",
   "keywords": [
     "react",
-    "typescript",
-    "webpack"
+    "typescript"
   ],
   "repository": {
     "type": "git",
     "url": "https://github.com/williamnvk/cavilha-react"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --config config/webpack/server.js --open --mode development",
     "dist": "webpack --config config/webpack/dist.js --mode production",
-    "publish": "webpack --config config/webpack/publish.js --mode production",
+    "build": "rm -rf lib/*.* && tsc",
+    "prepublish": "npm run build",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src --color --fix",
     "format": "prettier --write src/**/*.{ts,tsx,scss,css,json}",
-    "docz:dev": "npm run docz:clean && docz dev",
-    "docz:build": "npm run docz:clean && docz build",
-    "docz:deploy": "npm run docz:clean && npm run docz:build",
-    "docz:clean": "rm -rf .docz && rm -rf docs"
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "build-storybook": "build-storybook"
   },
   "husky": {
     "hooks": {
@@ -38,35 +36,52 @@
     ]
   },
   "peerDependencies": {
-    "react": "^16.0.0"
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0"
   },
   "dependencies": {
     "@madeiramadeira/cavilha": "git+https://github.com/williamnvk/cavilha.git#master",
     "@material-ui/core": "^4.9.8",
     "@material-ui/icons": "^4.9.1",
-    "docz": "^2.3.1",
+    "@storybook/design-system": "^5.0.4",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "webpack": "^4.42.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-export-default-from": "^7.8.3",
     "@babel/plugin-proposal-object-rest-spread": "^7.9.0",
+    "@babel/plugin-syntax-export-default-from": "^7.8.3",
     "@babel/plugin-transform-react-jsx": "^7.9.4",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
+    "@storybook/addon-actions": "^5.3.18",
+    "@storybook/addon-docs": "^5.3.18",
+    "@storybook/addon-info": "^5.3.18",
+    "@storybook/addon-knobs": "^5.3.18",
+    "@storybook/addon-links": "^5.3.18",
+    "@storybook/addon-notes": "^5.3.18",
+    "@storybook/addon-storysource": "^5.3.18",
+    "@storybook/addons": "^5.3.18",
+    "@storybook/preset-create-react-app": "^2.1.1",
+    "@storybook/preset-typescript": "^3.0.0",
+    "@storybook/react": "^5.3.18",
     "@types/react": "^16.9.25",
     "@types/react-dom": "^16.9.5",
+    "@types/react-router-dom": "^5.1.3",
+    "@types/storybook__addon-info": "^5.2.1",
     "@types/webpack": "4.41.8",
     "@typescript-eslint/eslint-plugin": "2.24.0",
     "@typescript-eslint/parser": "2.24.0",
-    "babel-core": "^6.26.3",
-    "babel-eslint": "10.1.0",
+    "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.1.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
     "clean-terminal-webpack-plugin": "^3.0.0",
     "clean-webpack-plugin": "^3.0.0",
     "compression-webpack-plugin": "^3.1.0",
     "css-loader": "^3.4.2",
-    "docz-plugin-css": "^0.11.0",
+    "csstype": "^2.6.10",
     "duplicate-package-checker-webpack-plugin": "^3.0.0",
     "eslint": "6.8.0",
     "eslint-config-airbnb": "18.1.0",
@@ -77,19 +92,23 @@
     "eslint-loader": "3.0.3",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "7.19.0",
+    "fork-ts-checker-webpack-plugin": "^4.1.3",
     "friendly-errors-webpack-plugin": "^1.7.0",
-    "gatsby-plugin-sass": "^2.2.1",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^4.2.3",
     "lint-staged": "^10.0.8",
+    "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.1",
     "prettier": "2.0.1",
     "prettier-eslint": "9.0.1",
     "prettier-eslint-cli": "5.0.0",
+    "react-docgen-typescript-loader": "^3.7.2",
+    "react-docgen-typescript-webpack-plugin": "^1.1.0",
+    "react-router-dom": "^5.1.2",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.1.3",
     "terser-webpack-plugin": "^2.3.5",
-    "ts-loader": "^6.2.1",
+    "ts-loader": "^6.2.2",
     "typescript": "^3.8.3",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3",
@@ -102,6 +121,7 @@
     "node": ">=6.0.0"
   },
   "files": [
-    "components/*"
+    "lib",
+    "README.md"
   ]
 }

@@ -12,7 +12,8 @@ module.exports = webpackMerge(webpackBase, webpackCommon, {
     host: process.env.HOST, // Defaults to `localhost`
     port: process.env.PORT, // Defaults to 8080
     open: true,
-    hot: true
+    hot: true,
+    historyApiFallback: true
   },
   plugins: [
     new HotModuleReplacementPlugin(),

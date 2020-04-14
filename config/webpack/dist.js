@@ -8,14 +8,13 @@ const TerserPlugin = require('terser-webpack-plugin');
 const DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin")
 const CompressionPlugin = require('compression-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
 
 module.exports = webpackMerge(webpackBase, webpackCommon, {
   mode: 'production',
   bail: true,
   devtool: "source-map",
-  entry: {
-    index: path.join(__dirname, '../../src', 'index.tsx')
-  },
   output: {
     path: path.resolve(__dirname, '../../dist'),
     filename: 'bundle.js'
@@ -54,7 +53,28 @@ module.exports = webpackMerge(webpackBase, webpackCommon, {
       }
     }
   },
+  module: {
+    rules: [
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: path.resolve(__dirname, '../../dist')
+            },
+          },
+          'css-loader',
+          'sass-loader'
+        ],
+      }
+    ]
+  },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css'
+    }),
     new CleanWebpackPlugin(),
     new DuplicatePackageCheckerPlugin(),
     new DefinePlugin({

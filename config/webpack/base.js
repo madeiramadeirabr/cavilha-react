@@ -6,7 +6,13 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 module.exports = {
   target: 'web',
   resolve: {
-    extensions: ['.ts', '.tsx', '.js']
+    extensions: ['.ts', '.tsx', '.js', '.jsx']
+  },
+  entry: {
+    index: path.join(__dirname, '../../example')
+  },
+  output: {
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -16,20 +22,25 @@ module.exports = {
         exclude: '/node_modules/'
       },
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loader: 'babel',
-        query: {
-          presets: ['react', 'es2015']
-        }
+        loader: 'babel-loader'
       },
       {
         test: /\.s[ac]ss$/i,
         use: [
           'style-loader',
           'css-loader',
-          'sass-loader',
-        ]
+          {
+            loader: 'sass-loader',
+            options: {
+              sassOptions: {
+                indentWidth: 4,
+                includePaths: [require('path').resolve(__dirname, '../../node_modules')],
+              },
+            }
+          },
+        ],
       }
     ]
   },

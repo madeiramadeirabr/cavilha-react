@@ -1,23 +1,38 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",
+    "outDir": "lib",
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "esnext",
+    "module": "es2015",
     "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "react"
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "removeComments": true,
+    "declaration": true,
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "rootDirs": ["packages", "stories"],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "lib": ["es6", "dom"],
+    "allowJs": false
   },
-  "include": ["src"],
-  "compileOnSave": true,
+  "include": [
+    "cavilha.ts", "packages/**/*"
+  ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "build",
+    "dist",
+    "scripts",
+    "acceptance-tests",
+    "config",
+    "jest",
+    "**/*/*.test.ts",
+    "lib",
+    "dist",
+    "example"
   ]
 }
