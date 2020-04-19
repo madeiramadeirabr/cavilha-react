@@ -45,12 +45,12 @@ export type SidebarFloatingVariantModifiers =
 export type SidebarProps = {
   isOpen?: boolean
   isFloating?: boolean
-  hasNavbar?: boolean
+  isNavbar?: boolean
   isHalfWidth?: boolean
   isFullwidth?: boolean
   variants?: (SidebarVariantModifiers)[]
   helpers?: (HelperBackgroundColorModifiers | HelperShadowModifiers)[]
-  customCss?: string
+  hasClassName?: string
   children: ReactNode
 } & Omit<ElementColorProps, 'hasColor'> & HTMLAttributes<HTMLDivElement>;
 
@@ -72,12 +72,12 @@ const HELPER_NO_SCROLL: HelperScrollModifiers = 'helper--has-no-scroll'
 function Sidebar({
   isFloating,
   isOpen,
-  hasNavbar,
+  isNavbar,
   isHalfWidth,
   isFullwidth,
   variants,
   helpers,
-  customCss,
+  hasClassName,
   children,
   hasBackground,
   ...props
@@ -89,9 +89,9 @@ function Sidebar({
       isOpen ? SIDEBAR_IS_OPEN : '',
       isHalfWidth ? SIDEBAR_IS_HALF_WIDTH : '',
       isFullwidth ? SIDEBAR_IS_FULL_WIDTH : '',
-      hasNavbar ? SIDEBAR_HAS_NAVBAR : ''
+      isNavbar ? SIDEBAR_HAS_NAVBAR : ''
     ],
-    { variants, helpers, customCss, hasBackground }
+    { variants, helpers, hasClassName, hasBackground }
   )
 
   if (isFullwidth) {

@@ -38,7 +38,7 @@ export type ImageProps = {
     HelperDisplayModifiers |
     HelperBackgroundModifiers
   )[]
-  customCss?: string
+  hasClassName?: string
   src: string
   title?: string | null
 } & Pick<ElementColorProps, 'hasBackground'> & HTMLAttributes<HTMLDivElement>;
@@ -46,14 +46,14 @@ export type ImageProps = {
 function Image({
   variants,
   helpers,
-  customCss,
+  hasClassName,
   hasBackground,
   src,
   title,
   ...props
 }: ImageProps) {
   const className = classNames([BLOCK], {
-    variants, helpers, customCss, hasBackground
+    variants, helpers, hasClassName, hasBackground
   })
   return (
     <div

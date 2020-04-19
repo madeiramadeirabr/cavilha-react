@@ -84,6 +84,6 @@ module.exports = webpackMerge(webpackBase, webpackCommon, {
     }),
     new CompressionPlugin({
       algorithm: 'gzip',
-    })
+    }),
   ]
 })

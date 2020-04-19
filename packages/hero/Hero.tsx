@@ -40,27 +40,34 @@ export type HeroProps = {
     HelperBackgroundModifiers |
     HelperFlexAligmentModifiers
   )[]
-  customCss?: string
-  isSize?: HeroSizes
+  hasClassName?: string
+  hasSize?: HeroSizes
+  isRadiusZero?: boolean
   hasImage?: string
+  isNavbar?: boolean
   children: ReactNode
 } & ElementColorProps & HTMLAttributes<HTMLDivElement>;
 
 function Hero({
   variants,
   helpers,
-  customCss,
+  hasClassName,
   children,
   hasColor,
-  isSize,
+  hasSize,
+  isNavbar,
+  isRadiusZero,
   hasBackground,
   hasImage,
   ...props
 }: HeroProps) {
-
-  const sizes = isSize ? `hero--is-${isSize}` as HeroSizesModifiers : ''
-  const className = classNames(['hero', sizes], {
-    variants, helpers, customCss, hasColor, hasBackground
+  const className = classNames([
+    'hero',
+    hasSize ? `hero--is-${hasSize}` as HeroSizesModifiers : '',
+    isRadiusZero ? `hero--has-no-radius` as HeroSizesModifiers : '',
+    isNavbar ? `hero--has-navbar` as HeroSizesModifiers : '',
+  ], {
+    variants, helpers, hasClassName, hasColor, hasBackground
   })
 
   return (

@@ -14,10 +14,10 @@ import {
 } from '../cavilha';
 
 export type ContainerVariantModifiers =
-'container--has-sidebar' |
-'container--is-full-width' |
-'container--is-full-width-tablet' |
-'container--is-full-width-mobile';
+  'container--has-sidebar' |
+  'container--is-full-width' |
+  'container--is-full-width-tablet' |
+  'container--is-full-width-mobile';
 
 export type ContainerProps = {
   variants?: (ContainerVariantModifiers)[]
@@ -28,17 +28,17 @@ export type ContainerProps = {
     HelperGapHorizontalModifiers |
     HelperFlexAligmentModifiers
   )[]
-  customCss?: string
+  hasClassName?: string
   children: ReactNode
 } & Pick<ElementColorProps, 'hasBackground'> & HTMLAttributes<HTMLDivElement>;
 
 export const CONTAINER_BLOCK = 'container';
 
 function Container({
-  variants, helpers, customCss, children, hasBackground, ...props
+  variants, helpers, hasClassName, children, hasBackground, ...props
 }: ContainerProps) {
   const className = classNames([CONTAINER_BLOCK], {
-    variants, helpers, customCss, hasBackground
+    variants, helpers, hasClassName, hasBackground
   })
   return (
     <div

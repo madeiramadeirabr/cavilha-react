@@ -37,7 +37,9 @@ export type ButtonVariantModifiers =
   'button--is-small' |
   'button--is-large' |
   'button--is-extra-large' |
-  'button--has-icon';
+  'button--has-icon' |
+  'button--is-square' |
+  'button--is-circle';
 
 export type ButtonSizeModifiers =
   Omit<ButtonVariantModifiers, 'button--is-outline'> |
@@ -50,10 +52,10 @@ export type ButtonTypes = HTMLAnchorElement | HTMLButtonElement;
 
 export interface ButtonProps {
   /** tst */
-  isColor?: ButtonColorModifier
+  hasColor?: ButtonColorModifier
   isOutline?: boolean
   isLink?: boolean
-  isSize?: ButtonSizeModifier
+  hasSize?: ButtonSizeModifier
   buttonRef?: Ref<ButtonTypes>
   variants?: (ButtonVariantModifiers)[]
   helpers?: (
@@ -62,11 +64,12 @@ export interface ButtonProps {
     HelperWidthModifiers |
     HelperDisplayModifiers
   )[]
-  customCss?: string
+  hasClassName?: string
   isLoading?: boolean
   isDisabled?: boolean
-  iconLeft?: ReactNode
-  iconRight?: ReactNode
+  hasIconLeft?: ReactNode
+  hasIconRight?: ReactNode
+  hasShape?: 'square' | 'circle'
   children: ReactNode
   href?: string
   onClick?: any
@@ -83,41 +86,43 @@ const BUTTON_MODIFIER_DISABLED = 'button--is-disabled';
  * Button component base
  */
 const Button: SFC<ButtonProps> = ({
-  isColor,
+  hasColor,
   isLink,
-  isSize,
+  hasSize,
   isOutline,
   isLoading,
   isDisabled,
-  iconLeft,
-  iconRight,
+  hasIconLeft,
+  hasIconRight,
   variants,
   helpers,
-  customCss,
+  hasClassName,
   children,
   href,
+  hasShape,
   ...props
 }) => {
 
   const isAnchor = href || false;
-  const hasIcon = (iconLeft || iconRight);
+  const hasIcon = (hasIconLeft || hasIconRight);
   const cavilha = [
     BUTTON_BLOCK,
-    isColor ? `button--is-${isColor}` as ButtonColorModifiers : null,
-    isSize ? `button--is-${isSize}` as ButtonSizeModifiers : null,
+    hasColor ? `button--is-${hasColor}` as ButtonColorModifiers : null,
+    hasSize ? `button--is-${hasSize}` as ButtonSizeModifiers : null,
     isOutline ? 'button--is-outline' : null,
     isLink ? 'button--is-link' : null,
     hasIcon ? 'button--has-icon' : null,
     isDisabled ? 'button--is-disabled' : null,
+    hasShape ? `button--is-${hasShape}` : null,
     [variants ? variants.join(' ') : null],
     [helpers ? helpers.join(' ') : null],
-    customCss,
+    hasClassName,
   ].filter(Boolean);
 
   const text = hasIcon ?
     <span className="button__text">{children}</span>
     : children;
-  const content = <>{ iconLeft || ''}{text}{ iconRight || ''}</>;
+  const content = <>{ hasIconLeft || ''}{text}{ hasIconRight || ''}</>;
 
   if (isLoading) {
     if (!cavilha.includes(BUTTON_MODIFIER_DISABLED)) {

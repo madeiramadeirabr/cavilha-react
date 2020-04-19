@@ -30,7 +30,7 @@ export type CollectionVariantModifiers =
 export type CollectionDirectionModifier = 'horizontal' | 'vertical';
 
 export type CollectionProps = {
-  isDirection?: CollectionDirectionModifier
+  hasDirection?: CollectionDirectionModifier
   variants?: (string)[]
   helpers?: (
     HelperMarginModifiers |
@@ -41,7 +41,7 @@ export type CollectionProps = {
     HelperTextColorModifiers |
     HelperFlexAligmentModifiers
   )[]
-  customCss?: string
+  hasClassName?: string
   children?: ReactNode
 } & ElementColorProps & HTMLAttributes<HTMLUListElement>;
 
@@ -57,25 +57,25 @@ export type ItemProps = {
     HelperFlexAligmentModifiers |
     HelperWidthModifiers
   )[]
-  customCss?: string
+  hasClassName?: string
   children?: ReactNode
 } & ElementColorProps & HTMLAttributes<HTMLLIElement>;
 
 
 
 function Collection({
-  isDirection = "horizontal",
+  hasDirection = "horizontal",
   variants,
   helpers,
-  customCss,
+  hasClassName,
   children,
   hasColor,
   hasBackground,
   ...props
 }: CollectionProps) {
   const className = classNames(
-    [CollectionElements.block, `collection--is-${isDirection}` as CollectionVariantModifiers],
-    { variants, helpers, customCss, hasColor, hasBackground}
+    [CollectionElements.block, `collection--is-${hasDirection}` as CollectionVariantModifiers],
+    { variants, helpers, hasClassName, hasColor, hasBackground}
   )
   return (
     <div className="helper--has-margin-fix helper--is-full-height">
@@ -92,14 +92,14 @@ function Collection({
 function Item({
   variants,
   helpers,
-  customCss,
+  hasClassName,
   children,
   hasColor,
   hasBackground,
   ...props
 }: ItemProps) {
   const className = classNames([CollectionElements.item], {
-    variants, helpers, customCss, hasColor, hasBackground
+    variants, helpers, hasClassName, hasColor, hasBackground
   })
   return (
       <li

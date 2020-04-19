@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "outDir": "lib",
-    "target": "es5",
-    "module": "es2015",
+    "target": "ES2015",
+    "module": "commonjs",
     "moduleResolution": "node",
     "sourceMap": true,
     "noImplicitAny": true,
@@ -15,12 +15,14 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true,
+    "noUnusedLocals": false,
     "lib": ["es6", "dom"],
-    "allowJs": false
+    "allowJs": false,
+    "baseUrl": "./"
   },
   "include": [
-    "packages/**/*"
+    "packages/**/*",
+    "site/**/*"
   ],
   "exclude": [
     "node_modules",

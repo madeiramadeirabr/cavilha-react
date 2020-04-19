@@ -32,7 +32,7 @@ export type CardProps = {
     HelperDisplayModifiers |
     HelperFlexAligmentModifiers
   )[]
-  customCss?: string
+  hasClassName?: string
   children: ReactNode
 } & ElementColorProps & HTMLAttributes<HTMLDivElement>;
 
@@ -41,13 +41,13 @@ export type CardContentProps = CardProps;
 export type CardFooterProps = CardProps;
 
 function Wrapper({
-  variants, helpers, customCss,
+  variants, helpers, hasClassName,
   hasBackground, hasColor,
   children,
   ...props
 }: CardProps, el: CardElements) {
   const className = classNames([el], {
-    variants, helpers, customCss, hasBackground, hasColor
+    variants, helpers, hasClassName, hasBackground, hasColor
   });
   return (
     <div {...(props as HTMLProps<HTMLDivElement>)} className={className}>

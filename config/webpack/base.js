@@ -9,7 +9,7 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js', '.jsx']
   },
   entry: {
-    index: path.join(__dirname, '../../example')
+    index: path.join(__dirname, '../../site')
   },
   output: {
     publicPath: '/'
@@ -41,7 +41,18 @@ module.exports = {
             }
           },
         ],
-      }
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: 'images',
+            },
+          },
+        ],
+      },
     ]
   },
   plugins: [

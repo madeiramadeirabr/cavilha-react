@@ -33,7 +33,7 @@ export type TextVariantModifiers =
 
 export type TextProps = {
   type?: HTMLParagraphElement | HTMLSpanElement
-  isText?: TextVariantModifier
+  hasText?: TextVariantModifier
   variants?: (TextVariantModifiers)[]
   helpers?: (
     HelperMarginModifiers |
@@ -42,7 +42,7 @@ export type TextProps = {
     HelperTextColorModifiers |
     HelperTextAlignModifiers
   )[]
-  customCss?: string
+  hasClassName?: string
   children: ReactNode
 } & ElementColorProps & HTMLAttributes<HTMLParagraphElement>
 & HTMLAttributes<HTMLSpanElement>;
@@ -51,15 +51,15 @@ function Text({
   type,
   hasColor,
   hasBackground,
-  isText = 'body-one-regular',
+  hasText = 'body-one-regular',
   variants,
   helpers,
-  customCss,
+  hasClassName,
   children,
   ...props
 }: TextProps) {
-  const className = classNames(['text', `text--is-${isText}` as TextVariantModifiers], {
-    variants, helpers, customCss, hasColor, hasBackground})
+  const className = classNames(['text', `text--is-${hasText}` as TextVariantModifiers], {
+    variants, helpers, hasClassName, hasColor, hasBackground})
 
   if (type instanceof HTMLSpanElement) {
     return (

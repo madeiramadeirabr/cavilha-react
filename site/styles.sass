@@ -1,0 +1,48 @@
+// @import '~@madeiramadeira/cavilha/cavilha'
+
+
+// #home-page-hero-one
+//   background-image: url(./hero-background-two.jpg)
+//   background-position: top auto
+//   background-size: 100% auto
+//   background-repeat: no-repeat
+
+//   +for-size(mobile)
+//     background-position: top center
+
+// .home-page-comment
+//   +for-size(mobile)
+//     width: 80vw
+
+//     &:first-of-type
+//       margin-left: $mobile-column-gap * 2
+
+.column
+  background-color: #eee
+
+  &--is-auto
+    text-align: center
+
+  &--is-tile
+    &:first-child
+      padding-left: 12px
+
+    &:not(:first-child)
+      text-align: center
+
+  .column
+    background-color: #ccc
+    text-align: center
+
+.row
+  .row
+    background-color: #fafafa
+
+
+.heading
+  width: 160px
+  margin-right: 12px
+  padding: 4px
+  display: inline-block
+  background-color: #eee
+  margin-bottom: 4px

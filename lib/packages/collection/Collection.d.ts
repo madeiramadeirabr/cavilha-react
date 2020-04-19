@@ -1,5 +1,5 @@
 import { ReactNode, HTMLAttributes } from 'react';
-import { HelperMarginModifiers, HelperDisplayModifiers, HelperGapModifiers, HelperBackgroundModifiers, HelperTextColorModifiers, HelperTextAlignModifiers, HelperFlexAligmentModifiers, ElementColorProps, HelperWidthModifiers } from '../../cavilha';
+import { HelperMarginModifiers, HelperDisplayModifiers, HelperGapModifiers, HelperBackgroundModifiers, HelperTextColorModifiers, HelperTextAlignModifiers, HelperFlexAligmentModifiers, ElementColorProps, HelperWidthModifiers } from '../cavilha';
 export declare type CollectionVariantModifiers = 'collection--is-horizontal' | 'collection--is-vertical';
 export declare type CollectionDirectionModifier = 'horizontal' | 'vertical';
 export declare type CollectionProps = {

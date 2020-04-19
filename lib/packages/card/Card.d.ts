@@ -1,5 +1,5 @@
 import { ReactNode, HTMLAttributes } from 'react';
-import { HelperMarginModifiers, HelperGapModifiers, HelperDisplayModifiers, HelperFlexAligmentModifiers, ElementColorProps } from '../../cavilha';
+import { HelperMarginModifiers, HelperGapModifiers, HelperDisplayModifiers, HelperFlexAligmentModifiers, ElementColorProps } from '../cavilha';
 export declare type CardVariantModifiers = 'card--has-no-shadow' | 'card--has-no-border-radius';
 export declare type CardProps = {
     variants?: (CardVariantModifiers)[];

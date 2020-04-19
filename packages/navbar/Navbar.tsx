@@ -14,7 +14,9 @@ import {
   ElementColorProps
 } from '../cavilha';
 
-export type NavbarVariantModifiers = 'navbar--is-fixed-top';
+export type NavbarVariantModifiers =
+  'navbar--is-fixed-top' |
+  'navbar--is-transparent';
 
 enum NavbarElements {
   'block' = 'navbar',
@@ -27,9 +29,10 @@ enum NavbarElements {
 
 export type NavbarProps = {
   isFixedTop?: boolean
+  isTransparent?: boolean
   variants?: (NavbarVariantModifiers)[]
   helpers?: (HelperBackgroundColorModifiers | HelperShadowModifiers)[]
-  customCss?: string
+  hasClassName?: string
   children: ReactNode
 } & Pick<ElementColorProps, 'hasBackground'> & HTMLAttributes<HTMLDivElement>;
 
@@ -39,8 +42,9 @@ export type NavbarContainerProps = {
 
 export type NavbarLogoProps = {
   src: string
+  to: string
   title?: string
-} & HTMLAttributes<HTMLDivElement>;
+} & HTMLAttributes<HTMLElement>;
 
 
 export type NavbarMenuProps = {
@@ -63,9 +67,10 @@ export type NavbarItemProps = {
 
 function Navbar({
   isFixedTop,
+  isTransparent,
   variants,
   helpers,
-  customCss,
+  hasClassName,
   children,
   hasBackground,
   ...props
@@ -73,10 +78,16 @@ function Navbar({
   const className = classNames(
     [
       NavbarElements.block,
-      isFixedTop ? 'navbar--is-fixed-top' : ''
+      isFixedTop ? 'navbar--is-fixed-top' : '',
+      isTransparent ? 'navbar--is-transparent' : '',
     ],
-    { variants, helpers, customCss, hasBackground }
+    { variants, helpers, hasClassName, hasBackground }
   )
+
+  if (isFixedTop) {
+    document.getElementsByTagName('body')[0].setAttribute("style", "padding-top: 60px")
+  }
+
   return (
     <nav
       {...(props as HTMLProps<HTMLDivElement>)}
@@ -116,15 +127,16 @@ Navbar.Menu = ({
 };
 
 Navbar.Logo = ({
-  src, title, ...props
+  src, title, to, ...props
 }: NavbarLogoProps) => {
   return (
-    <div
-      {...(props as HTMLProps<HTMLDivElement>)}
+    <Link
+      {...props}
+      to={to}
       className={classNames([NavbarElements.logo], {})}
     >
       <img src={src} alt={title || ''} />
-    </div>
+    </Link>
   );
 };
 

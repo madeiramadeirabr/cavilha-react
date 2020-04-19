@@ -23,7 +23,7 @@ export type GridRowProps = {
     HelperDisplayModifiers |
     HelperFlexAligmentModifiers
   )[]
-  customCss?: string
+  hasClassName?: string
   children: ReactNode
   isReverse?: boolean
 } & HTMLAttributes<HTMLDivElement>;
@@ -83,6 +83,21 @@ export type ColumnSize =
   'eleven' |
   'twelve';
 
+export enum ColumnSizes {
+  'one',
+  'two',
+  'three',
+  'four',
+  'five',
+  'six',
+  'seven',
+  'eight',
+  'nine',
+  'ten',
+  'eleven',
+  'twelve'
+}
+
 export type GridColumnProps = {
   variants?: (GridColumnVariantModifiers)[]
   helpers?: (
@@ -91,8 +106,9 @@ export type GridColumnProps = {
     HelperDisplayModifiers |
     HelperFlexAligmentModifiers
   )[]
-  customCss?: string
+  hasClassName?: string
   children?: ReactNode
+  hasSize?: ColumnSize
   mobile?: ColumnSize
   tablet?: ColumnSize
   desktop?: ColumnSize
@@ -106,13 +122,13 @@ enum GridElements {
 
 
 function Row({
-  variants, helpers, customCss, children, isReverse, ...props
+  variants, helpers, hasClassName, children, isReverse, ...props
 }: GridRowProps) {
   const className = classNames(
     [GridElements.row, isReverse ? 'grid__row--is-reverse' : ''], {
       variants,
       helpers,
-      customCss
+      hasClassName
     }
   )
   return (
@@ -128,18 +144,27 @@ function Row({
 }
 
 function Column({
-  variants, helpers, customCss, children, mobile, tablet, desktop, ...props
+  variants,
+  helpers,
+  hasClassName,
+  children,
+  mobile,
+  tablet,
+  desktop,
+  hasSize,
+  ...props
 }: GridColumnProps) {
   const sizes = []
   if (mobile) sizes.push(`${GridElements.column}--is-${mobile}-mobile`)
   if (tablet) sizes.push(`${GridElements.column}--is-${tablet}-tablet`)
   if (desktop) sizes.push(`${GridElements.column}--is-${desktop}`)
+  if (hasSize) sizes.push(`${GridElements.column}--is-${hasSize}`)
   return (
     <div
       {...(props as HTMLProps<HTMLDivElement>)}
       className={
         classNames([GridElements.column, ...sizes],
-        { variants, helpers, customCss })
+        { variants, helpers, hasClassName })
       }
     >
       {children || ''}

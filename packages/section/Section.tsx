@@ -28,7 +28,7 @@ export type SectionProps = {
     HelperTextColorModifiers |
     HelperFlexAligmentModifiers
   )[]
-  customCss?: string
+  hasClassName?: string
   children?: ReactNode
 } & ElementColorProps & HTMLAttributes<HTMLDivElement>;
 
@@ -36,14 +36,14 @@ export type SectionProps = {
 function Section({
   variants,
   helpers,
-  customCss,
+  hasClassName,
   children,
   hasColor,
   hasBackground,
   ...props
 }: SectionProps) {
   const className = classNames([], {
-    variants, helpers, customCss, hasColor, hasBackground
+    variants, helpers, hasClassName, hasColor, hasBackground
   })
   return (
     <div className="helper--has-margin-fix">
