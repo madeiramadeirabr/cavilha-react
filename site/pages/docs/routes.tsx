@@ -5,6 +5,7 @@ import GridElement from "./contents/GridElement"
 import TypographElement from "./contents/TypographElement"
 import ColorsElement from "./contents/ColorsElement"
 import TableElement from "./contents/TableElement"
+import ContainerElement from "./contents/ContainerElement"
 import BadgeComponent from "./contents/BadgeComponent"
 import ButtonComponent from "./contents/ButtonComponent"
 import { DOCS_ROUTE } from "../../routes"
@@ -65,6 +66,14 @@ export const TABLE_ELEMENT_ROUTE: DocsRouteProps = {
   pages: undefined
 }
 
+export const CONTAINER_ELEMENT_ROUTE: DocsRouteProps = {
+  name: `${DOCS_ROUTE.location}/elements/container`,
+  label: 'Container',
+  anchor: true,
+  component: ContainerElement,
+  pages: undefined
+}
+
 export const GET_STARTED_PAGE_ROUTE: DocsRouteProps = {
   name: `${DOCS_ROUTE.location}/pages/get-started`,
   label: 'Get started',
@@ -90,9 +99,10 @@ export const DOCS_ROUTES: Array<DocsRouteProps> = [
     anchor: false,
     component: null,
     pages: [
+      CONTAINER_ELEMENT_ROUTE,
       GRID_ELEMENT_ROUTE,
-      TYPOGRAPH_ELEMENT_ROUTE,
       COLORS_ELEMENT_ROUTE,
+      TYPOGRAPH_ELEMENT_ROUTE,
       TABLE_ELEMENT_ROUTE
     ]
   } as DocsRouteProps,

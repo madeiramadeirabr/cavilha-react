@@ -2,13 +2,16 @@ import React, { ReactNode } from 'react';
 import {
   useLocation,
   Switch,
-  Route
+  Route,
+  Link,
+  useParams
 } from "react-router-dom";
+import { DOCS_ROUTE } from "../../routes"
 import { DOCS_ROUTES } from "./routes"
-import { H4 } from "../../../packages/heading/index"
-import { Button } from "../../../packages/button/index"
+import { H5 } from "../../../packages/heading/index"
 import { Row, Column } from "../../../packages/grid/index"
 import { Container } from "../../../packages/container/index"
+import { Collection } from "../../../packages/collection/index"
 import queryString from 'query-string';
 
 export const Docs = () => {
@@ -18,6 +21,8 @@ export const Docs = () => {
 
   // @ts-ignore
   const { version } = queryString.parse(location.search)
+  const { content, name } = useParams()
+  const active = `${DOCS_ROUTE.location}/${content}/${name}`
 
   DOCS_ROUTES.map(
     (route) => {
@@ -26,11 +31,15 @@ export const Docs = () => {
           <Route path={route.name} children={route.component} version={version} />
         )
         sidebar.push(
-          <Button helpers={["helper--is-full-width"]} href={route.name}>{route.label}</Button>
+          <Collection.Item>
+            <Link className={`link ` + (active === route.name ? 'link--is-active' : '')} to={route.name}>{route.label}</Link>
+          </Collection.Item>
         )
       } else {
         sidebar.push(
-          <H4>{route.label}</H4>
+          <Collection.Item helpers={["helper--has-margin-vertical"]}>
+            <H5>{route.label}</H5>
+          </Collection.Item>
         )
       }
       if (route.pages) {
@@ -41,10 +50,14 @@ export const Docs = () => {
                 <Route path={page.name} children={page.component} />
               )
               sidebar.push(
-                <Button helpers={["helper--is-full-width"]} href={page.name}>{page.label}</Button>
+                <Collection.Item>
+                  <Link className={`link ` + (active === page.name ? 'link--is-active' : '')} to={page.name}>{page.label}</Link>
+                </Collection.Item>
               )
             } else {
-              <H4>{page.label}</H4>
+              <Collection.Item helpers={["helper--has-margin-vertical"]}>
+                <H5>{page.label}</H5>
+              </Collection.Item>
             }
           }
         )
@@ -56,7 +69,9 @@ export const Docs = () => {
     <Container>
       <Row>
         <Column desktop="three" tablet="four" mobile="twelve">
-          {sidebar}
+          <Collection hasDirection="vertical">
+            {sidebar}
+          </Collection>
         </Column>
         <Column desktop="nine" tablet="eight" mobile="twelve">
           <Switch location={location}>

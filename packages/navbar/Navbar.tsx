@@ -4,7 +4,7 @@ import React, {
   HTMLAttributes
 } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { classNames } from '../core/utils/classNames';
 import { ReactNode } from 'react';
 import {
@@ -13,6 +13,7 @@ import {
   HelperDisplayModifiers,
   ElementColorProps
 } from '../cavilha';
+import { withRouter } from 'react-router';
 
 export type NavbarVariantModifiers =
   'navbar--is-fixed-top' |
@@ -159,13 +160,27 @@ Navbar.Items = ({
   );
 };
 
-Navbar.Item = ({
+
+function ItemWithRouter({
   to, isActive, children, ...props
-}: NavbarItemProps) => {
-  const className = classNames([
-    NavbarElements.item, isActive ? 'navbar__item--is-active' : ''],
-    {}
-  )
+}: NavbarItemProps) {
+  const className = classNames([NavbarElements.item], {})
+  return (
+    <NavLink
+      {...props}
+      className={className}
+      activeClassName="navbar__item--is-active"
+      to={to}
+    >
+      {children}
+    </NavLink>
+  );
+};
+
+function Item({
+  to, isActive, children, ...props
+}: NavbarItemProps) {
+  const className = classNames([NavbarElements.item], {})
   return (
     <Link
       {...props}
@@ -176,5 +191,10 @@ Navbar.Item = ({
     </Link>
   );
 };
+
+Navbar.Item = Item
+
+// @ts-ignore
+export const NavbarItemWithRouter = withRouter(ItemWithRouter)
 
 export { Navbar };

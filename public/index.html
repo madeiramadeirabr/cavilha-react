@@ -129,7 +129,8 @@ body {
   padding: 0;
 }
 
-a {
+a,
+.link {
   box-sizing: border-box !important;
   color: #1b78cd;
   cursor: pointer;
@@ -137,22 +138,30 @@ a {
 }
 
 a strong,
-a i {
+a i,
+.link strong,
+.link i {
   color: currentColor;
 }
 
-a strong:hover,
-a i:hover {
+a.link--is-hover, a:hover, a:active,
+.link.link--is-hover,
+.link:hover,
+.link:active {
   color: #1b78cd;
+  text-decoration: underline;
 }
 
-a strong:active,
-a i:active {
-  color: #1b78cd;
+a.link--is-active,
+.link.link--is-active {
+  color: #333 !important;
+  font-weight: 600;
+  pointer-events: none;
 }
 
-a strong:visited,
-a i:visited {
+a.link--is-visited, a:visited,
+.link.link--is-visited,
+.link:visited {
   color: #4b9de4;
 }
 

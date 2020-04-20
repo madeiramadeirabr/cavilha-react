@@ -2,126 +2,193 @@ import React, { ReactNode } from 'react';
 import { H1, H2, H3, H4, H5 } from "../../../../../packages/heading/index"
 import { Text } from "../../../../../packages/text/index"
 import { Code, CodeSpan } from "../../../../components/Code"
+import { Card } from "../../../../../packages/card/index"
 import { Block } from "../../../../../packages/block/index"
+import { Row, Column } from "../../../../../packages/grid/index"
 import { Badge } from "../../../../../packages/badge/index"
 import { Table, TableDataProps } from "../../../../../packages/table/index"
 import { ContentComponentProps } from '../types';
+import { HelperBackgroundColorModifiers } from '../../../../../packages/cavilha';
 
 export default function ({version}: ContentComponentProps) {
-
-  const headingTableData: TableDataProps = {
-    columns: ["Element and Helper", "Preview"],
-    rows: []
-  }
 
   const helpersTableData: TableDataProps = {
     columns: ["CSS Helper Classes", "Description"],
     rows: [
-      [<CodeSpan>.helper--has-text-light</CodeSpan>, <Text hasText="caption">Makes font-weight: 100</Text>],
-      [<CodeSpan>.helper--has-text-regular</CodeSpan>, <Text hasText="caption">Makes font-weight: 300</Text>],
-      [<CodeSpan>.helper--has-text-semibold</CodeSpan>, <Text hasText="caption">Makes font-weight: 400</Text>],
-      [<CodeSpan>.helper--has-text-bold</CodeSpan>, <Text hasText="caption">Makes font-weight: 700</Text>],
-      [<CodeSpan>.helper--has-text-left</CodeSpan>, <Text hasText="caption">Align text on left</Text>],
-      [<CodeSpan>.helper--has-text-right</CodeSpan>, <Text hasText="caption">Align text on right</Text>],
-      [<CodeSpan>.helper--has-text-center</CodeSpan>, <Text hasText="caption">Align text on center</Text>],
-      [<CodeSpan>.helper--has-text-justify</CodeSpan>, <Text hasText="caption">Text will be justified</Text>],
-      [<CodeSpan>.helper--has-text-upper</CodeSpan>, <Text hasText="caption">Transform text to uppercase</Text>],
-      [<CodeSpan>.helper--has-text-lower</CodeSpan>, <Text hasText="caption">Transform text to lowercase</Text>],
-      [<CodeSpan>.helper--has-text-capitalized</CodeSpan>, <Text hasText="caption">Capitalize first letter of the text</Text>],
+      [<CodeSpan>.helper--has-text-white</CodeSpan>, <Text hasText="caption">Text with color <CodeSpan>#fff</CodeSpan></Text>],
     ]
   }
 
-  type Heading = {
-    element: string
-    variant?: string
-    children: ReactNode
+
+
+  type Color = {
+    name: string
+    values: Array<Value>
   }
 
-  const TextRow = ({element, variant, children}: Heading) => {
-    headingTableData.rows.push([
-      <>
-        <Badge hasColor="secondary">{element}</Badge>
-        { variant ? <Badge>.{variant}</Badge> : null}
-      </>,
-      children
-    ])
+  type Value = {
+    name: string
+    hex: string
   }
 
-  const typographs: Array<Heading> = [
+  const colors: Array<Color> = [
     {
-      element: "h1",
-      variant: "h1--is-hero",
-      children: <H1>Heading One Hero</H1>
-    } as Heading,
+      name: "primary",
+      values: [
+        {
+          name: "one",
+          hex: "#ffA240"
+        },
+        {
+          name: "two",
+          hex: "#f58220"
+        },
+        {
+          name: "three",
+          hex: "#F66A26"
+        },
+        {
+          name: "four",
+          hex: "#dd3906"
+        },
+      ]
+    },
     {
-      element: "h1",
-      children: <H1>Heading One</H1>
-    } as Heading,
+      name: "secondary",
+      values: [
+        {
+          name: "one",
+          hex: "#a3d5ff"
+        },
+        {
+          name: "two",
+          hex: "#4b9de4"
+        },
+        {
+          name: "three",
+          hex: "#1b78cd"
+        },
+        {
+          name: "four",
+          hex: "#004abe"
+        },
+      ]
+    },
     {
-      element: "h2",
-      variant: "h2--is-hero",
-      children: <H2>Heading Two Hero</H2>
-    } as Heading,
+      name: "success",
+      values: [
+        {
+          name: "one",
+          hex: "#2aa843"
+        },
+        {
+          name: "two",
+          hex: "#207f33"
+        },
+        {
+          name: "three",
+          hex: "#165623"
+        },
+        {
+          name: "four",
+          hex: "#0b2e12"
+        },
+      ]
+    },
     {
-      element: "h2",
-      children: <H2>Heading Two</H2>
-    } as Heading,
+      name: "danger",
+      values: [
+        {
+          name: "one",
+          hex: "#f2242f"
+        },
+        {
+          name: "two",
+          hex: "#d91620"
+        },
+        {
+          name: "three",
+          hex: "#b3121b"
+        },
+        {
+          name: "four",
+          hex: "#990b13"
+        },
+      ]
+    },
     {
-      element: "h3",
-      children: <H3>Heading Three</H3>
-    } as Heading,
-    {
-      element: "h4",
-      children: <H4>Heading Four</H4>
-    } as Heading,
-    {
-      element: "h5",
-      children: <H5>Heading Five</H5>
-    } as Heading,
-    {
-      element: "p",
-      variant: "text--is-body-one-regular",
-      children: <Text hasText="body-one-regular">Text body one regular</Text>
-    } as Heading,
-    {
-      element: "p",
-      variant: "text--is-body-one-bold",
-      children: <Text hasText="body-one-bold">Text body one bold</Text>
-    } as Heading,
-    {
-      element: "p",
-      variant: "text--is-body-two-regular",
-      children: <Text hasText="body-two-regular">Text body two regular</Text>
-    } as Heading,
-    {
-      element: "p",
-      variant: "text--is-body-two-bold",
-      children: <Text hasText="body-two-bold">Text body two bold</Text>
-    } as Heading,
-    {
-      element: "p",
-      variant: "text--is-button",
-      children: <Text hasText="button">Button</Text>
-    } as Heading,
-    {
-      element: "span",
-      variant: "text--is-caption",
-      children: <Text hasText="caption">Text Caption</Text>
-    } as Heading,
-    {
-      element: "span",
-      variant: "text--is-overline",
-      children: <Text hasText="overline">Text Overline</Text>
-    } as Heading
-  ];
+      name: "gray",
+      values: [
+        {
+          name: "one",
+          hex: "#f9f9f9"
+        },
+        {
+          name: "two",
+          hex: "#e6e6e6"
+        },
+        {
+          name: "three",
+          hex: "#cccccc"
+        },
+        {
+          name: "four",
+          hex: "#999999"
+        },
+        {
+          name: "five",
+          hex: "#808080"
+        },
+        {
+          name: "six",
+          hex: "#333333"
+        },
+        {
+          name: "seven",
+          hex: "#1f1f1f"
+        },
+      ]
+    }
+  ]
 
-  typographs.map((typo) => TextRow(typo))
+  const Colors: Array<ReactNode> = []
+
+  colors.map(
+    function(color) {
+      const hexas: Array<ReactNode> = []
+      color.values.map(
+        function({name, hex}) {
+          hexas.push(
+            <Block helpers={[`helper--has-background-${color.name}-${name}` as HelperBackgroundColorModifiers]} style={{padding: '4px'}}>
+              <CodeSpan>{hex}</CodeSpan>
+            </Block>
+          )
+          helpersTableData.rows.push([<CodeSpan>.helper--has-text-{color.name}-{name}</CodeSpan>, <Text hasText="caption">Text with color <CodeSpan><span style={{width: '12px', borderRadius: '4px', height: '12px', display: 'inline-block', marginRight: '8px', backgroundColor: hex}}> </span>{hex}</CodeSpan></Text>],)
+        }
+      )
+      Colors.push(
+        <>
+          <Block>
+            <H4 helpers={["helper--has-margin-vertical"]}>
+              {color.name.toUpperCase()}
+            </H4>
+          </Block>
+          <Card>
+            {hexas}
+          </Card>
+        </>
+      )
+    }
+  )
+
 
   return (
     <>
-      <Block helpers={["helper--has-margin-vertical"]}>
-        <Table data={headingTableData} />
-      </Block>
+
+
+            {Colors}
+
+
 
       <Block helpers={["helper--has-margin-vertical"]}>
         <H4>CSS Helper Classes</H4>

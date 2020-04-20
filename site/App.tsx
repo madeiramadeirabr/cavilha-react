@@ -1,11 +1,12 @@
 import React, { Suspense, useState } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { Container } from '../packages/container/index';
-import { Navbar } from '../packages/navbar/index';
+import { Navbar, NavbarItemWithRouter } from '../packages/navbar/index';
 import { Button } from '../packages/button/index';
 import { Sidebar } from '../packages/sidebar/index';
 import { Collection } from '../packages/collection/index';
+import { NotFound } from "./pages/not-found/index"
 import { Home as HomePage } from './pages/home/index';
 import { Changelog as ChangelogPage } from './pages/changelog/index';
 import { Showcase as ShowcasePage } from './pages/showcase/index';
@@ -61,16 +62,16 @@ export default function App() {
             <Navbar.Logo to={HOME_ROUTE.location} src="../public/logo-b.png" title="Cavilha UI" />
             <Navbar.Items>
               {menu.map(({ location, label}) => (
-                <Navbar.Item to={location}>
+                <NavbarItemWithRouter to={location}>
                   {label}
-                </Navbar.Item>
+                </NavbarItemWithRouter>
               ))}
-              <Navbar.Item onClick={() => swithTheme(!isDefaultTheme)} to="#">{ isDefaultTheme ? 'Default' : 'Dark'}</Navbar.Item>
+              <Navbar.Item onClick={() => swithTheme(!isDefaultTheme)} to="/">{ isDefaultTheme ? 'Default' : 'Dark'}</Navbar.Item>
             </Navbar.Items>
           </Navbar.Container>
         </Container>
       </Navbar>
-      <Sidebar isFloating isOpen={sidebar} isFullwidth hasBackground="success" id="sidebar">
+      <Sidebar isFloating isOpen={sidebar} isFullwidth hasBackground="gray-seven" id="sidebar">
         <Sidebar.Button onClick={onMenuClick} isBackButton isPosition="bottom-center" />
         <Collection hasDirection="vertical" helpers={["helper--has-gap", "helper--has-items-center", "helper--has-content-center"]}>
         {menu.map(({ location, label}) => (
@@ -85,7 +86,7 @@ export default function App() {
       <Switch>
         <Suspense fallback={ <h1>Rendering...</h1> }>
           <Route exact path={HOME_ROUTE.location} component={HomePage} />
-          <Route exact path={`${DOCS_ROUTE.location}/:content/:name`} component={DocsPage} />
+          <Route path={`${DOCS_ROUTE.location}/:content/:name`} component={DocsPage} />
           <Route path={SHOWCASE_ROUTE.location} component={ShowcasePage} />
           <Route path={DESIGN_ROUTE.location} component={DesignPage} />
           <Route path={CHANGELOG_ROUTE.location} component={ChangelogPage} />
