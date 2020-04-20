@@ -22,7 +22,11 @@ enum CardElements {
 
 export type CardVariantModifiers =
   'card--has-no-shadow' |
-  'card--has-no-border-radius';
+  'card--has-no-radius' |
+  'card--has-shadow-extra-small' |
+  'card--has-shadow-small' |
+  'card--has-shadow-large' |
+  'card--has-shadow-extra-large';
 
 export type CardProps = {
   variants?: (CardVariantModifiers)[]
@@ -33,6 +37,7 @@ export type CardProps = {
     HelperFlexAligmentModifiers
   )[]
   hasClassName?: string
+  hasShadow?: 'no-shadow' | 'extra-small' | 'small' | 'large' | 'extra-large'
   children: ReactNode
 } & ElementColorProps & HTMLAttributes<HTMLDivElement>;
 
@@ -43,10 +48,15 @@ export type CardFooterProps = CardProps;
 function Wrapper({
   variants, helpers, hasClassName,
   hasBackground, hasColor,
+  hasShadow,
   children,
   ...props
 }: CardProps, el: CardElements) {
-  const className = classNames([el], {
+  const className = classNames([
+    el,
+    hasShadow && hasShadow === 'no-shadow' ? `card--has-no-shadow` as CardVariantModifiers : null,
+    hasShadow ? `card--has-shadow-${hasShadow}` as CardVariantModifiers : null
+  ], {
     variants, helpers, hasClassName, hasBackground, hasColor
   });
   return (

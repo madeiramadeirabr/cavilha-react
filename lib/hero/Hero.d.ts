@@ -6,10 +6,12 @@ export declare type HeroSizes = 'auto' | 'extra-small' | 'small' | 'large' | 'ex
 export declare type HeroProps = {
     variants?: (HeroVariantModifiers)[];
     helpers?: (HelperMarginModifiers | HelperGapModifiers | HelperDisplayModifiers | HelperBackgroundModifiers | HelperFlexAligmentModifiers)[];
-    customCss?: string;
-    isSize?: HeroSizes;
+    hasClassName?: string;
+    hasSize?: HeroSizes;
+    isRadiusZero?: boolean;
     hasImage?: string;
+    isNavbar?: boolean;
     children: ReactNode;
 } & ElementColorProps & HTMLAttributes<HTMLDivElement>;
-declare function Hero({ variants, helpers, customCss, children, hasColor, isSize, hasBackground, hasImage, ...props }: HeroProps): JSX.Element;
+declare function Hero({ variants, helpers, hasClassName, children, hasColor, hasSize, isNavbar, isRadiusZero, hasBackground, hasImage, ...props }: HeroProps): JSX.Element;
 export { Hero };

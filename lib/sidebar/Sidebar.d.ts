@@ -8,19 +8,19 @@ export declare type SidebarFloatingVariantModifiers = SidebarVariantModifiers | 
 export declare type SidebarProps = {
     isOpen?: boolean;
     isFloating?: boolean;
-    hasNavbar?: boolean;
+    isNavbar?: boolean;
     isHalfWidth?: boolean;
     isFullwidth?: boolean;
     variants?: (SidebarVariantModifiers)[];
     helpers?: (HelperBackgroundColorModifiers | HelperShadowModifiers)[];
-    customCss?: string;
+    hasClassName?: string;
     children: ReactNode;
 } & Omit<ElementColorProps, 'hasColor'> & HTMLAttributes<HTMLDivElement>;
 export declare type SidebarButtonProps = {
     isPosition?: SidebarButtonPosition;
     isBackButton?: boolean;
 } & ButtonHTMLAttributes<HTMLButtonElement> & Omit<ElementColorProps, 'hasBackground'>;
-declare function Sidebar({ isFloating, isOpen, hasNavbar, isHalfWidth, isFullwidth, variants, helpers, customCss, children, hasBackground, ...props }: SidebarProps): JSX.Element;
+declare function Sidebar({ isFloating, isOpen, isNavbar, isHalfWidth, isFullwidth, variants, helpers, hasClassName, children, hasBackground, ...props }: SidebarProps): JSX.Element;
 declare namespace Sidebar {
     var Button: ({ hasColor, isPosition, isBackButton, ...props }: SidebarButtonProps) => JSX.Element;
 }

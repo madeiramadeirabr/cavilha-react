@@ -43,16 +43,6 @@ export default function App() {
     setSidebar(!sidebar)
   }
 
-  function swithTheme(isDefault: boolean) {
-    const theme = document.getElementById("theme") as HTMLSourceElement
-    if (isDefault) {
-      theme.setAttribute('href', "../../node_modules/@madeiramadeira/cavilha/public/css/cavilha.css")
-    } else {
-      theme.setAttribute('href', "../../node_modules/@madeiramadeira/cavilha/public/css/cavilha.dark.css")
-    }
-    setIsDefaultTheme(!isDefaultTheme)
-  }
-
   return (
     <Router>
       <Navbar isFixedTop>
@@ -66,7 +56,6 @@ export default function App() {
                   {label}
                 </NavbarItemWithRouter>
               ))}
-              <Navbar.Item onClick={() => swithTheme(!isDefaultTheme)} to="/">{ isDefaultTheme ? 'Default' : 'Dark'}</Navbar.Item>
             </Navbar.Items>
           </Navbar.Container>
         </Container>

@@ -4,9 +4,9 @@ export declare type ContainerVariantModifiers = 'container--has-sidebar' | 'cont
 export declare type ContainerProps = {
     variants?: (ContainerVariantModifiers)[];
     helpers?: (HelperBackgroundModifiers | HelperMarginVerticalModifiers | HelperGapVerticalModifiers | HelperGapHorizontalModifiers | HelperFlexAligmentModifiers)[];
-    customCss?: string;
+    hasClassName?: string;
     children: ReactNode;
 } & Pick<ElementColorProps, 'hasBackground'> & HTMLAttributes<HTMLDivElement>;
 export declare const CONTAINER_BLOCK = "container";
-declare function Container({ variants, helpers, customCss, children, hasBackground, ...props }: ContainerProps): JSX.Element;
+declare function Container({ variants, helpers, hasClassName, children, hasBackground, ...props }: ContainerProps): JSX.Element;
 export { Container };

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Cavilha</title>
-  <!-- <link rel="stylesheet" id="theme" href="../../node_modules/@madeiramadeira/cavilha/public/css/cavilha.css"> -->
+  <!-- <link rel="stylesheet" id="theme" href=""> -->
 
   <style>
 /*! venom v0.1.0 | MIT License | github.com/madeiramadeirabr/venom */
@@ -1495,12 +1495,28 @@ svg path:not([fill]) {
   overflow: hidden;
 }
 
-.card.card--has-no-border-radius {
+.card.card--has-no-radius {
   border-radius: 0;
 }
 
 .card.card--has-no-shadow {
   box-shadow: none;
+}
+
+.card.card--has-shadow-extra-small {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4), 0 1px 1px rgba(0, 0, 0, 0.24);
+}
+
+.card.card--has-shadow-small {
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.24), 0 0 2px rgba(0, 0, 0, 0.12);
+}
+
+.card.card--has-shadow-large {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+.card.card--has-shadow-extra-large {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.12);
 }
 
 .card .card__header::after {
@@ -1511,6 +1527,12 @@ svg path:not([fill]) {
 
 .card .card__content {
   padding: 12px;
+}
+
+.card .card__content::after {
+  clear: both;
+  content: " ";
+  display: table;
 }
 
 .card .card__footer {
@@ -1823,8 +1845,8 @@ svg path:not([fill]) {
 
 .badge.badge--is-pill {
   border-radius: 12px;
-  padding: 4px;
   min-width: 20px;
+  padding: 4px;
 }
 
 .badge.badge--is-default {
@@ -1918,6 +1940,126 @@ svg path:not([fill]) {
 }
 
 .badge.badge--is-floating {
+  cursor: inherit;
+  position: absolute;
+  right: -4px;
+  top: -4px;
+}
+
+.chip {
+  background-color: #e6e6e6;
+  border: solid 1px #e6e6e6;
+  border-radius: 14px;
+  color: #333;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 14px;
+  min-width: 20px;
+  margin: auto 6px;
+  padding: 4px 8px;
+  white-space: nowrap;
+  word-wrap: nowrap;
+}
+
+.chip:last-of-type {
+  margin-right: 0;
+}
+
+.chip:first-of-type {
+  margin-left: 0;
+}
+
+.chip.chip--is-default {
+  background-color: #e6e6e6;
+  border-color: #e6e6e6;
+  color: #333;
+}
+
+.chip.chip--is-default.chip--is-outline {
+  background-color: inherit;
+  border-color: #e6e6e6;
+  color: #e6e6e6;
+}
+
+.chip.chip--is-primary {
+  background-color: #F66A26;
+  border-color: #F66A26;
+  color: #fff;
+}
+
+.chip.chip--is-primary.chip--is-outline {
+  background-color: inherit;
+  border-color: #F66A26;
+  color: #F66A26;
+}
+
+.chip.chip--is-secondary {
+  background-color: #1b78cd;
+  border-color: #1b78cd;
+  color: #fff;
+}
+
+.chip.chip--is-secondary.chip--is-outline {
+  background-color: inherit;
+  border-color: #1b78cd;
+  color: #1b78cd;
+}
+
+.chip.chip--is-danger {
+  background-color: #d91620;
+  border-color: #d91620;
+  color: #fff;
+}
+
+.chip.chip--is-danger.chip--is-outline {
+  background-color: inherit;
+  border-color: #d91620;
+  color: #d91620;
+}
+
+.chip.chip--is-success {
+  background-color: #207f33;
+  border-color: #207f33;
+  color: #fff;
+}
+
+.chip.chip--is-success.chip--is-outline {
+  background-color: inherit;
+  border-color: #207f33;
+  color: #207f33;
+}
+
+.chip.chip--is-white {
+  background-color: #fff;
+  border-color: #fff;
+  color: #333;
+}
+
+.chip.chip--is-white.chip--is-outline {
+  background-color: inherit;
+  border-color: #fff;
+  color: #fff;
+}
+
+.chip.chip--is-dark {
+  background-color: #1f1f1f;
+  border-color: #1f1f1f;
+  color: #fff;
+}
+
+.chip.chip--is-dark.chip--is-outline {
+  background-color: inherit;
+  border-color: #1f1f1f;
+  color: #1f1f1f;
+}
+
+.chip.chip--is-outline {
+  background-color: inherit;
+  border-color: #e6e6e6;
+  color: #e6e6e6;
+}
+
+.chip.chip--is-floating {
   cursor: inherit;
   position: absolute;
   right: -4px;
@@ -3094,7 +3236,7 @@ svg path:not([fill]) {
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.12);
 }
 
-@use '../colors' {}@use '../variables' {}.helper--has-text-light {
+.helper--has-text-light {
   font-weight: 300;
 }
 

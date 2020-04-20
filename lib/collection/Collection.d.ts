@@ -3,20 +3,20 @@ import { HelperMarginModifiers, HelperDisplayModifiers, HelperGapModifiers, Help
 export declare type CollectionVariantModifiers = 'collection--is-horizontal' | 'collection--is-vertical';
 export declare type CollectionDirectionModifier = 'horizontal' | 'vertical';
 export declare type CollectionProps = {
-    isDirection?: CollectionDirectionModifier;
+    hasDirection?: CollectionDirectionModifier;
     variants?: (string)[];
     helpers?: (HelperMarginModifiers | HelperGapModifiers | HelperDisplayModifiers | HelperTextAlignModifiers | HelperBackgroundModifiers | HelperTextColorModifiers | HelperFlexAligmentModifiers)[];
-    customCss?: string;
+    hasClassName?: string;
     children?: ReactNode;
 } & ElementColorProps & HTMLAttributes<HTMLUListElement>;
 export declare type ItemProps = {
     variants?: (string)[];
     helpers?: (HelperMarginModifiers | HelperGapModifiers | HelperDisplayModifiers | HelperTextAlignModifiers | HelperBackgroundModifiers | HelperTextColorModifiers | HelperFlexAligmentModifiers | HelperWidthModifiers)[];
-    customCss?: string;
+    hasClassName?: string;
     children?: ReactNode;
 } & ElementColorProps & HTMLAttributes<HTMLLIElement>;
-declare function Collection({ isDirection, variants, helpers, customCss, children, hasColor, hasBackground, ...props }: CollectionProps): JSX.Element;
+declare function Collection({ hasDirection, variants, helpers, hasClassName, children, hasColor, hasBackground, ...props }: CollectionProps): JSX.Element;
 declare namespace Collection {
-    var Item: ({ variants, helpers, customCss, children, hasColor, hasBackground, ...props }: ItemProps) => JSX.Element;
+    var Item: ({ variants, helpers, hasClassName, children, hasColor, hasBackground, ...props }: ItemProps) => JSX.Element;
 }
 export { Collection };

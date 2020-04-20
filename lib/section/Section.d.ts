@@ -3,8 +3,8 @@ import { HelperMarginModifiers, HelperDisplayModifiers, HelperGapModifiers, Help
 export declare type SectionProps = {
     variants?: (string)[];
     helpers?: (HelperMarginModifiers | HelperGapModifiers | HelperDisplayModifiers | HelperTextAlignModifiers | HelperBackgroundModifiers | HelperTextColorModifiers | HelperFlexAligmentModifiers)[];
-    customCss?: string;
+    hasClassName?: string;
     children?: ReactNode;
 } & ElementColorProps & HTMLAttributes<HTMLDivElement>;
-declare function Section({ variants, helpers, customCss, children, hasColor, hasBackground, ...props }: SectionProps): JSX.Element;
+declare function Section({ variants, helpers, hasClassName, children, hasColor, hasBackground, ...props }: SectionProps): JSX.Element;
 export { Section };

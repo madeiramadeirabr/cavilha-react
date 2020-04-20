@@ -8,6 +8,12 @@ import TableElement from "./contents/TableElement"
 import ContainerElement from "./contents/ContainerElement"
 import BadgeComponent from "./contents/BadgeComponent"
 import ButtonComponent from "./contents/ButtonComponent"
+import ChipComponent from "./contents/ChipComponent"
+import CardComponent from "./contents/CardComponent"
+import HeroComponent from "./contents/HeroComponent"
+import ChoiceComponent from "./contents/ChoiceComponent"
+import TabComponent from "./contents/TabComponent"
+import TextFieldComponent from "./contents/TextFieldComponent"
 import { DOCS_ROUTE } from "../../routes"
 
 export type DocsRouteProps = {
@@ -28,9 +34,57 @@ export const BUTTON_COMPONENT_ROUTE: DocsRouteProps = {
 
 export const BADGE_COMPONENT_ROUTE: DocsRouteProps = {
   name: `${DOCS_ROUTE.location}/components/badge`,
-  label: 'Badges',
+  label: 'Badges *',
   anchor: true,
   component: BadgeComponent,
+  pages: undefined
+}
+
+export const CHIP_COMPONENT_ROUTE: DocsRouteProps = {
+  name: `${DOCS_ROUTE.location}/components/chip`,
+  label: 'Chips',
+  anchor: true,
+  component: ChipComponent,
+  pages: undefined
+}
+
+export const TAB_COMPONENT_ROUTE: DocsRouteProps = {
+  name: `${DOCS_ROUTE.location}/components/tab`,
+  label: 'Tab *',
+  anchor: true,
+  component: TabComponent,
+  pages: undefined
+}
+
+export const CHOICE_COMPONENT_ROUTE: DocsRouteProps = {
+  name: `${DOCS_ROUTE.location}/components/choice`,
+  label: 'Choice',
+  anchor: true,
+  component: ChoiceComponent,
+  pages: undefined
+}
+
+export const CARD_COMPONENT_ROUTE: DocsRouteProps = {
+  name: `${DOCS_ROUTE.location}/components/card`,
+  label: 'Cards',
+  anchor: true,
+  component: CardComponent,
+  pages: undefined
+}
+
+export const HERO_COMPONENT_ROUTE: DocsRouteProps = {
+  name: `${DOCS_ROUTE.location}/components/hero`,
+  label: 'Hero *',
+  anchor: true,
+  component: HeroComponent,
+  pages: undefined
+}
+
+export const TEXT_FIELD_COMPONENT_ROUTE: DocsRouteProps = {
+  name: `${DOCS_ROUTE.location}/components/textfield`,
+  label: 'Textfield',
+  anchor: true,
+  component: TextFieldComponent,
   pages: undefined
 }
 
@@ -60,7 +114,15 @@ export const COLORS_ELEMENT_ROUTE: DocsRouteProps = {
 
 export const TABLE_ELEMENT_ROUTE: DocsRouteProps = {
   name: `${DOCS_ROUTE.location}/elements/table`,
-  label: 'Tables',
+  label: 'Tables *',
+  anchor: true,
+  component: TableElement,
+  pages: undefined
+}
+
+export const DIALOG_ELEMENT_ROUTE: DocsRouteProps = {
+  name: `${DOCS_ROUTE.location}/elements/table`,
+  label: 'Dialog *',
   anchor: true,
   component: TableElement,
   pages: undefined
@@ -113,7 +175,14 @@ export const DOCS_ROUTES: Array<DocsRouteProps> = [
     component: null,
     pages: [
       BADGE_COMPONENT_ROUTE,
-      BUTTON_COMPONENT_ROUTE
+      BUTTON_COMPONENT_ROUTE,
+      CARD_COMPONENT_ROUTE,
+      CHIP_COMPONENT_ROUTE,
+      HERO_COMPONENT_ROUTE,
+      TEXT_FIELD_COMPONENT_ROUTE,
+      CHOICE_COMPONENT_ROUTE,
+      TAB_COMPONENT_ROUTE,
+      DIALOG_ELEMENT_ROUTE
     ]
   } as DocsRouteProps,
 ]

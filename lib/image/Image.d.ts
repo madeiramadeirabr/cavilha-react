@@ -4,9 +4,9 @@ export declare type ImageVariantModifiers = 'image--is-cropped-extra-small' | 'i
 export declare type ImageProps = {
     variants?: (ImageVariantModifiers)[];
     helpers?: (HelperMarginModifiers | HelperDisplayModifiers | HelperBackgroundModifiers)[];
-    customCss?: string;
+    hasClassName?: string;
     src: string;
     title?: string | null;
 } & Pick<ElementColorProps, 'hasBackground'> & HTMLAttributes<HTMLDivElement>;
-declare function Image({ variants, helpers, customCss, hasBackground, src, title, ...props }: ImageProps): JSX.Element;
+declare function Image({ variants, helpers, hasClassName, hasBackground, src, title, ...props }: ImageProps): JSX.Element;
 export { Image };

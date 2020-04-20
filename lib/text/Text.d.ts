@@ -4,11 +4,11 @@ export declare type TextVariantModifiers = 'text--is-body-one-regular' | 'text--
 export declare type TextVariantModifier = 'body-one-regular' | 'body-one-bold' | 'body-two-regular' | 'body-two-bold' | 'button' | 'caption' | 'overline';
 export declare type TextProps = {
     type?: HTMLParagraphElement | HTMLSpanElement;
-    isText?: TextVariantModifier;
+    hasText?: TextVariantModifier;
     variants?: (TextVariantModifiers)[];
     helpers?: (HelperMarginModifiers | HelperGapModifiers | HelperDisplayModifiers | HelperTextColorModifiers | HelperTextAlignModifiers)[];
-    customCss?: string;
+    hasClassName?: string;
     children: ReactNode;
 } & ElementColorProps & HTMLAttributes<HTMLParagraphElement> & HTMLAttributes<HTMLSpanElement>;
-declare function Text({ type, hasColor, hasBackground, isText, variants, helpers, customCss, children, ...props }: TextProps): JSX.Element;
+declare function Text({ type, hasColor, hasBackground, hasText, variants, helpers, hasClassName, children, ...props }: TextProps): JSX.Element;
 export { Text };
