@@ -11,7 +11,6 @@
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "rootDirs": ["packages", "stories"],
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "suppressImplicitAnyIndexErrors": true,
@@ -24,16 +23,11 @@
     "packages/**/*"
   ],
   "exclude": [
+    "site",
     "node_modules",
     "build",
-    "dist",
     "scripts",
-    "acceptance-tests",
     "config",
-    "jest",
-    "**/*/*.test.ts",
-    "lib",
-    "dist",
-    "example"
+    "lib"
   ]
 }

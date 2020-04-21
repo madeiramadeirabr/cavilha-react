@@ -44,7 +44,7 @@ export default function App() {
   }
 
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Navbar isFixedTop>
         <Container>
           <Navbar.Container>

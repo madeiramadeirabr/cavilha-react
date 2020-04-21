@@ -13,11 +13,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = webpackMerge(webpackBase, webpackCommon, {
   mode: 'production',
-  bail: true,
-  devtool: "source-map",
   output: {
-    path: path.resolve(__dirname, '../../dist'),
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, '../../dist')
   },
   optimization: {
     minimize: true,

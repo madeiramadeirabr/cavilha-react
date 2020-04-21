@@ -2,18 +2,14 @@ const path = require('path')
 const NoEmitOnErrorsPlugin = require('webpack/lib/NoEmitOnErrorsPlugin')
 const CleanTerminalPlugin = require('clean-terminal-webpack-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = {
   target: 'web',
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx']
   },
-  entry: {
-    index: path.join(__dirname, '../../site')
-  },
-  output: {
-    publicPath: '/'
-  },
+  entry: path.join(__dirname, '../../site/index.tsx'),
   module: {
     rules: [
       {
