@@ -13,8 +13,7 @@ export default (props: any) => {
     <>
       <H1 isHero>CONTAINER {version || ''}</H1>
       <Text helpers={["helper--has-margin-vertical"]}>
-        Due to the widespread use of tables across third-party widgets like calendars and date pickers, we’ve designed our tables to be opt-in. Just add the base class .table to any <CodeSpan>&lt;table&gt;</CodeSpan>, then extend with custom styles or our various included modifier classes.
-        All table styles are inherited in Cavilha UI, meaning any nested tables will be styled in the same manner as the parent.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
       </Text>
       {children}
     </>

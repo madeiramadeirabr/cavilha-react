@@ -10,7 +10,7 @@ export default (props: any) => {
 
   const Container = ({children}: any) => (
     <>
-      <H1 isHero>BADGES {version || ''}</H1>
+      <H1 isHero>BADGE {version || ''}</H1>
       <Text helpers={["helper--has-margin-vertical"]}>
         The Badge is a pure CSS component used to add notifications, messages, or statuses in different shapes and sizes. The Badge component can be easily integrated with ListView, Avatar, and other container controls.
       </Text>

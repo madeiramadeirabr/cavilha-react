@@ -1,12 +1,11 @@
 import React, { Suspense, useState } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { Container } from '../packages/container/index';
 import { Navbar, NavbarItemWithRouter } from '../packages/navbar/index';
 import { Button } from '../packages/button/index';
 import { Sidebar } from '../packages/sidebar/index';
 import { Collection } from '../packages/collection/index';
-import { NotFound } from "./pages/not-found/index"
 import { Home as HomePage } from './pages/home/index';
 import { Changelog as ChangelogPage } from './pages/changelog/index';
 import { Showcase as ShowcasePage } from './pages/showcase/index';
@@ -44,7 +43,7 @@ export default function App() {
   }
 
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router basename="/">
       <Navbar isFixedTop>
         <Container>
           <Navbar.Container>
@@ -65,21 +64,21 @@ export default function App() {
         <Collection hasDirection="vertical" helpers={["helper--has-gap", "helper--has-items-center", "helper--has-content-center"]}>
         {menu.map(({ location, label}) => (
           <Collection.Item helpers={["helper--is-full-width"]}>
-            <Button href={location} isLink helpers={["helper--is-full-width"]}>
+            <Button.LinkWithRouter to={location} isLink helpers={["helper--is-full-width"]}>
               {label}
-            </Button>
+            </Button.LinkWithRouter>
           </Collection.Item>
         ))}
         </Collection>
       </Sidebar>
       <Switch>
         <Suspense fallback={ <h1>Rendering...</h1> }>
-          <Route exact path={HOME_ROUTE.location} component={HomePage} />
-          <Route path={`${DOCS_ROUTE.location}/:content/:name`} component={DocsPage} />
-          <Route path={SHOWCASE_ROUTE.location} component={ShowcasePage} />
-          <Route path={DESIGN_ROUTE.location} component={DesignPage} />
-          <Route path={CHANGELOG_ROUTE.location} component={ChangelogPage} />
-          <Route path={THEMES_ROUTE.location} component={ThemesPage} />
+          <Route exact path={HOME_ROUTE.location} render={(routerProps) => <HomePage routerProps={routerProps} />} />
+          <Route path={`${DOCS_ROUTE.location}/:content/:name`} render={(routerProps) => <DocsPage routerProps={routerProps} />} />
+          <Route path={SHOWCASE_ROUTE.location} render={(routerProps) => <ShowcasePage routerProps={routerProps} />} />
+          <Route path={DESIGN_ROUTE.location} render={(routerProps) => <DesignPage routerProps={routerProps} />} />
+          <Route path={CHANGELOG_ROUTE.location} render={(routerProps) => <ChangelogPage routerProps={routerProps} />} />
+          <Route path={THEMES_ROUTE.location} render={(routerProps) => <ThemesPage routerProps={routerProps} />} />
         </Suspense>
       </Switch>
     </Router>

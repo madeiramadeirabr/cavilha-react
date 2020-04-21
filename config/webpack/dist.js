@@ -14,7 +14,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 module.exports = webpackMerge(webpackBase, webpackCommon, {
   mode: 'production',
   output: {
-    path: path.resolve(__dirname, '../../dist')
+    path: path.resolve(__dirname, '../../dist'),
+    filename: '[name].[contenthash].js'
   },
   optimization: {
     minimize: true,
@@ -69,14 +70,14 @@ module.exports = webpackMerge(webpackBase, webpackCommon, {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css'
+      filename: '[name].[contenthash].css',
+      chunkFilename: '[id].[contenthash].css'
     }),
     new CleanWebpackPlugin(),
     new DuplicatePackageCheckerPlugin(),
     new DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify('production')
+        NODE_ENV: '"production"'
       }
     }),
     new CompressionPlugin({

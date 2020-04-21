@@ -1,8 +1,4 @@
-import React, {
-  HTMLProps,
-  ButtonHTMLAttributes,
-  HTMLAttributes
-} from 'react';
+import React, { HTMLProps, ButtonHTMLAttributes, HTMLAttributes } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { NavLink, Link } from 'react-router-dom';
 import { classNames } from '../core/utils/classNames';
@@ -11,13 +7,13 @@ import {
   HelperBackgroundColorModifiers,
   HelperShadowModifiers,
   HelperDisplayModifiers,
-  ElementColorProps
+  ElementColorProps,
 } from '../cavilha';
 import { withRouter } from 'react-router';
 
 export type NavbarVariantModifiers =
-  'navbar--is-fixed-top' |
-  'navbar--is-transparent';
+  | 'navbar--is-fixed-top'
+  | 'navbar--is-transparent';
 
 enum NavbarElements {
   'block' = 'navbar',
@@ -25,46 +21,44 @@ enum NavbarElements {
   'logo' = 'navbar__logo',
   'menu' = 'navbar__menu',
   'items' = 'navbar__items',
-  'item' = 'navbar__item'
+  'item' = 'navbar__item',
 }
 
 export type NavbarProps = {
-  isFixedTop?: boolean
-  isTransparent?: boolean
-  variants?: (NavbarVariantModifiers)[]
-  helpers?: (HelperBackgroundColorModifiers | HelperShadowModifiers)[]
-  hasClassName?: string
-  children: ReactNode
-} & Pick<ElementColorProps, 'hasBackground'> & HTMLAttributes<HTMLDivElement>;
+  isFixedTop?: boolean;
+  isTransparent?: boolean;
+  variants?: NavbarVariantModifiers[];
+  helpers?: (HelperBackgroundColorModifiers | HelperShadowModifiers)[];
+  hasClassName?: string;
+  children: ReactNode;
+} & Pick<ElementColorProps, 'hasBackground'> &
+  HTMLAttributes<HTMLDivElement>;
 
 export type NavbarContainerProps = {
-  children: ReactNode
+  children: ReactNode;
 } & HTMLAttributes<HTMLDivElement>;
 
 export type NavbarLogoProps = {
-  src: string
-  to: string
-  title?: string
+  src: string;
+  to: string;
+  title?: string;
 } & HTMLAttributes<HTMLElement>;
 
-
 export type NavbarMenuProps = {
-  open?: boolean
-  helpers?: (HelperDisplayModifiers)[]
-} & ButtonHTMLAttributes<HTMLButtonElement>
-
+  open?: boolean;
+  helpers?: HelperDisplayModifiers[];
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export type NavbarItemsProps = {
-  isOpen?: boolean
-  children: ReactNode
+  isOpen?: boolean;
+  children: ReactNode;
 } & HTMLAttributes<HTMLDivElement>;
 
 export type NavbarItemProps = {
-  to: string
-  isActive?: boolean
-  children: ReactNode
+  to: string;
+  isActive?: boolean;
+  children: ReactNode;
 } & HTMLAttributes<HTMLElement>;
-
 
 function Navbar({
   isFixedTop,
@@ -83,25 +77,22 @@ function Navbar({
       isTransparent ? 'navbar--is-transparent' : '',
     ],
     { variants, helpers, hasClassName, hasBackground }
-  )
+  );
 
   if (isFixedTop) {
-    document.getElementsByTagName('body')[0].setAttribute("style", "padding-top: 60px")
+    document
+      .getElementsByTagName('body')[0]
+      .setAttribute('style', 'padding-top: 60px');
   }
 
   return (
-    <nav
-      {...(props as HTMLProps<HTMLDivElement>)}
-      className={className}
-    >
+    <nav {...(props as HTMLProps<HTMLDivElement>)} className={className}>
       {children}
     </nav>
   );
 }
 
-Navbar.Container = ({
-  children, ...props
-}: NavbarContainerProps) => {
+Navbar.Container = ({ children, ...props }: NavbarContainerProps) => {
   return (
     <div
       {...(props as HTMLProps<HTMLDivElement>)}
@@ -112,59 +103,42 @@ Navbar.Container = ({
   );
 };
 
-Navbar.Menu = ({
-  open,
-  helpers,
-  ...props
-}: NavbarMenuProps) => {
-  const className = classNames([NavbarElements.menu], { helpers })
+Navbar.Menu = ({ open, helpers, ...props }: NavbarMenuProps) => {
+  const className = classNames([NavbarElements.menu], { helpers });
   return (
-    <button {...(props as HTMLProps<HTMLButtonElement>)}
-    type="button"
-    className={className}
-    dangerouslySetInnerHTML={{__html: open ? '&times;' : '&#9776;'}}
+    <button
+      {...(props as HTMLProps<HTMLButtonElement>)}
+      type="button"
+      className={className}
+      dangerouslySetInnerHTML={{ __html: open ? '&times;' : '&#9776;' }}
     />
   );
 };
 
-Navbar.Logo = ({
-  src, title, to, ...props
-}: NavbarLogoProps) => {
+Navbar.Logo = ({ src, title, to, ...props }: NavbarLogoProps) => {
   return (
-    <Link
-      {...props}
-      to={to}
-      className={classNames([NavbarElements.logo], {})}
-    >
+    <Link {...props} to={to} className={classNames([NavbarElements.logo], {})}>
       <img src={src} alt={title || ''} />
     </Link>
   );
 };
 
-Navbar.Items = ({
-  children,
-  isOpen,
-  ...props
-}: NavbarItemsProps) => {
-  const hidden = isOpen ? [] : ['helper--is-hidden-tablet', 'helper--is-hidden-mobile']
+Navbar.Items = ({ children, isOpen, ...props }: NavbarItemsProps) => {
+  const hidden = isOpen
+    ? []
+    : ['helper--is-hidden-tablet', 'helper--is-hidden-mobile'];
   const className = classNames([NavbarElements.items], {
-    helpers: hidden
-  })
+    helpers: hidden,
+  });
   return (
-    <div
-      {...(props as HTMLProps<HTMLDivElement>)}
-      className={className}
-    >
+    <div {...(props as HTMLProps<HTMLDivElement>)} className={className}>
       {children}
     </div>
   );
 };
 
-
-function ItemWithRouter({
-  to, isActive, children, ...props
-}: NavbarItemProps) {
-  const className = classNames([NavbarElements.item], {})
+function ItemWithRouter({ to, isActive, children, ...props }: NavbarItemProps) {
+  const className = classNames([NavbarElements.item], {});
   return (
     <NavLink
       {...props}
@@ -175,26 +149,20 @@ function ItemWithRouter({
       {children}
     </NavLink>
   );
-};
+}
 
-function Item({
-  to, isActive, children, ...props
-}: NavbarItemProps) {
-  const className = classNames([NavbarElements.item], {})
+function Item({ to, isActive, children, ...props }: NavbarItemProps) {
+  const className = classNames([NavbarElements.item], {});
   return (
-    <Link
-      {...props}
-      className={className}
-      to={to}
-    >
+    <Link {...props} className={className} to={to}>
       {children}
     </Link>
   );
-};
+}
 
-Navbar.Item = Item
+Navbar.Item = Item;
 
 // @ts-ignore
-export const NavbarItemWithRouter = withRouter(ItemWithRouter)
+export const NavbarItemWithRouter = withRouter(ItemWithRouter);
 
 export { Navbar };

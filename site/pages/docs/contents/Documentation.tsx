@@ -8,7 +8,7 @@ export default function () {
     <>
       <H1 isHero>DOCUMENTATION</H1>
       <Text helpers={["helper--has-margin-vertical"]}>
-        Everything you need to create a website with Bulma
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
       </Text>
     </>
   );

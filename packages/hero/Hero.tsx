@@ -1,8 +1,4 @@
-import React, {
-  ReactNode,
-  HTMLProps,
-  HTMLAttributes
-} from 'react';
+import React, { ReactNode, HTMLProps, HTMLAttributes } from 'react';
 import { classNames } from '../core/utils/classNames';
 import {
   HelperMarginModifiers,
@@ -10,43 +6,42 @@ import {
   HelperDisplayModifiers,
   HelperBackgroundModifiers,
   HelperFlexAligmentModifiers,
-  ElementColorProps
+  ElementColorProps,
 } from '../cavilha';
 
-export type HeroVariantModifiers =
-  'hero--has-navbar' |
-  'hero--has-no-radius';
+export type HeroVariantModifiers = 'hero--has-navbar' | 'hero--has-no-radius';
 
 export type HeroSizesModifiers =
-  'hero--has-is-auto' |
-  'hero--has-is-extra-small' |
-  'hero--has-is-small' |
-  'hero--has-is-large' |
-  'hero--has-is-extra-large';
+  | 'hero--has-is-auto'
+  | 'hero--has-is-extra-small'
+  | 'hero--has-is-small'
+  | 'hero--has-is-large'
+  | 'hero--has-is-extra-large';
 
 export type HeroSizes =
-  'auto' |
-  'extra-small' |
-  'small' |
-  'large' |
-  'extra-large'
+  | 'auto'
+  | 'extra-small'
+  | 'small'
+  | 'large'
+  | 'extra-large';
 
 export type HeroProps = {
-  variants?: (HeroVariantModifiers)[]
+  variants?: HeroVariantModifiers[];
   helpers?: (
-    HelperMarginModifiers |
-    HelperGapModifiers |
-    HelperDisplayModifiers |
-    HelperBackgroundModifiers |
-    HelperFlexAligmentModifiers
-  )[]
-  hasClassName?: string
-  hasSize?: HeroSizes
-  isRadiusZero?: boolean
-  hasImage?: string
-  isNavbar?: boolean
-  children: ReactNode
-} & ElementColorProps & HTMLAttributes<HTMLDivElement>;
+    | HelperMarginModifiers
+    | HelperGapModifiers
+    | HelperDisplayModifiers
+    | HelperBackgroundModifiers
+    | HelperFlexAligmentModifiers
+  )[];
+  hasClassName?: string;
+  hasSize?: HeroSizes;
+  isRadiusZero?: boolean;
+  hasImage?: string;
+  isNavbar?: boolean;
+  children: ReactNode;
+} & ElementColorProps &
+  HTMLAttributes<HTMLDivElement>;
 
 function Hero({
   variants,
@@ -61,21 +56,25 @@ function Hero({
   hasImage,
   ...props
 }: HeroProps) {
-  const className = classNames([
-    'hero',
-    hasSize ? `hero--is-${hasSize}` as HeroSizesModifiers : '',
-    isRadiusZero ? `hero--has-no-radius` as HeroSizesModifiers : '',
-    isNavbar ? `hero--has-navbar` as HeroSizesModifiers : '',
-  ], {
-    variants, helpers, hasClassName, hasColor, hasBackground
-  })
+  const className = classNames(
+    [
+      'hero',
+      hasSize ? (`hero--is-${hasSize}` as HeroSizesModifiers) : '',
+      isRadiusZero ? (`hero--has-no-radius` as HeroSizesModifiers) : '',
+      isNavbar ? (`hero--has-navbar` as HeroSizesModifiers) : '',
+    ],
+    {
+      variants,
+      helpers,
+      hasClassName,
+      hasColor,
+      hasBackground,
+    }
+  );
 
   return (
     <div className="helper--has-margin-fix">
-      <div
-        {...(props as HTMLProps<HTMLDivElement>)}
-        className={className}
-      >
+      <div {...(props as HTMLProps<HTMLDivElement>)} className={className}>
         {children}
       </div>
     </div>

@@ -1,11 +1,5 @@
-import React, {
-  ReactNode,
-  HTMLProps,
-  HTMLAttributes
-} from 'react';
-import {
-  classNames
-} from '../core/utils/classNames';
+import React, { ReactNode, HTMLProps, HTMLAttributes } from 'react';
+import { classNames } from '../core/utils/classNames';
 import {
   HelperMarginModifiers,
   HelperDisplayModifiers,
@@ -15,56 +9,56 @@ import {
   HelperTextAlignModifiers,
   HelperFlexAligmentModifiers,
   ElementColorProps,
-  HelperWidthModifiers
+  HelperWidthModifiers,
 } from '../cavilha';
 
 enum CollectionElements {
   'block' = 'collection',
-  'item' = 'collection__item'
+  'item' = 'collection__item',
 }
 
 export type CollectionVariantModifiers =
-'collection--is-horizontal' |
-'collection--is-vertical';
+  | 'collection--is-horizontal'
+  | 'collection--is-vertical';
 
 export type CollectionDirectionModifier = 'horizontal' | 'vertical';
 
 export type CollectionProps = {
-  hasDirection?: CollectionDirectionModifier
-  variants?: (string)[]
+  hasDirection?: CollectionDirectionModifier;
+  variants?: string[];
   helpers?: (
-    HelperMarginModifiers |
-    HelperGapModifiers |
-    HelperDisplayModifiers |
-    HelperTextAlignModifiers |
-    HelperBackgroundModifiers |
-    HelperTextColorModifiers |
-    HelperFlexAligmentModifiers
-  )[]
-  hasClassName?: string
-  children?: ReactNode
-} & ElementColorProps & HTMLAttributes<HTMLUListElement>;
+    | HelperMarginModifiers
+    | HelperGapModifiers
+    | HelperDisplayModifiers
+    | HelperTextAlignModifiers
+    | HelperBackgroundModifiers
+    | HelperTextColorModifiers
+    | HelperFlexAligmentModifiers
+  )[];
+  hasClassName?: string;
+  children?: ReactNode;
+} & ElementColorProps &
+  HTMLAttributes<HTMLUListElement>;
 
 export type ItemProps = {
-  variants?: (string)[]
+  variants?: string[];
   helpers?: (
-    HelperMarginModifiers |
-    HelperGapModifiers |
-    HelperDisplayModifiers |
-    HelperTextAlignModifiers |
-    HelperBackgroundModifiers |
-    HelperTextColorModifiers |
-    HelperFlexAligmentModifiers |
-    HelperWidthModifiers
-  )[]
-  hasClassName?: string
-  children?: ReactNode
-} & ElementColorProps & HTMLAttributes<HTMLLIElement>;
-
-
+    | HelperMarginModifiers
+    | HelperGapModifiers
+    | HelperDisplayModifiers
+    | HelperTextAlignModifiers
+    | HelperBackgroundModifiers
+    | HelperTextColorModifiers
+    | HelperFlexAligmentModifiers
+    | HelperWidthModifiers
+  )[];
+  hasClassName?: string;
+  children?: ReactNode;
+} & ElementColorProps &
+  HTMLAttributes<HTMLLIElement>;
 
 function Collection({
-  hasDirection = "horizontal",
+  hasDirection = 'horizontal',
   variants,
   helpers,
   hasClassName,
@@ -74,15 +68,15 @@ function Collection({
   ...props
 }: CollectionProps) {
   const className = classNames(
-    [CollectionElements.block, `collection--is-${hasDirection}` as CollectionVariantModifiers],
-    { variants, helpers, hasClassName, hasColor, hasBackground}
-  )
+    [
+      CollectionElements.block,
+      `collection--is-${hasDirection}` as CollectionVariantModifiers,
+    ],
+    { variants, helpers, hasClassName, hasColor, hasBackground }
+  );
   return (
     <div className="helper--has-margin-fix helper--is-full-height">
-      <ul
-        {...(props as HTMLProps<HTMLUListElement>)}
-        className={className}
-      >
+      <ul {...(props as HTMLProps<HTMLUListElement>)} className={className}>
         {children}
       </ul>
     </div>
@@ -99,18 +93,19 @@ function Item({
   ...props
 }: ItemProps) {
   const className = classNames([CollectionElements.item], {
-    variants, helpers, hasClassName, hasColor, hasBackground
-  })
+    variants,
+    helpers,
+    hasClassName,
+    hasColor,
+    hasBackground,
+  });
   return (
-      <li
-        {...(props as HTMLProps<HTMLLIElement>)}
-        className={className}
-      >
-        {children}
-      </li>
+    <li {...(props as HTMLProps<HTMLLIElement>)} className={className}>
+      {children}
+    </li>
   );
 }
 
-Collection.Item = Item
+Collection.Item = Item;
 
 export { Collection };

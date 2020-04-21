@@ -8,7 +8,7 @@ import { Text } from "../../../packages/text/index"
 import { Button } from "../../../packages/button/index"
 import { GET_STARTED_ROUTE, DOCUMENTATION_ROUTE } from "../../routes"
 
-export const Home = () => {
+export const Home = ({routerProps, ...props}: any) => {
 
   return (
     <>
@@ -22,12 +22,12 @@ export const Home = () => {
                   UX guidelines, HTML/CSS framework, and React components working together to craft exceptional experiences
                 </H3>
                 <Block helpers={["helper--has-margin-vertical-large"]}>
-                  <Button hasColor="primary" href={GET_STARTED_ROUTE.location}>
+                  <Button.LinkWithRouter hasColor="primary" to={GET_STARTED_ROUTE.location}>
                     GET STARTED
-                  </Button>
-                  <Button isLink href={DOCUMENTATION_ROUTE.location}>
+                  </Button.LinkWithRouter>
+                  <Button.LinkWithRouter isLink to={DOCUMENTATION_ROUTE.location}>
                     DOCUMENTATION
-                  </Button>
+                  </Button.LinkWithRouter>
                 </Block>
                 <Block helpers={["helper--has-margin-vertical"]}>
                   <Text>View the <a href="http://github.com/madeiramadeirabr/cavilha" target="_blank">source</a> on GitHub</Text>

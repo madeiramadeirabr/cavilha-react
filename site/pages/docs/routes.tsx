@@ -9,10 +9,14 @@ import ContainerElement from "./contents/ContainerElement"
 import BadgeComponent from "./contents/BadgeComponent"
 import ButtonComponent from "./contents/ButtonComponent"
 import ChipComponent from "./contents/ChipComponent"
+import AlertComponent from "./contents/AlertComponent"
+import DialogComponent from "./contents/DialogComponent"
 import CardComponent from "./contents/CardComponent"
 import HeroComponent from "./contents/HeroComponent"
 import ChoiceComponent from "./contents/ChoiceComponent"
 import TabComponent from "./contents/TabComponent"
+import DropdownComponent from "./contents/DropdownComponent"
+import PaginationComponent from "./contents/PaginationComponent"
 import TextFieldComponent from "./contents/TextFieldComponent"
 import { DOCS_ROUTE } from "../../routes"
 
@@ -26,7 +30,7 @@ export type DocsRouteProps = {
 
 export const BUTTON_COMPONENT_ROUTE: DocsRouteProps = {
   name: `${DOCS_ROUTE.location}/components/button`,
-  label: 'Buttons',
+  label: 'Button',
   anchor: true,
   component: ButtonComponent,
   pages: undefined
@@ -34,7 +38,7 @@ export const BUTTON_COMPONENT_ROUTE: DocsRouteProps = {
 
 export const BADGE_COMPONENT_ROUTE: DocsRouteProps = {
   name: `${DOCS_ROUTE.location}/components/badge`,
-  label: 'Badges *',
+  label: 'Badge ⚒',
   anchor: true,
   component: BadgeComponent,
   pages: undefined
@@ -42,15 +46,23 @@ export const BADGE_COMPONENT_ROUTE: DocsRouteProps = {
 
 export const CHIP_COMPONENT_ROUTE: DocsRouteProps = {
   name: `${DOCS_ROUTE.location}/components/chip`,
-  label: 'Chips',
+  label: 'Chip',
   anchor: true,
   component: ChipComponent,
   pages: undefined
 }
 
+export const ALERT_COMPONENT_ROUTE: DocsRouteProps = {
+  name: `${DOCS_ROUTE.location}/components/alert`,
+  label: 'Alert',
+  anchor: true,
+  component: AlertComponent,
+  pages: undefined
+}
+
 export const TAB_COMPONENT_ROUTE: DocsRouteProps = {
   name: `${DOCS_ROUTE.location}/components/tab`,
-  label: 'Tab *',
+  label: 'Tab ⚒',
   anchor: true,
   component: TabComponent,
   pages: undefined
@@ -66,7 +78,7 @@ export const CHOICE_COMPONENT_ROUTE: DocsRouteProps = {
 
 export const CARD_COMPONENT_ROUTE: DocsRouteProps = {
   name: `${DOCS_ROUTE.location}/components/card`,
-  label: 'Cards',
+  label: 'Card',
   anchor: true,
   component: CardComponent,
   pages: undefined
@@ -74,7 +86,7 @@ export const CARD_COMPONENT_ROUTE: DocsRouteProps = {
 
 export const HERO_COMPONENT_ROUTE: DocsRouteProps = {
   name: `${DOCS_ROUTE.location}/components/hero`,
-  label: 'Hero *',
+  label: 'Hero ⚒',
   anchor: true,
   component: HeroComponent,
   pages: undefined
@@ -114,17 +126,33 @@ export const COLORS_ELEMENT_ROUTE: DocsRouteProps = {
 
 export const TABLE_ELEMENT_ROUTE: DocsRouteProps = {
   name: `${DOCS_ROUTE.location}/elements/table`,
-  label: 'Tables *',
+  label: 'Table ⚒',
   anchor: true,
   component: TableElement,
   pages: undefined
 }
 
-export const DIALOG_ELEMENT_ROUTE: DocsRouteProps = {
-  name: `${DOCS_ROUTE.location}/elements/table`,
-  label: 'Dialog *',
+export const DIALOG_COMPONENT_ROUTE: DocsRouteProps = {
+  name: `${DOCS_ROUTE.location}/elements/dialog`,
+  label: 'Dialog',
   anchor: true,
-  component: TableElement,
+  component: DialogComponent,
+  pages: undefined
+}
+
+export const PAGINATION_COMPONENT_ROUTE: DocsRouteProps = {
+  name: `${DOCS_ROUTE.location}/elements/pagination`,
+  label: 'Pagination ⚒',
+  anchor: true,
+  component: PaginationComponent,
+  pages: undefined
+}
+
+export const DROPDOWN_COMPONENT_ROUTE: DocsRouteProps = {
+  name: `${DOCS_ROUTE.location}/elements/dropdown`,
+  label: 'Dropdown',
+  anchor: true,
+  component: DropdownComponent,
   pages: undefined
 }
 
@@ -182,7 +210,10 @@ export const DOCS_ROUTES: Array<DocsRouteProps> = [
       TEXT_FIELD_COMPONENT_ROUTE,
       CHOICE_COMPONENT_ROUTE,
       TAB_COMPONENT_ROUTE,
-      DIALOG_ELEMENT_ROUTE
+      DIALOG_COMPONENT_ROUTE,
+      ALERT_COMPONENT_ROUTE,
+      PAGINATION_COMPONENT_ROUTE,
+      DROPDOWN_COMPONENT_ROUTE
     ]
   } as DocsRouteProps,
 ]

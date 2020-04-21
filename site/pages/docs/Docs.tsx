@@ -14,7 +14,8 @@ import { Container } from "../../../packages/container/index"
 import { Collection } from "../../../packages/collection/index"
 import queryString from 'query-string';
 
-export const Docs = () => {
+export const Docs = ({routerProps, ...props}: any) => {
+
   const location = useLocation();
   const routes: Array<any> = [];
   const sidebar:Array<ReactNode> = [];

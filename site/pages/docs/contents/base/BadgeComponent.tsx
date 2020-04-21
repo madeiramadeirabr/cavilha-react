@@ -76,7 +76,7 @@ const badgeWithButton = `<button class="button">
 
   return (
     <>
-      <Intro title="When to use" description="Badge normally appears in proximity to notifications or user avatars with eye-catching appeal, typically displaying unread messages count." />
+      <Intro title="When to use" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
       <Intro title="Default" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
       <Block helpers={["helper--has-margin-vertical"]}>
         <Badge>default</Badge>

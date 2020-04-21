@@ -16,13 +16,13 @@
     "url": "https://github.com/madeiramadeirabr/cavilha-react"
   },
   "scripts": {
-    "packages:build": "rm -rf lib && tsc",
+    "packages:build": "rm -rf lib/*.* && tsc",
     "start": "npm run pages:start",
     "pages:start": "webpack-dev-server --config config/webpack/server.js --open --mode development",
     "pages:build": "webpack --config config/webpack/dist.js --mode production",
     "pages:deploy": "npm run pages:build && gh-pages -d dist && npm run packages:build",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src --color --fix",
-    "format": "prettier --write src/**/*.{ts,tsx,scss,css,json}"
+    "format": "prettier --write packages/**/*.tsx"
   },
   "husky": {
     "hooks": {
@@ -32,7 +32,7 @@
   },
   "lint-staged": {
     "packages/**/*.{js,jsx,ts,tsx}": [
-      "npm run lint",
+      "npm run format",
       "git add ."
     ]
   },

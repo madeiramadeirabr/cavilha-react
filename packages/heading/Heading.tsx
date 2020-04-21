@@ -1,11 +1,5 @@
-import React, {
-  ReactNode,
-  HTMLProps,
-  HTMLAttributes
-} from 'react';
-import {
-  classNames
-} from '../core/utils/classNames';
+import React, { ReactNode, HTMLProps, HTMLAttributes } from 'react';
+import { classNames } from '../core/utils/classNames';
 import {
   HelperMarginModifiers,
   HelperFloatModifiers,
@@ -13,45 +7,51 @@ import {
   HelperTextColorModifiers,
   HelperTextAlignModifiers,
   HelperTextWeightModifiers,
-  ElementColorProps
+  ElementColorProps,
 } from '../cavilha';
-
 
 export type HelpersHeading = 'light' | 'regular' | 'semibold' | 'bold';
 
 export type HeadingProps = {
-  variants?: (string)[]
+  variants?: string[];
   helpers?: (
-    HelperMarginModifiers |
-    HelperFloatModifiers |
-    HelperDisplayModifiers |
-    HelperTextColorModifiers |
-    HelperTextAlignModifiers
-  )[]
-  hasClassName?: string
-  children: ReactNode
-} & Pick<ElementColorProps, 'hasColor'> & HTMLAttributes<HTMLHeadingElement>;
+    | HelperMarginModifiers
+    | HelperFloatModifiers
+    | HelperDisplayModifiers
+    | HelperTextColorModifiers
+    | HelperTextAlignModifiers
+  )[];
+  hasClassName?: string;
+  children: ReactNode;
+} & Pick<ElementColorProps, 'hasColor'> &
+  HTMLAttributes<HTMLHeadingElement>;
 
 export type HeadingHeroProps = {
-  isHero?: true
-}
+  isHero?: true;
+};
 
 export type HeadingWeightProps = {
-  hasWeight?: HelpersHeading
-}
+  hasWeight?: HelpersHeading;
+};
 
 function H1({
-  variants, helpers, hasClassName, isHero, children, hasColor, ...props
+  variants,
+  helpers,
+  hasClassName,
+  isHero,
+  children,
+  hasColor,
+  ...props
 }: HeadingProps & HeadingHeroProps) {
   const className = classNames([isHero ? 'h1--is-hero' : ''], {
-    variants, helpers, hasClassName, hasColor
-  })
+    variants,
+    helpers,
+    hasClassName,
+    hasColor,
+  });
   return (
     <div className="helper--has-margin-fix">
-      <h1
-        {...(props as HTMLProps<HTMLHeadingElement>)}
-        className={className}
-      >
+      <h1 {...(props as HTMLProps<HTMLHeadingElement>)} className={className}>
         {children}
       </h1>
     </div>
@@ -59,17 +59,23 @@ function H1({
 }
 
 function H2({
-  variants, helpers, hasClassName, isHero, children, hasColor, ...props
+  variants,
+  helpers,
+  hasClassName,
+  isHero,
+  children,
+  hasColor,
+  ...props
 }: HeadingProps & HeadingHeroProps) {
   const className = classNames([isHero ? 'h2--is-hero' : ''], {
-    variants, helpers, hasClassName, hasColor
-  })
+    variants,
+    helpers,
+    hasClassName,
+    hasColor,
+  });
   return (
     <div className="helper--has-margin-fix">
-      <h2
-        {...(props as HTMLProps<HTMLHeadingElement>)}
-        className={className}
-      >
+      <h2 {...(props as HTMLProps<HTMLHeadingElement>)} className={className}>
         {children}
       </h2>
     </div>
@@ -77,20 +83,31 @@ function H2({
 }
 
 function H3({
-  variants, helpers, hasClassName, children, hasColor,  hasWeight, ...props
+  variants,
+  helpers,
+  hasClassName,
+  children,
+  hasColor,
+  hasWeight,
+  ...props
 }: HeadingProps & HeadingWeightProps) {
-  const className = classNames([
-    '',
-    hasWeight ? `helper--has-text-${hasWeight}` as HelperTextWeightModifiers : ''
-  ], {
-    variants, helpers, hasClassName, hasColor
-  })
+  const className = classNames(
+    [
+      '',
+      hasWeight
+        ? (`helper--has-text-${hasWeight}` as HelperTextWeightModifiers)
+        : '',
+    ],
+    {
+      variants,
+      helpers,
+      hasClassName,
+      hasColor,
+    }
+  );
   return (
     <div className="helper--has-margin-fix">
-      <h3
-        {...(props as HTMLProps<HTMLHeadingElement>)}
-        className={className}
-      >
+      <h3 {...(props as HTMLProps<HTMLHeadingElement>)} className={className}>
         {children}
       </h3>
     </div>
@@ -98,20 +115,31 @@ function H3({
 }
 
 function H4({
-  variants, helpers, hasClassName, children, hasColor, hasWeight, ...props
+  variants,
+  helpers,
+  hasClassName,
+  children,
+  hasColor,
+  hasWeight,
+  ...props
 }: HeadingProps & HeadingWeightProps) {
-  const className = classNames([
-    '',
-    hasWeight ? `helper--has-text-${hasWeight}` as HelperTextWeightModifiers : ''
-  ], {
-    variants, helpers, hasClassName, hasColor
-  })
+  const className = classNames(
+    [
+      '',
+      hasWeight
+        ? (`helper--has-text-${hasWeight}` as HelperTextWeightModifiers)
+        : '',
+    ],
+    {
+      variants,
+      helpers,
+      hasClassName,
+      hasColor,
+    }
+  );
   return (
     <div className="helper--has-margin-fix">
-      <h4
-        {...(props as HTMLProps<HTMLHeadingElement>)}
-        className={className}
-      >
+      <h4 {...(props as HTMLProps<HTMLHeadingElement>)} className={className}>
         {children}
       </h4>
     </div>
@@ -119,20 +147,31 @@ function H4({
 }
 
 function H5({
-  variants, helpers, hasClassName, children, hasColor, hasWeight, ...props
+  variants,
+  helpers,
+  hasClassName,
+  children,
+  hasColor,
+  hasWeight,
+  ...props
 }: HeadingProps & HeadingWeightProps) {
-  const className = classNames([
-    '',
-    hasWeight ? `helper--has-text-${hasWeight}` as HelperTextWeightModifiers : ''
-  ], {
-    variants, helpers, hasClassName, hasColor
-  })
+  const className = classNames(
+    [
+      '',
+      hasWeight
+        ? (`helper--has-text-${hasWeight}` as HelperTextWeightModifiers)
+        : '',
+    ],
+    {
+      variants,
+      helpers,
+      hasClassName,
+      hasColor,
+    }
+  );
   return (
     <div className="helper--has-margin-fix">
-      <h5
-        {...(props as HTMLProps<HTMLHeadingElement>)}
-        className={className}
-      >
+      <h5 {...(props as HTMLProps<HTMLHeadingElement>)} className={className}>
         {children}
       </h5>
     </div>
