@@ -28,7 +28,8 @@ export type TextVariantModifier =
   | 'overline';
 
 export type TextProps = {
-  type?: HTMLParagraphElement | HTMLSpanElement;
+  hasElement?: 'span' | 'p' | 'strong' | 'i';
+  withMarginFix?: boolean;
   hasText?: TextVariantModifier;
   variants?: TextVariantModifiers[];
   helpers?: (
@@ -45,7 +46,7 @@ export type TextProps = {
   HTMLAttributes<HTMLSpanElement>;
 
 function Text({
-  type,
+  hasElement,
   hasColor,
   hasBackground,
   hasText = 'body-one-regular',
@@ -53,6 +54,7 @@ function Text({
   helpers,
   hasClassName,
   children,
+  withMarginFix,
   ...props
 }: TextProps) {
   const className = classNames(
@@ -66,21 +68,41 @@ function Text({
     }
   );
 
-  if (type instanceof HTMLSpanElement) {
-    return (
+  let component = (
+    <p {...(props as HTMLProps<HTMLParagraphElement>)} className={className}>
+      {children}
+    </p>
+  );
+
+  if (hasElement === 'span') {
+    component = (
       <span {...(props as HTMLProps<HTMLSpanElement>)} className={className}>
         {children}
       </span>
     );
   }
 
-  return (
-    <div className="helper--has-margin-fix">
-      <p {...(props as HTMLProps<HTMLParagraphElement>)} className={className}>
+  if (hasElement === 'strong') {
+    component = (
+      <strong {...(props as HTMLProps<HTMLElement>)} className={className}>
         {children}
-      </p>
-    </div>
-  );
+      </strong>
+    );
+  }
+
+  if (hasElement === 'i') {
+    component = (
+      <i {...(props as HTMLProps<HTMLElement>)} className={className}>
+        {children}
+      </i>
+    );
+  }
+
+  if (withMarginFix) {
+    component = <div className="helper--has-margin-fix">{component}</div>;
+  }
+
+  return component;
 }
 
 export { Text };

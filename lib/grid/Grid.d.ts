@@ -2,7 +2,7 @@ import { ReactNode, HTMLAttributes } from 'react';
 import { HelperDisplayModifiers, HelperMarginVerticalModifiers, HelperGapVerticalModifiers, HelperFlexAligmentModifiers } from '../cavilha';
 export declare type GridRowVariantModifiers = 'grid__row--is-reverse' | 'grid__row--has-horizontal-scroll-mobile';
 export declare type GridRowProps = {
-    variants?: (GridRowVariantModifiers)[];
+    variants?: GridRowVariantModifiers[];
     helpers?: (HelperMarginVerticalModifiers | HelperGapVerticalModifiers | HelperDisplayModifiers | HelperFlexAligmentModifiers)[];
     hasClassName?: string;
     children: ReactNode;
@@ -25,7 +25,7 @@ export declare enum ColumnSizes {
     'twelve' = 11
 }
 export declare type GridColumnProps = {
-    variants?: (GridColumnVariantModifiers)[];
+    variants?: GridColumnVariantModifiers[];
     helpers?: (HelperMarginVerticalModifiers | HelperGapVerticalModifiers | HelperDisplayModifiers | HelperFlexAligmentModifiers)[];
     hasClassName?: string;
     children?: ReactNode;

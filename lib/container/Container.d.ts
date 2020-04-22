@@ -2,7 +2,7 @@ import { ReactNode, HTMLAttributes } from 'react';
 import { HelperBackgroundModifiers, HelperMarginVerticalModifiers, HelperGapVerticalModifiers, HelperGapHorizontalModifiers, HelperFlexAligmentModifiers, ElementColorProps } from '../cavilha';
 export declare type ContainerVariantModifiers = 'container--has-sidebar' | 'container--is-full-width' | 'container--is-full-width-tablet' | 'container--is-full-width-mobile';
 export declare type ContainerProps = {
-    variants?: (ContainerVariantModifiers)[];
+    variants?: ContainerVariantModifiers[];
     helpers?: (HelperBackgroundModifiers | HelperMarginVerticalModifiers | HelperGapVerticalModifiers | HelperGapHorizontalModifiers | HelperFlexAligmentModifiers)[];
     hasClassName?: string;
     children: ReactNode;

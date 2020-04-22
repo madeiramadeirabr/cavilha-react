@@ -3,7 +3,7 @@ import { HelperMarginModifiers, HelperFloatModifiers, HelperWidthModifiers, Help
 export declare type InputElements = 'input__radio' | 'input__checkbox';
 export declare type InputVariantModifiers = 'input--is-inline' | 'input--is-block';
 export declare type InputProps = {
-    variants?: (string)[];
+    variants?: string[];
     helpers?: (HelperMarginModifiers | HelperFloatModifiers | HelperWidthModifiers | HelperDisplayModifiers)[];
     hasClassName?: string;
     isDisabled?: boolean;

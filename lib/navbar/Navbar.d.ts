@@ -5,7 +5,7 @@ export declare type NavbarVariantModifiers = 'navbar--is-fixed-top' | 'navbar--i
 export declare type NavbarProps = {
     isFixedTop?: boolean;
     isTransparent?: boolean;
-    variants?: (NavbarVariantModifiers)[];
+    variants?: NavbarVariantModifiers[];
     helpers?: (HelperBackgroundColorModifiers | HelperShadowModifiers)[];
     hasClassName?: string;
     children: ReactNode;
@@ -20,7 +20,7 @@ export declare type NavbarLogoProps = {
 } & HTMLAttributes<HTMLElement>;
 export declare type NavbarMenuProps = {
     open?: boolean;
-    helpers?: (HelperDisplayModifiers)[];
+    helpers?: HelperDisplayModifiers[];
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 export declare type NavbarItemsProps = {
     isOpen?: boolean;

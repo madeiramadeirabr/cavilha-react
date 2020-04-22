@@ -3,7 +3,7 @@ import { HelperMarginModifiers, HelperDisplayModifiers } from '../cavilha';
 export declare type AlertColorModifier = 'primary' | 'secondary' | 'danger' | 'success' | 'white' | 'dark';
 export declare type AlertVariantModifiers = 'alert--is-primary' | 'alert--is-secondary' | 'alert--is-danger' | 'alert--is-sucess' | 'alert--is-white' | 'alert--is-dark' | 'alert--is-outline';
 export declare type AlertProps = {
-    variants?: (string)[];
+    variants?: string[];
     helpers?: (HelperMarginModifiers | HelperDisplayModifiers)[];
     hasClassName?: string;
     children?: ReactNode;

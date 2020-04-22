@@ -4,7 +4,7 @@ export declare type HeroVariantModifiers = 'hero--has-navbar' | 'hero--has-no-ra
 export declare type HeroSizesModifiers = 'hero--has-is-auto' | 'hero--has-is-extra-small' | 'hero--has-is-small' | 'hero--has-is-large' | 'hero--has-is-extra-large';
 export declare type HeroSizes = 'auto' | 'extra-small' | 'small' | 'large' | 'extra-large';
 export declare type HeroProps = {
-    variants?: (HeroVariantModifiers)[];
+    variants?: HeroVariantModifiers[];
     helpers?: (HelperMarginModifiers | HelperGapModifiers | HelperDisplayModifiers | HelperBackgroundModifiers | HelperFlexAligmentModifiers)[];
     hasClassName?: string;
     hasSize?: HeroSizes;

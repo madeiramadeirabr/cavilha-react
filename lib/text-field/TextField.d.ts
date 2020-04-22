@@ -8,7 +8,7 @@ export declare enum TextFieldElements {
 }
 export declare type TextFieldVariantModifiers = 'input--is-active' | 'input--is-positive' | 'input--is-negative';
 export declare type TextFieldProps = {
-    variants?: (TextFieldVariantModifiers)[];
+    variants?: TextFieldVariantModifiers[];
     helpers?: (HelperMarginModifiers | HelperFloatModifiers | HelperWidthModifiers | HelperDisplayModifiers)[];
     hasClassName?: string;
     isDisabled?: boolean;

@@ -31,6 +31,6 @@ export declare type ElementColorProps = {
     hasColor?: Colors;
 };
 export declare type CavilhaProps = {
-    variants?: (string)[];
-    helpers?: (string)[];
+    variants?: string[];
+    helpers?: string[];
 };

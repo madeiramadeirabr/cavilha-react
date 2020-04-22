@@ -12,7 +12,7 @@ export declare type ButtonProps = {
     isLink?: boolean;
     hasSize?: ButtonSizeModifier;
     buttonRef?: Ref<ButtonTypes>;
-    variants?: (ButtonVariantModifiers)[];
+    variants?: ButtonVariantModifiers[];
     helpers?: (HelperMarginModifiers | HelperFloatModifiers | HelperWidthModifiers | HelperDisplayModifiers)[];
     hasClassName?: string;
     isLoading?: boolean;

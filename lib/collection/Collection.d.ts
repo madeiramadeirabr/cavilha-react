@@ -4,13 +4,13 @@ export declare type CollectionVariantModifiers = 'collection--is-horizontal' | '
 export declare type CollectionDirectionModifier = 'horizontal' | 'vertical';
 export declare type CollectionProps = {
     hasDirection?: CollectionDirectionModifier;
-    variants?: (string)[];
+    variants?: string[];
     helpers?: (HelperMarginModifiers | HelperGapModifiers | HelperDisplayModifiers | HelperTextAlignModifiers | HelperBackgroundModifiers | HelperTextColorModifiers | HelperFlexAligmentModifiers)[];
     hasClassName?: string;
     children?: ReactNode;
 } & ElementColorProps & HTMLAttributes<HTMLUListElement>;
 export declare type ItemProps = {
-    variants?: (string)[];
+    variants?: string[];
     helpers?: (HelperMarginModifiers | HelperGapModifiers | HelperDisplayModifiers | HelperTextAlignModifiers | HelperBackgroundModifiers | HelperTextColorModifiers | HelperFlexAligmentModifiers | HelperWidthModifiers)[];
     hasClassName?: string;
     children?: ReactNode;

@@ -1,7 +1,7 @@
 import { ReactNode, HTMLAttributes } from 'react';
 import { HelperMarginModifiers, HelperDisplayModifiers, HelperGapModifiers, HelperBackgroundModifiers, HelperTextColorModifiers, HelperTextAlignModifiers, HelperFlexAligmentModifiers, ElementColorProps } from '../cavilha';
 export declare type SectionProps = {
-    variants?: (string)[];
+    variants?: string[];
     helpers?: (HelperMarginModifiers | HelperGapModifiers | HelperDisplayModifiers | HelperTextAlignModifiers | HelperBackgroundModifiers | HelperTextColorModifiers | HelperFlexAligmentModifiers)[];
     hasClassName?: string;
     children?: ReactNode;

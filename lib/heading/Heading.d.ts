@@ -2,7 +2,7 @@ import { ReactNode, HTMLAttributes } from 'react';
 import { HelperMarginModifiers, HelperFloatModifiers, HelperDisplayModifiers, HelperTextColorModifiers, HelperTextAlignModifiers, ElementColorProps } from '../cavilha';
 export declare type HelpersHeading = 'light' | 'regular' | 'semibold' | 'bold';
 export declare type HeadingProps = {
-    variants?: (string)[];
+    variants?: string[];
     helpers?: (HelperMarginModifiers | HelperFloatModifiers | HelperDisplayModifiers | HelperTextColorModifiers | HelperTextAlignModifiers)[];
     hasClassName?: string;
     children: ReactNode;

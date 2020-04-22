@@ -7,7 +7,7 @@ export declare type TableDataProps = {
     rows: Array<TableValuesProps>;
 };
 export declare type TableProps = {
-    variants?: (string)[];
+    variants?: string[];
     helpers?: (HelperMarginModifiers | HelperDisplayModifiers)[];
     hasClassName?: string;
     children?: ReactNode;

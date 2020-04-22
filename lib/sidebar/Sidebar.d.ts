@@ -11,7 +11,7 @@ export declare type SidebarProps = {
     isNavbar?: boolean;
     isHalfWidth?: boolean;
     isFullwidth?: boolean;
-    variants?: (SidebarVariantModifiers)[];
+    variants?: SidebarVariantModifiers[];
     helpers?: (HelperBackgroundColorModifiers | HelperShadowModifiers)[];
     hasClassName?: string;
     children: ReactNode;
