@@ -1,5 +1,6 @@
 import React, { HTMLProps, ReactNode, HTMLAttributes } from 'react';
 import { classNames } from '../core/utils/classNames';
+import { childrenIsEmpty } from '../core/utils/children';
 import {
   HelperMarginModifiers,
   HelperDisplayModifiers,
@@ -41,6 +42,7 @@ export type TextProps = {
   )[];
   hasClassName?: string;
   children: ReactNode;
+  withPlaceholder?: boolean;
 } & ElementColorProps &
   HTMLAttributes<HTMLParagraphElement> &
   HTMLAttributes<HTMLSpanElement>;
@@ -55,6 +57,7 @@ function Text({
   hasClassName,
   children,
   withMarginFix,
+  withPlaceholder,
   ...props
 }: TextProps) {
   const className = classNames(
@@ -65,6 +68,7 @@ function Text({
       hasClassName,
       hasColor,
       hasBackground,
+      placeholder: withPlaceholder ? childrenIsEmpty(children) : false,
     }
   );
 

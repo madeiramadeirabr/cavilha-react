@@ -1,5 +1,6 @@
 import React, { HTMLProps, HTMLAttributes } from 'react';
 import { classNames } from '../core/utils/classNames';
+import { childrenIsEmpty } from '../core/utils/children';
 import {
   HelperMarginModifiers,
   HelperDisplayModifiers,
@@ -38,6 +39,7 @@ export type ImageProps = {
   hasClassName?: string;
   src: string;
   title?: string | null;
+  withPlaceholder?: boolean;
 } & Pick<ElementColorProps, 'hasBackground'> &
   HTMLAttributes<HTMLDivElement>;
 
@@ -48,6 +50,7 @@ function Image({
   hasBackground,
   src,
   title,
+  withPlaceholder,
   ...props
 }: ImageProps) {
   const className = classNames([BLOCK], {
@@ -55,6 +58,7 @@ function Image({
     helpers,
     hasClassName,
     hasBackground,
+    placeholder: withPlaceholder ? childrenIsEmpty(src) : false,
   });
   return (
     <div {...(props as HTMLProps<HTMLDivElement>)} className={className}>

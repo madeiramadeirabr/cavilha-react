@@ -6,7 +6,8 @@ export declare type ClassNamesType = {
     hasClassName?: string;
     hasColor?: Colors;
     hasBackground?: Colors;
+    placeholder?: boolean;
 };
-export declare function classNames(pre: PreType, { variants, helpers, hasClassName, hasColor, hasBackground }: ClassNamesType): string;
+export declare function classNames(pre: PreType, { variants, helpers, hasClassName, hasColor, hasBackground, placeholder }: ClassNamesType): string;
 export declare function colorHelper(color: Colors): HelperTextColorModifiers;
 export declare function backgroundColorHelper(color: Colors): HelperBackgroundColorModifiers;

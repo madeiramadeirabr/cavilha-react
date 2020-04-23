@@ -1,5 +1,6 @@
 import React, { ReactNode, HTMLProps, HTMLAttributes } from 'react';
 import { classNames } from '../core/utils/classNames';
+import { childrenIsEmpty } from '../core/utils/children';
 import {
   HelperMarginModifiers,
   HelperFloatModifiers,
@@ -22,7 +23,8 @@ export type HeadingProps = {
     | HelperTextAlignModifiers
   )[];
   hasClassName?: string;
-  children: ReactNode;
+  children?: string | ReactNode;
+  withPlaceholder?: boolean;
 } & Pick<ElementColorProps, 'hasColor'> &
   HTMLAttributes<HTMLHeadingElement>;
 
@@ -41,6 +43,7 @@ function H1({
   isHero,
   children,
   hasColor,
+  withPlaceholder,
   ...props
 }: HeadingProps & HeadingHeroProps) {
   const className = classNames([isHero ? 'h1--is-hero' : ''], {
@@ -48,7 +51,9 @@ function H1({
     helpers,
     hasClassName,
     hasColor,
+    placeholder: withPlaceholder ? childrenIsEmpty(children) : false,
   });
+
   return (
     <div className="helper--has-margin-fix">
       <h1 {...(props as HTMLProps<HTMLHeadingElement>)} className={className}>
@@ -65,6 +70,7 @@ function H2({
   isHero,
   children,
   hasColor,
+  withPlaceholder,
   ...props
 }: HeadingProps & HeadingHeroProps) {
   const className = classNames([isHero ? 'h2--is-hero' : ''], {
@@ -72,6 +78,7 @@ function H2({
     helpers,
     hasClassName,
     hasColor,
+    placeholder: withPlaceholder ? childrenIsEmpty(children) : false,
   });
   return (
     <div className="helper--has-margin-fix">
@@ -89,6 +96,7 @@ function H3({
   children,
   hasColor,
   hasWeight,
+  withPlaceholder,
   ...props
 }: HeadingProps & HeadingWeightProps) {
   const className = classNames(
@@ -103,6 +111,7 @@ function H3({
       helpers,
       hasClassName,
       hasColor,
+      placeholder: withPlaceholder ? childrenIsEmpty(children) : false,
     }
   );
   return (
@@ -121,6 +130,7 @@ function H4({
   children,
   hasColor,
   hasWeight,
+  withPlaceholder,
   ...props
 }: HeadingProps & HeadingWeightProps) {
   const className = classNames(
@@ -135,6 +145,7 @@ function H4({
       helpers,
       hasClassName,
       hasColor,
+      placeholder: withPlaceholder ? childrenIsEmpty(children) : false,
     }
   );
   return (
@@ -153,6 +164,7 @@ function H5({
   children,
   hasColor,
   hasWeight,
+  withPlaceholder,
   ...props
 }: HeadingProps & HeadingWeightProps) {
   const className = classNames(
@@ -167,6 +179,7 @@ function H5({
       helpers,
       hasClassName,
       hasColor,
+      placeholder: withPlaceholder ? childrenIsEmpty(children) : false,
     }
   );
   return (

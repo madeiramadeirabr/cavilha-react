@@ -7,6 +7,7 @@ export declare type ImageProps = {
     hasClassName?: string;
     src: string;
     title?: string | null;
+    withPlaceholder?: boolean;
 } & Pick<ElementColorProps, 'hasBackground'> & HTMLAttributes<HTMLDivElement>;
-declare function Image({ variants, helpers, hasClassName, hasBackground, src, title, ...props }: ImageProps): JSX.Element;
+declare function Image({ variants, helpers, hasClassName, hasBackground, src, title, withPlaceholder, ...props }: ImageProps): JSX.Element;
 export { Image };

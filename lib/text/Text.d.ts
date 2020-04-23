@@ -10,6 +10,7 @@ export declare type TextProps = {
     helpers?: (HelperMarginModifiers | HelperGapModifiers | HelperDisplayModifiers | HelperTextColorModifiers | HelperTextAlignModifiers)[];
     hasClassName?: string;
     children: ReactNode;
+    withPlaceholder?: boolean;
 } & ElementColorProps & HTMLAttributes<HTMLParagraphElement> & HTMLAttributes<HTMLSpanElement>;
-declare function Text({ hasElement, hasColor, hasBackground, hasText, variants, helpers, hasClassName, children, withMarginFix, ...props }: TextProps): JSX.Element;
+declare function Text({ hasElement, hasColor, hasBackground, hasText, variants, helpers, hasClassName, children, withMarginFix, withPlaceholder, ...props }: TextProps): JSX.Element;
 export { Text };
