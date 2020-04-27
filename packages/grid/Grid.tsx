@@ -22,6 +22,7 @@ export type GridRowProps = {
   hasClassName?: string;
   children: ReactNode;
   isReverse?: boolean;
+  isMarginFix?: boolean;
 } & HTMLAttributes<HTMLDivElement>;
 
 export type GridColumnVariantModifiers =
@@ -77,21 +78,6 @@ export type ColumnSize =
   | 'eleven'
   | 'twelve';
 
-export enum ColumnSizes {
-  'one',
-  'two',
-  'three',
-  'four',
-  'five',
-  'six',
-  'seven',
-  'eight',
-  'nine',
-  'ten',
-  'eleven',
-  'twelve',
-}
-
 export type GridColumnProps = {
   variants?: GridColumnVariantModifiers[];
   helpers?: (
@@ -120,6 +106,7 @@ function Row({
   hasClassName,
   children,
   isReverse,
+  isMarginFix,
   ...props
 }: GridRowProps) {
   const className = classNames(
@@ -130,13 +117,24 @@ function Row({
       hasClassName,
     }
   );
-  return (
-    <div className="helper--has-margin-fix">
+
+  function RowComponent() {
+    return (
       <div {...(props as HTMLProps<HTMLDivElement>)} className={className}>
         {children}
       </div>
-    </div>
-  );
+    );
+  }
+
+  if (isMarginFix) {
+    return (
+      <div className="helper--has-margin-fix">
+        <RowComponent />
+      </div>
+    );
+  }
+
+  return <RowComponent />;
 }
 
 function Column({
