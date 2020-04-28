@@ -78,13 +78,13 @@ export default function () {
 
       <Intro title="Chip as link" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
       <Block helpers={["helper--has-margin-vertical"]}>
-        <Chip isLink to="#">Default<Chip.Close onClick={() => alert('close button click')} /></Chip>
-        <Chip hasColor="primary" isLink to="#">Primary<Chip.Close onClick={() => alert('close button click')} /></Chip>
-        <Chip hasColor="secondary" isLink to="#">Secondary<Chip.Close onClick={() => alert('close button click')} /></Chip>
-        <Chip hasColor="danger" isLink to="#">Danger<Chip.Close onClick={() => alert('close button click')} /></Chip>
-        <Chip hasColor="success" isLink to="#">Success<Chip.Close onClick={() => alert('close button click')} /></Chip>
-        <Chip hasColor="white" isLink to="#">White<Chip.Close onClick={() => alert('close button click')} /></Chip>
-        <Chip hasColor="dark" isLink to="#">Dark<Chip.Close onClick={() => alert('close button click')} /></Chip>
+        <Chip href="#">Default<Chip.Close onClick={() => alert('close button click')} /></Chip>
+        <Chip hasColor="primary" href="#">Primary<Chip.Close onClick={() => alert('close button click')} /></Chip>
+        <Chip hasColor="secondary" href="#">Secondary<Chip.Close onClick={() => alert('close button click')} /></Chip>
+        <Chip hasColor="danger" href="#">Danger<Chip.Close onClick={() => alert('close button click')} /></Chip>
+        <Chip hasColor="success" href="#">Success<Chip.Close onClick={() => alert('close button click')} /></Chip>
+        <Chip hasColor="white" href="#">White<Chip.Close onClick={() => alert('close button click')} /></Chip>
+        <Chip hasColor="dark" href="#">Dark<Chip.Close onClick={() => alert('close button click')} /></Chip>
       </Block>
       <Block helpers={["helper--has-margin-top"]}>
         <Code language="html" code={hrefDefaults} />

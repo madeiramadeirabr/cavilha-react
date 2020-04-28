@@ -2,8 +2,8 @@ import React, { Suspense, useState } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { Container } from '../packages/container/index';
-import { Navbar, NavbarItemWithRouter } from '../packages/navbar/index';
-import { Button } from '../packages/button/index';
+import { Navbar } from '../packages/navbar/index';
+import { ButtonWithRouter } from '../packages/button/index';
 import { Sidebar } from '../packages/sidebar/index';
 import { Collection } from '../packages/collection/index';
 import { Home as HomePage } from './pages/home/index';
@@ -36,7 +36,6 @@ const menu: SiteMenuArray = [
 
 export default function App() {
   const [sidebar, setSidebar] = useState(false)
-  const [isDefaultTheme, setIsDefaultTheme] = useState(true)
 
   function onMenuClick(e: React.MouseEvent<HTMLButtonElement>): void {
     setSidebar(!sidebar)
@@ -48,12 +47,12 @@ export default function App() {
         <Container>
           <Navbar.Container>
             <Navbar.Menu helpers={["helper--is-hidden-desktop"]} onClick={onMenuClick}/>
-            <Navbar.Logo to={HOME_ROUTE.location} src="../public/logo-b.png" title="Cavilha UI" />
+            <Navbar.Logo href={HOME_ROUTE.location} src="../public/logo-b.png" title="Cavilha UI" />
             <Navbar.Items>
               {menu.map(({ location, label}) => (
-                <NavbarItemWithRouter to={location}>
+                <Navbar.Item href={location}>
                   {label}
-                </NavbarItemWithRouter>
+                </Navbar.Item>
               ))}
             </Navbar.Items>
           </Navbar.Container>
@@ -64,9 +63,9 @@ export default function App() {
         <Collection hasDirection="vertical" helpers={["helper--has-gap", "helper--has-items-center", "helper--has-content-center"]}>
         {menu.map(({ location, label}) => (
           <Collection.Item helpers={["helper--is-full-width"]}>
-            <Button.LinkWithRouter to={location} isLink helpers={["helper--is-full-width"]}>
+            <ButtonWithRouter to={location as any} isLink helpers={["helper--is-full-width"]}>
               {label}
-            </Button.LinkWithRouter>
+            </ButtonWithRouter>
           </Collection.Item>
         ))}
         </Collection>

@@ -1,7 +1,6 @@
 import React, { ReactNode, HTMLProps, HTMLAttributes } from 'react';
 import { classNames } from '../core/utils/classNames';
 import { HelperMarginModifiers, HelperDisplayModifiers } from '../cavilha';
-import { Link, LinkProps } from 'react-router-dom';
 
 export type ChipColorModifier =
   | 'primary'
@@ -24,11 +23,9 @@ export type ChipProps = {
   variants?: string[];
   helpers?: (HelperMarginModifiers | HelperDisplayModifiers)[];
   hasClassName?: string;
-  children?: ReactNode;
   hasColor?: ChipColorModifier;
   isOutline?: boolean;
-  isLink?: boolean;
-  to?: string;
+  href?: string;
 } & HTMLAttributes<HTMLSpanElement | HTMLAnchorElement>;
 
 export type CloseProps = {} & HTMLAttributes<HTMLButtonElement>;
@@ -40,7 +37,7 @@ function Chip({
   children,
   hasColor,
   isOutline,
-  isLink,
+  href,
   ...props
 }: ChipProps) {
   const className = classNames(
@@ -55,11 +52,15 @@ function Chip({
       hasClassName,
     }
   );
-  if (isLink) {
+  if (href) {
     return (
-      <Link {...(props as LinkProps)} className={className}>
+      <a
+        {...(props as HTMLProps<HTMLAnchorElement>)}
+        href={href}
+        className={className}
+      >
         {children}
-      </Link>
+      </a>
     );
   }
   return (
@@ -77,7 +78,7 @@ function Close({ ...props }: CloseProps) {
       className={className}
       type="button"
       dangerouslySetInnerHTML={{ __html: '&times;' }}
-    ></button>
+    />
   );
 }
 

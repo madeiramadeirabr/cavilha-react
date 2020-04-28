@@ -5,7 +5,7 @@ import { Block } from "../../../packages/block/index"
 import { Row, Column } from "../../../packages/grid/index"
 import { H1, H3 } from "../../../packages/heading/index"
 import { Text } from "../../../packages/text/index"
-import { Button } from "../../../packages/button/index"
+import { ButtonWithRouter } from "../../../packages/button/index"
 import { GET_STARTED_ROUTE, DOCUMENTATION_ROUTE } from "../../routes"
 
 export const Home = ({routerProps, ...props}: any) => {
@@ -22,12 +22,12 @@ export const Home = ({routerProps, ...props}: any) => {
                   UX guidelines, HTML/CSS framework, and React components working together to craft exceptional experiences
                 </H3>
                 <Block helpers={["helper--has-margin-vertical-large"]}>
-                  <Button.LinkWithRouter hasColor="primary" to={GET_STARTED_ROUTE.location}>
+                  <ButtonWithRouter hasColor="primary" to={GET_STARTED_ROUTE.location}>
                     GET STARTED
-                  </Button.LinkWithRouter>
-                  <Button.LinkWithRouter isLink to={DOCUMENTATION_ROUTE.location}>
+                  </ButtonWithRouter>
+                  <ButtonWithRouter isLink to={DOCUMENTATION_ROUTE.location}>
                     DOCUMENTATION
-                  </Button.LinkWithRouter>
+                  </ButtonWithRouter>
                 </Block>
                 <Block helpers={["helper--has-margin-vertical"]}>
                   <Text>View the <a href="http://github.com/madeiramadeirabr/cavilha" target="_blank">source</a> on GitHub</Text>

@@ -1,7 +1,6 @@
-import React, { ReactNode, HTMLProps, HTMLAttributes } from 'react';
+import React, { HTMLProps, HTMLAttributes } from 'react';
 import { classNames } from '../core/utils/classNames';
 import { HelperMarginModifiers, HelperDisplayModifiers } from '../cavilha';
-import { Link, LinkProps } from 'react-router-dom';
 
 export type BadgeColorModifier =
   | 'primary'
@@ -22,17 +21,15 @@ export type BadgeVariantModifiers =
   | 'badge--is-floating'
   | 'badge--is-outline';
 
-export type SectionProps = {
+export type BadgeProps = {
   variants?: string[];
   helpers?: (HelperMarginModifiers | HelperDisplayModifiers)[];
   hasClassName?: string;
-  children?: ReactNode;
   hasColor?: BadgeColorModifier;
   isPill?: boolean;
   isFloating?: boolean;
   isOutline?: boolean;
-  isLink?: boolean;
-  to?: string;
+  href?: string;
 } & HTMLAttributes<HTMLSpanElement | HTMLAnchorElement>;
 
 function Badge({
@@ -44,9 +41,9 @@ function Badge({
   isPill,
   isFloating,
   isOutline,
-  isLink,
+  href,
   ...props
-}: SectionProps) {
+}: BadgeProps) {
   const className = classNames(
     [
       'badge',
@@ -61,11 +58,11 @@ function Badge({
       hasClassName,
     }
   );
-  if (isLink) {
+  if (href) {
     return (
-      <Link {...(props as LinkProps)} className={className}>
+      <a {...(props as HTMLProps<HTMLAnchorElement>)} className={className}>
         {children}
-      </Link>
+      </a>
     );
   }
   return (

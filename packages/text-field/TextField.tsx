@@ -65,13 +65,18 @@ function TextField({
     }
   );
 
-  const Icon = ({ direction, children }: any) => (
-    <span
-      className={`${TextFieldElements['icon']} ${TextFieldElements['icon']}--is-${direction}`}
-    >
-      {children}
-    </span>
-  );
+  function Icon({
+    direction,
+    children,
+  }: HTMLProps<HTMLSpanElement> & { direction?: 'left' | 'right' }) {
+    return (
+      <span
+        className={`${TextFieldElements['icon']} ${TextFieldElements['icon']}--is-${direction}`}
+      >
+        {children}
+      </span>
+    );
+  }
 
   return (
     <div className={className}>

@@ -23,7 +23,6 @@ export type SectionProps = {
     | HelperFlexAligmentModifiers
   )[];
   hasClassName?: string;
-  children?: ReactNode;
 } & ElementColorProps &
   HTMLAttributes<HTMLDivElement>;
 
@@ -44,10 +43,8 @@ function Block({
     hasBackground,
   });
   return (
-    <div className="helper--has-margin-fix">
-      <div {...(props as HTMLProps<HTMLDivElement>)} className={className}>
-        {children}
-      </div>
+    <div {...(props as HTMLProps<HTMLDivElement>)} className={className}>
+      {children}
     </div>
   );
 }

@@ -8,12 +8,9 @@ import { Table, TableDataProps } from "../../../../../packages/table/index"
 import { Card } from "../../../../../packages/card/index"
 import { Image } from "../../../../../packages/image/index"
 import { Intro } from '../../../../components/Heading';
-import { TYPOGRAPH_ELEMENT_ROUTE, BUTTON_COMPONENT_ROUTE } from "../../routes"
-import { Link } from 'react-router-dom';
 import { Badge } from '../../../../../packages/badge';
 
 export default function () {
-
 
   const helpersTableData: TableDataProps = {
     columns: ["CSS Helper Classes", "Description"],

@@ -44,11 +44,9 @@ function Section({
     hasBackground,
   });
   return (
-    <div className="helper--has-margin-fix">
-      <section {...(props as HTMLProps<HTMLDivElement>)} className={className}>
-        {children}
-      </section>
-    </div>
+    <section {...(props as HTMLProps<HTMLDivElement>)} className={className}>
+      {children}
+    </section>
   );
 }
 

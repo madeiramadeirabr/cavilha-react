@@ -55,11 +55,9 @@ function H1({
   });
 
   return (
-    <div className="helper--has-margin-fix">
-      <h1 {...(props as HTMLProps<HTMLHeadingElement>)} className={className}>
-        {children}
-      </h1>
-    </div>
+    <h1 {...(props as HTMLProps<HTMLHeadingElement>)} className={className}>
+      {children}
+    </h1>
   );
 }
 
@@ -81,11 +79,9 @@ function H2({
     placeholder: withPlaceholder ? childrenIsEmpty(children) : false,
   });
   return (
-    <div className="helper--has-margin-fix">
-      <h2 {...(props as HTMLProps<HTMLHeadingElement>)} className={className}>
-        {children}
-      </h2>
-    </div>
+    <h2 {...(props as HTMLProps<HTMLHeadingElement>)} className={className}>
+      {children}
+    </h2>
   );
 }
 
@@ -115,11 +111,9 @@ function H3({
     }
   );
   return (
-    <div className="helper--has-margin-fix">
-      <h3 {...(props as HTMLProps<HTMLHeadingElement>)} className={className}>
-        {children}
-      </h3>
-    </div>
+    <h3 {...(props as HTMLProps<HTMLHeadingElement>)} className={className}>
+      {children}
+    </h3>
   );
 }
 
@@ -149,11 +143,9 @@ function H4({
     }
   );
   return (
-    <div className="helper--has-margin-fix">
-      <h4 {...(props as HTMLProps<HTMLHeadingElement>)} className={className}>
-        {children}
-      </h4>
-    </div>
+    <h4 {...(props as HTMLProps<HTMLHeadingElement>)} className={className}>
+      {children}
+    </h4>
   );
 }
 
@@ -183,12 +175,18 @@ function H5({
     }
   );
   return (
-    <div className="helper--has-margin-fix">
-      <h5 {...(props as HTMLProps<HTMLHeadingElement>)} className={className}>
-        {children}
-      </h5>
-    </div>
+    <h5 {...(props as HTMLProps<HTMLHeadingElement>)} className={className}>
+      {children}
+    </h5>
   );
 }
 
-export { H1, H2, H3, H4, H5 };
+const Heading = function () {};
+
+Heading.H1 = H1;
+Heading.H2 = H2;
+Heading.H3 = H3;
+Heading.H4 = H4;
+Heading.H5 = H5;
+
+export { Heading, H1, H2, H3, H4, H5 };

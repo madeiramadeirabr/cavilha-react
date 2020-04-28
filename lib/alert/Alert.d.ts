@@ -6,7 +6,6 @@ export declare type AlertProps = {
     variants?: string[];
     helpers?: (HelperMarginModifiers | HelperDisplayModifiers)[];
     hasClassName?: string;
-    children?: ReactNode;
     hasColor?: AlertColorModifier;
     hasIcon?: string | ReactNode;
     onClose?: any;

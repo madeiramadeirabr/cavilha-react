@@ -10,6 +10,7 @@ import {
   HelperFlexAligmentModifiers,
   ElementColorProps,
   HelperWidthModifiers,
+  HelperHeightModifiers,
 } from '../cavilha';
 
 enum CollectionElements {
@@ -34,6 +35,8 @@ export type CollectionProps = {
     | HelperBackgroundModifiers
     | HelperTextColorModifiers
     | HelperFlexAligmentModifiers
+    | HelperWidthModifiers
+    | HelperHeightModifiers
   )[];
   hasClassName?: string;
   children?: ReactNode;
@@ -51,6 +54,7 @@ export type ItemProps = {
     | HelperTextColorModifiers
     | HelperFlexAligmentModifiers
     | HelperWidthModifiers
+    | HelperHeightModifiers
   )[];
   hasClassName?: string;
   children?: ReactNode;
@@ -71,15 +75,15 @@ function Collection({
     [
       CollectionElements.block,
       `collection--is-${hasDirection}` as CollectionVariantModifiers,
+      'helper--has-margin-fix',
+      'helper--is-full-height',
     ],
     { variants, helpers, hasClassName, hasColor, hasBackground }
   );
   return (
-    <div className="helper--has-margin-fix helper--is-full-height">
-      <ul {...(props as HTMLProps<HTMLUListElement>)} className={className}>
-        {children}
-      </ul>
-    </div>
+    <ul {...(props as HTMLProps<HTMLUListElement>)} className={className}>
+      {children}
+    </ul>
   );
 }
 

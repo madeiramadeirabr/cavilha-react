@@ -1,46 +1,6 @@
-import React, { ReactNode, HTMLProps, HTMLAttributes } from 'react';
+import React, { HTMLProps, HTMLAttributes } from 'react';
 import { classNames } from '../core/utils/classNames';
-import {
-  HelperMarginModifiers,
-  HelperGapModifiers,
-  HelperDisplayModifiers,
-  HelperFlexAligmentModifiers,
-  ElementColorProps,
-} from '../cavilha';
-
-enum CardElements {
-  'card' = 'card',
-  'header' = 'card__header',
-  'image' = 'card__image',
-  'content' = 'card__content',
-  'footer' = 'card__footer',
-}
-
-export type CardVariantModifiers =
-  | 'card--has-no-shadow'
-  | 'card--has-no-radius'
-  | 'card--has-shadow-extra-small'
-  | 'card--has-shadow-small'
-  | 'card--has-shadow-large'
-  | 'card--has-shadow-extra-large';
-
-export type CardProps = {
-  variants?: CardVariantModifiers[];
-  helpers?: (
-    | HelperMarginModifiers
-    | HelperGapModifiers
-    | HelperDisplayModifiers
-    | HelperFlexAligmentModifiers
-  )[];
-  hasClassName?: string;
-  hasShadow?: 'no-shadow' | 'extra-small' | 'small' | 'large' | 'extra-large';
-  children: ReactNode;
-} & ElementColorProps &
-  HTMLAttributes<HTMLDivElement>;
-
-export type CardHeaderProps = CardProps;
-export type CardContentProps = CardProps;
-export type CardFooterProps = CardProps;
+import { CardProps, CardVariantModifiers, CardElements } from './types';
 
 function Wrapper(
   {
@@ -51,6 +11,7 @@ function Wrapper(
     hasColor,
     hasShadow,
     children,
+    href,
     ...props
   }: CardProps,
   el: CardElements
@@ -73,6 +34,19 @@ function Wrapper(
       hasColor,
     }
   );
+
+  if (href) {
+    return (
+      <a
+        {...(props as HTMLProps<HTMLAnchorElement>)}
+        href={href}
+        className={className}
+      >
+        {children}
+      </a>
+    );
+  }
+
   return (
     <div {...(props as HTMLProps<HTMLDivElement>)} className={className}>
       {children}

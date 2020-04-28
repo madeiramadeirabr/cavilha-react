@@ -22,7 +22,6 @@ export type TableProps = {
   variants?: string[];
   helpers?: (HelperMarginModifiers | HelperDisplayModifiers)[];
   hasClassName?: string;
-  children?: ReactNode;
   data: TableDataProps;
   isCompact?: boolean;
   isClean?: boolean;
@@ -64,16 +63,14 @@ function Table({
   });
 
   return (
-    <div className="helper--has-margin-fix">
-      <table {...(props as HTMLProps<HTMLTableElement>)} className={className}>
-        <thead>
-          {columns.map((column) => (
-            <th>{column}</th>
-          ))}
-        </thead>
-        <tbody>{tableRows}</tbody>
-      </table>
-    </div>
+    <table {...(props as HTMLProps<HTMLTableElement>)} className={className}>
+      <thead>
+        {columns.map((column) => (
+          <th>{column}</th>
+        ))}
+      </thead>
+      <tbody>{tableRows}</tbody>
+    </table>
   );
 }
 

@@ -1,5 +1,4 @@
 import { ButtonHTMLAttributes, HTMLAttributes } from 'react';
-import { ReactNode } from 'react';
 import { HelperBackgroundColorModifiers, HelperShadowModifiers, ElementColorProps } from '../cavilha';
 export declare type SidebarVariantModifiers = 'sidebar--has-navbar' | 'sidebar--is-half-width' | 'sidebar--is-full-width';
 export declare type SidebarButtonPositionModifiers = 'sidebar__button--is-bottom-center' | 'sidebar__button--is-bottom-left' | 'sidebar__button--is-bottom-right' | 'sidebar__button--is-top-center' | 'sidebar__button--is-top-left' | 'sidebar__button--is-top-right';
@@ -14,7 +13,6 @@ export declare type SidebarProps = {
     variants?: SidebarVariantModifiers[];
     helpers?: (HelperBackgroundColorModifiers | HelperShadowModifiers)[];
     hasClassName?: string;
-    children: ReactNode;
 } & Omit<ElementColorProps, 'hasColor'> & HTMLAttributes<HTMLDivElement>;
 export declare type SidebarButtonProps = {
     isPosition?: SidebarButtonPosition;

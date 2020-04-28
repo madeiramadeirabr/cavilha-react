@@ -144,10 +144,10 @@ const badgeWithButton = `<button class="button">
 
       <Intro title="Badge as link" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
       <Block helpers={["helper--has-margin-vertical"]}>
-        <Badge hasColor="primary" isPill isLink to="#">clickable</Badge>
-        <Badge hasColor="secondary" isLink to="#">clickable</Badge>
-        <Badge hasColor="danger" isLink to="#">clickable</Badge>
-        <Badge hasColor="success" isOutline isLink to="#">clickable</Badge>
+        <Badge hasColor="primary" isPill href="#">clickable</Badge>
+        <Badge hasColor="secondary" href="#">clickable</Badge>
+        <Badge hasColor="danger" href="#">clickable</Badge>
+        <Badge hasColor="success" isOutline href="#">clickable</Badge>
       </Block>
 
       <Block helpers={["helper--has-margin-vertical"]}>

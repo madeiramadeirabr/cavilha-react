@@ -1,5 +1,4 @@
-import { ButtonHTMLAttributes, HTMLAttributes } from 'react';
-import { ReactNode } from 'react';
+import React, { ButtonHTMLAttributes, HTMLAttributes } from 'react';
 import { HelperBackgroundColorModifiers, HelperShadowModifiers, HelperDisplayModifiers, ElementColorProps } from '../cavilha';
 export declare type NavbarVariantModifiers = 'navbar--is-fixed-top' | 'navbar--is-transparent';
 export declare type NavbarProps = {
@@ -8,36 +7,24 @@ export declare type NavbarProps = {
     variants?: NavbarVariantModifiers[];
     helpers?: (HelperBackgroundColorModifiers | HelperShadowModifiers)[];
     hasClassName?: string;
-    children: ReactNode;
 } & Pick<ElementColorProps, 'hasBackground'> & HTMLAttributes<HTMLDivElement>;
-export declare type NavbarContainerProps = {
-    children: ReactNode;
-} & HTMLAttributes<HTMLDivElement>;
-export declare type NavbarLogoProps = {
-    src: string;
-    to: string;
-    title?: string;
-} & HTMLAttributes<HTMLElement>;
 export declare type NavbarMenuProps = {
-    open?: boolean;
+    isOpen?: boolean;
     helpers?: HelperDisplayModifiers[];
 } & ButtonHTMLAttributes<HTMLButtonElement>;
-export declare type NavbarItemsProps = {
-    isOpen?: boolean;
-    children: ReactNode;
-} & HTMLAttributes<HTMLDivElement>;
-export declare type NavbarItemProps = {
-    to: string;
-    isActive?: boolean;
-    children: ReactNode;
-} & HTMLAttributes<HTMLElement>;
 declare function Navbar({ isFixedTop, isTransparent, variants, helpers, hasClassName, children, hasBackground, ...props }: NavbarProps): JSX.Element;
 declare namespace Navbar {
-    var Container: ({ children, ...props }: NavbarContainerProps) => JSX.Element;
-    var Menu: ({ open, helpers, ...props }: NavbarMenuProps) => JSX.Element;
-    var Logo: ({ src, title, to, ...props }: NavbarLogoProps) => JSX.Element;
-    var Items: ({ children, isOpen, ...props }: NavbarItemsProps) => JSX.Element;
-    var Item: ({ to, isActive, children, ...props }: NavbarItemProps) => JSX.Element;
+    var Container: ({ children, ...props }: React.HTMLAttributes<HTMLDivElement>) => JSX.Element;
+    var Menu: ({ isOpen, helpers, ...props }: NavbarMenuProps) => JSX.Element;
+    var Logo: ({ title, src, ...props }: React.HTMLProps<HTMLAnchorElement> & {
+        title?: string;
+        src: string;
+    }) => JSX.Element;
+    var Items: ({ children, isOpen, ...props }: {
+        isOpen?: boolean;
+    } & React.HTMLAttributes<HTMLDivElement>) => JSX.Element;
+    var Item: ({ isActive, children, ...props }: React.HTMLProps<HTMLAnchorElement> & {
+        isActive?: boolean;
+    }) => JSX.Element;
 }
-export declare const NavbarItemWithRouter: any;
 export { Navbar };

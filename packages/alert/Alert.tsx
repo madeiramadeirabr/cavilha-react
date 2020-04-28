@@ -23,7 +23,6 @@ export type AlertProps = {
   variants?: string[];
   helpers?: (HelperMarginModifiers | HelperDisplayModifiers)[];
   hasClassName?: string;
-  children?: ReactNode;
   hasColor?: AlertColorModifier;
   hasIcon?: string | ReactNode;
   onClose?: any;
@@ -61,7 +60,7 @@ function Alert({
         className="alert__close"
         type="button"
         dangerouslySetInnerHTML={{ __html: '&times;' }}
-      ></button>
+      />
     </div>
   );
 }

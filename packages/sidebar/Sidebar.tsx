@@ -1,6 +1,5 @@
 import React, { HTMLProps, ButtonHTMLAttributes, HTMLAttributes } from 'react';
 import { classNames } from '../core/utils/classNames';
-import { ReactNode } from 'react';
 import {
   HelperBackgroundColorModifiers,
   HelperShadowModifiers,
@@ -50,7 +49,6 @@ export type SidebarProps = {
   variants?: SidebarVariantModifiers[];
   helpers?: (HelperBackgroundColorModifiers | HelperShadowModifiers)[];
   hasClassName?: string;
-  children: ReactNode;
 } & Omit<ElementColorProps, 'hasColor'> &
   HTMLAttributes<HTMLDivElement>;
 

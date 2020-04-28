@@ -25,7 +25,6 @@ export type ContainerProps = {
     | HelperFlexAligmentModifiers
   )[];
   hasClassName?: string;
-  children: ReactNode;
 } & Pick<ElementColorProps, 'hasBackground'> &
   HTMLAttributes<HTMLDivElement>;
 

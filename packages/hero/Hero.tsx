@@ -73,10 +73,8 @@ function Hero({
   );
 
   return (
-    <div className="helper--has-margin-fix">
-      <div {...(props as HTMLProps<HTMLDivElement>)} className={className}>
-        {children}
-      </div>
+    <div {...(props as HTMLProps<HTMLDivElement>)} className={className}>
+      {children}
     </div>
   );
 }

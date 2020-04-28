@@ -10,7 +10,6 @@ export declare type TableProps = {
     variants?: string[];
     helpers?: (HelperMarginModifiers | HelperDisplayModifiers)[];
     hasClassName?: string;
-    children?: ReactNode;
     data: TableDataProps;
     isCompact?: boolean;
     isClean?: boolean;

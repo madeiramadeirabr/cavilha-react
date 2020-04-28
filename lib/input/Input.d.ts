@@ -1,4 +1,4 @@
-import { ReactNode, HTMLAttributes } from 'react';
+import { HTMLAttributes } from 'react';
 import { HelperMarginModifiers, HelperFloatModifiers, HelperWidthModifiers, HelperDisplayModifiers } from '../cavilha';
 export declare type InputElements = 'input__radio' | 'input__checkbox';
 export declare type InputVariantModifiers = 'input--is-inline' | 'input--is-block';
@@ -8,7 +8,6 @@ export declare type InputProps = {
     hasClassName?: string;
     isDisabled?: boolean;
     hasType: 'radio' | 'checkbox';
-    children: ReactNode;
     name: string;
     value: string;
     isInline?: boolean;

@@ -1,4 +1,4 @@
-import React, { ReactNode, HTMLAttributes, HTMLProps } from 'react';
+import React, { HTMLAttributes, HTMLProps } from 'react';
 import { classNames } from '../core/utils/classNames';
 import {
   HelperMarginModifiers,
@@ -21,7 +21,6 @@ export type InputProps = {
   hasClassName?: string;
   isDisabled?: boolean;
   hasType: 'radio' | 'checkbox';
-  children: ReactNode;
   name: string;
   value: string;
   isInline?: boolean;

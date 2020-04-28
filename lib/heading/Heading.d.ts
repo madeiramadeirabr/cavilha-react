@@ -19,4 +19,12 @@ declare function H2({ variants, helpers, hasClassName, isHero, children, hasColo
 declare function H3({ variants, helpers, hasClassName, children, hasColor, hasWeight, withPlaceholder, ...props }: HeadingProps & HeadingWeightProps): JSX.Element;
 declare function H4({ variants, helpers, hasClassName, children, hasColor, hasWeight, withPlaceholder, ...props }: HeadingProps & HeadingWeightProps): JSX.Element;
 declare function H5({ variants, helpers, hasClassName, children, hasColor, hasWeight, withPlaceholder, ...props }: HeadingProps & HeadingWeightProps): JSX.Element;
-export { H1, H2, H3, H4, H5 };
+declare const Heading: {
+    (): void;
+    H1: typeof H1;
+    H2: typeof H2;
+    H3: typeof H3;
+    H4: typeof H4;
+    H5: typeof H5;
+};
+export { Heading, H1, H2, H3, H4, H5 };

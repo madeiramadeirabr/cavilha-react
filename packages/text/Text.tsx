@@ -30,7 +30,6 @@ export type TextVariantModifier =
 
 export type TextProps = {
   hasElement?: 'span' | 'p' | 'strong' | 'i';
-  withMarginFix?: boolean;
   hasText?: TextVariantModifier;
   variants?: TextVariantModifiers[];
   helpers?: (
@@ -41,7 +40,6 @@ export type TextProps = {
     | HelperTextAlignModifiers
   )[];
   hasClassName?: string;
-  children: ReactNode;
   withPlaceholder?: boolean;
 } & ElementColorProps &
   HTMLAttributes<HTMLParagraphElement> &
@@ -56,7 +54,6 @@ function Text({
   helpers,
   hasClassName,
   children,
-  withMarginFix,
   withPlaceholder,
   ...props
 }: TextProps) {
@@ -100,10 +97,6 @@ function Text({
         {children}
       </i>
     );
-  }
-
-  if (withMarginFix) {
-    component = <div className="helper--has-margin-fix">{component}</div>;
   }
 
   return component;
