@@ -2,7 +2,8 @@ import React, { Suspense, useState } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { Container } from '../packages/container/index';
-import { Navbar } from '../packages/navbar/index';
+import { Navbar } from '../packages/navbar';
+import { NavbarItemWithRouter } from '../packages/navbar';
 import { ButtonWithRouter } from '../packages/button/index';
 import { Sidebar } from '../packages/sidebar/index';
 import { Collection } from '../packages/collection/index';
@@ -50,9 +51,9 @@ export default function App() {
             <Navbar.Logo href={HOME_ROUTE.location} src="../public/logo-b.png" title="Cavilha UI" />
             <Navbar.Items>
               {menu.map(({ location, label}) => (
-                <Navbar.Item href={location}>
+                <NavbarItemWithRouter to={location}>
                   {label}
-                </Navbar.Item>
+                </NavbarItemWithRouter>
               ))}
             </Navbar.Items>
           </Navbar.Container>

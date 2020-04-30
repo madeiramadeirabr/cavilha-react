@@ -3,9 +3,7 @@ import { RouteComponentProps, withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 import { BaseButtonProps, baseButton } from './BaseButton';
 
-export type BookDetailProps = RouteComponentProps & BaseButtonProps;
-
-const ButtonLink: React.FC<BookDetailProps> = (props) => {
+const ButtonLink: React.FC<RouteComponentProps & BaseButtonProps> = (props) => {
   const { content, buttonProps, className } = baseButton(props);
   return (
     <Link

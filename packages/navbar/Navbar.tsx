@@ -11,7 +11,7 @@ export type NavbarVariantModifiers =
   | 'navbar--is-fixed-top'
   | 'navbar--is-transparent';
 
-enum NavbarElements {
+export enum NavbarElements {
   'block' = 'navbar',
   'container' = 'navbar__container',
   'logo' = 'navbar__logo',
