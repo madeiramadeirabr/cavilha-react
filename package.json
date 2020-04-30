@@ -40,11 +40,9 @@
     "react": "^16.13.0",
     "react-dom": "^16.13.0"
   },
-  "dependencies": {
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0"
-  },
   "devDependencies": {
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
     "webpack": "^4.42.0",
     "@madeiramadeira/cavilha": "git+https://github.com/madeiramadeirabr/cavilha.git#master",
     "@babel/core": "^7.9.0",
