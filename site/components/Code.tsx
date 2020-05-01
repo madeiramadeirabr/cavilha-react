@@ -1,6 +1,7 @@
 import React from "react";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import sdsd from 'react-syntax-highlighter/dist/esm/styles/prism/vs';
+import { MarginCollapse } from "../../packages/base"
 
 type CodeProps = {
   code: string
@@ -9,9 +10,11 @@ type CodeProps = {
 
 export function Code({code, language}: CodeProps) {
   return (
-    <SyntaxHighlighter language={language} style={sdsd}>
-      {code}
-    </SyntaxHighlighter>
+    <MarginCollapse>
+      <SyntaxHighlighter language={language} style={sdsd}>
+        {code}
+      </SyntaxHighlighter>
+    </MarginCollapse>
   );
 }
 

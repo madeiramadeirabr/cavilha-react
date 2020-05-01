@@ -7,42 +7,14 @@ import React, {
   useContext,
 } from 'react';
 import { classNames } from '../core/utils/classNames';
-import {} from '../cavilha';
-
-export enum TabElements {
-  'block' = 'tab',
-  'item' = 'tab__item',
-  'tabs' = 'tab__tabs',
-  'content' = 'tab__content',
-}
-
-export type TabVariants = 'tab--is-vertical';
-
-export type TabItemVariants = 'tab__item--is-active' | 'tab__item--is-disabled';
-
-export type TabContentVariants = 'tab__content--is-active';
-
-export type TabProps = {
-  variants?: TabItemVariants[];
-  helpers?: string[];
-  hasClassName?: string;
-  isVertical?: boolean;
-} & HTMLAttributes<HTMLDivElement>;
-
-export type TabItemProps = {
-  variants?: TabItemVariants[];
-  helpers?: string[];
-  hasClassName?: string;
-  isDisabled?: boolean;
-  href?: string;
-  index: number;
-} & HTMLAttributes<HTMLButtonElement | HTMLAnchorElement>;
-
-export type TabContentProps = {
-  variants?: TabItemVariants[];
-  helpers?: string[];
-  hasClassName?: string;
-} & HTMLAttributes<HTMLDivElement>;
+import {
+  TabProps,
+  TabElements,
+  TabItemProps,
+  TabItemVariants,
+  TabVariants,
+  TabContentVariants,
+} from './types';
 
 function Tab({
   variants,
@@ -120,7 +92,7 @@ function Item({
       {...(props as HTMLProps<HTMLAnchorElement>)}
       href={href}
       className={className}
-      onClick={() => setActive(index)}
+      onClick={isDisabled ? null : () => setActive(index)}
     >
       {children}
     </a>;
@@ -131,7 +103,7 @@ function Item({
       {...(props as HTMLProps<HTMLButtonElement>)}
       type="button"
       className={className}
-      onClick={() => setActive(index)}
+      onClick={isDisabled ? null : () => setActive(index)}
     >
       {children}
     </button>

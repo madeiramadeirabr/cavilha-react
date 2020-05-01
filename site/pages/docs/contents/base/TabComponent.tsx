@@ -60,6 +60,25 @@ const tabBadge = `<div class="tab">
 </div>
 `
 
+const horizontalScrolling = `<div class="tab">
+  <div class="tab__tabs">
+    <button type="button" class="tab__item tab__item--is-active">Example tab one</button>
+    <button type="button" class="tab__item">Example tab two</button>
+    <button type="button" class="tab__item">Example tab three</button>
+    <button type="button" class="tab__item">Example tab four</button>
+    <button type="button" class="tab__item">Example tab five</button>
+    <button type="button" class="tab__item">Example tab six</button>
+    <button type="button" class="tab__item">Example tab seven</button>
+  </div>
+  <div class="tab__content tab__content--is-active">Content one</div>
+  <div class="tab__content">Content two</div>
+  <div class="tab__content">Content three</div>
+  <div class="tab__content">Content four</div>
+  <div class="tab__content">Content five</div>
+  <div class="tab__content">Content six</div>
+  <div class="tab__content">Content seven</div>
+</div>`
+
   const helpersTableData: TableDataProps = {
     columns: ["CSS Helper Classes", "Description"],
     rows: [
@@ -128,6 +147,31 @@ const tabBadge = `<div class="tab">
       </Block>
       <Block helpers={["helper--has-margin-top"]}>
         <Code language="html" code={tabBadge} />
+      </Block>
+
+      <Intro title="Horizontal scrolling" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+      <Block>
+        <Tab>
+          <Tab.Tabs current={1}>
+            <Tab.Item index={1}>Example tab one</Tab.Item>
+            <Tab.Item index={2}>Example tab two</Tab.Item>
+            <Tab.Item index={3}>Example tab three</Tab.Item>
+            <Tab.Item index={4}>Example tab four</Tab.Item>
+            <Tab.Item index={5}>Example tab five</Tab.Item>
+            <Tab.Item index={6}>Example tab six</Tab.Item>
+            <Tab.Item index={7}>Example tab seven</Tab.Item>
+          </Tab.Tabs>
+          <Tab.Content index={1}>Content one</Tab.Content>
+          <Tab.Content index={2}>Content two</Tab.Content>
+          <Tab.Content index={3}>Content three</Tab.Content>
+          <Tab.Content index={4}>Content four</Tab.Content>
+          <Tab.Content index={5}>Content five</Tab.Content>
+          <Tab.Content index={6}>Content six</Tab.Content>
+          <Tab.Content index={7}>Content seven</Tab.Content>
+        </Tab>
+      </Block>
+      <Block helpers={["helper--has-margin-top"]}>
+        <Code language="html" code={horizontalScrolling} />
       </Block>
 
       <Block helpers={["helper--has-margin-vertical"]}>

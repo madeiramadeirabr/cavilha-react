@@ -3,6 +3,7 @@ import { Code, CodeSpan } from "../../../../components/Code"
 import { Block } from "../../../../../packages/block/index"
 import { Button, ButtonColorModifier } from "../../../../../packages/button/index"
 import { Table, TableDataProps } from "../../../../../packages/table/index"
+import { MarginCollapse } from "../../../../../packages/base"
 import { Text } from "../../../../../packages/text/index"
 import { ContentComponentProps } from '../types';
 import { Intro } from '../../../../components/Heading';
@@ -76,15 +77,16 @@ const buttonShapes = `<!-- circle -->
   return (
     <>
       <Intro title="Default" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
-      <Block helpers={["helper--has-margin-vertical"]}>
-        <Button>Button</Button>
-        <Button isDisabled>Disabled</Button>
-        <Button isOutline>Outlined</Button>
-        <Button isOutline isDisabled>Outlined Disabled</Button>
-        <Button isLink>Link</Button>
-        <Button isLink isDisabled>Link Disabled</Button>
-      </Block>
-
+      <MarginCollapse>
+        <Block helpers={["helper--has-margin-vertical"]}>
+          <Button>Button</Button>
+          <Button isDisabled>Disabled</Button>
+          <Button isOutline>Outlined</Button>
+          <Button isOutline isDisabled>Outlined Disabled</Button>
+          <Button isLink>Link</Button>
+          <Button isLink isDisabled>Link Disabled</Button>
+        </Block>
+      </MarginCollapse>
       <Block helpers={["helper--has-margin-top"]}>
         <Code language="html" code={buttonDefaults} />
       </Block>
@@ -94,12 +96,14 @@ const buttonShapes = `<!-- circle -->
           (color) => (
             <>
               <Intro title={color} description={ColorsDescription[color]} />
-              <Block helpers={["helper--has-margin-vertical"]}>
-                <Button hasColor={color}>Button</Button>
-                <Button isDisabled hasColor={color}>Disabled</Button>
-                <Button isOutline hasColor={color}>Outlined</Button>
-                <Button isOutline isDisabled hasColor={color}>Outlined Disabled</Button>
-              </Block>
+              <MarginCollapse>
+                <Block helpers={["helper--has-margin-vertical"]}>
+                  <Button hasColor={color}>Button</Button>
+                  <Button isDisabled hasColor={color}>Disabled</Button>
+                  <Button isOutline hasColor={color}>Outlined</Button>
+                  <Button isOutline isDisabled hasColor={color}>Outlined Disabled</Button>
+                </Block>
+              </MarginCollapse>
               <Block helpers={["helper--has-margin-top"]}>
                 <Code language="html" code={buttonColors(color)} />
               </Block>
@@ -109,30 +113,34 @@ const buttonShapes = `<!-- circle -->
       }
 
       <Intro title="Sizes" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
-      <Block helpers={["helper--has-margin-vertical"]}>
-        <Button hasSize="extra-large" isOutline>Extra Large</Button>
-        <Button hasSize="large" isOutline>Large</Button>
-        <Button isOutline>Regular</Button>
-        <Button hasSize="small" isOutline>Small</Button>
-        <Button hasSize="extra-small" isOutline>Link</Button>
-      </Block>
+      <MarginCollapse>
+        <Block helpers={["helper--has-margin-vertical"]}>
+          <Button hasSize="extra-large" isOutline>Extra Large</Button>
+          <Button hasSize="large" isOutline>Large</Button>
+          <Button isOutline>Regular</Button>
+          <Button hasSize="small" isOutline>Small</Button>
+          <Button hasSize="extra-small" isOutline>Link</Button>
+        </Block>
+      </MarginCollapse>
       <Block helpers={["helper--has-margin-top"]}>
         <Code language="html" code={buttonSizes} />
       </Block>
 
       <Intro title="Shapes" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
-      <Block helpers={["helper--has-margin-vertical"]}>
-        <Button hasShape="circle" hasColor="primary" hasSize="extra-large">&times;</Button>
-        <Button hasShape="circle" hasColor="primary" hasSize="large">&times;</Button>
-        <Button hasShape="circle" hasColor="primary">&times;</Button>
-        <Button hasShape="circle" hasColor="primary" hasSize="small">&times;</Button>
-        <Button hasShape="circle" hasColor="primary" hasSize="extra-small">&times;</Button>
-        <Button hasShape="square" hasColor="secondary" hasSize="extra-large">&times;</Button>
-        <Button hasShape="square" hasColor="secondary" hasSize="large">&times;</Button>
-        <Button hasShape="square" hasColor="secondary">&times;</Button>
-        <Button hasShape="square" hasColor="secondary" hasSize="small">&times;</Button>
-        <Button hasShape="square" hasColor="secondary" hasSize="extra-small">&times;</Button>
-      </Block>
+      <MarginCollapse>
+        <Block helpers={["helper--has-margin-vertical"]}>
+          <Button hasShape="circle" hasColor="primary" hasSize="extra-large">&times;</Button>
+          <Button hasShape="circle" hasColor="primary" hasSize="large">&times;</Button>
+          <Button hasShape="circle" hasColor="primary">&times;</Button>
+          <Button hasShape="circle" hasColor="primary" hasSize="small">&times;</Button>
+          <Button hasShape="circle" hasColor="primary" hasSize="extra-small">&times;</Button>
+          <Button hasShape="square" hasColor="secondary" hasSize="extra-large">&times;</Button>
+          <Button hasShape="square" hasColor="secondary" hasSize="large">&times;</Button>
+          <Button hasShape="square" hasColor="secondary">&times;</Button>
+          <Button hasShape="square" hasColor="secondary" hasSize="small">&times;</Button>
+          <Button hasShape="square" hasColor="secondary" hasSize="extra-small">&times;</Button>
+        </Block>
+      </MarginCollapse>
       <Block helpers={["helper--has-margin-top"]}>
         <Code language="html" code={buttonShapes} />
       </Block>
