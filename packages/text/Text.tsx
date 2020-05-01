@@ -8,6 +8,7 @@ import {
   HelperTextAlignModifiers,
   HelperGapModifiers,
   ElementColorProps,
+  HelperFloatModifiers,
 } from '../cavilha';
 
 export type TextVariantModifiers =
@@ -38,9 +39,11 @@ export type TextProps = {
     | HelperDisplayModifiers
     | HelperTextColorModifiers
     | HelperTextAlignModifiers
+    | HelperFloatModifiers
   )[];
   hasClassName?: string;
   withPlaceholder?: boolean;
+  hasFloat?: 'left' | 'right';
 } & ElementColorProps &
   HTMLAttributes<HTMLParagraphElement> &
   HTMLAttributes<HTMLSpanElement>;
@@ -55,10 +58,15 @@ function Text({
   hasClassName,
   children,
   withPlaceholder,
+  hasFloat,
   ...props
 }: TextProps) {
   const className = classNames(
-    ['text', `text--is-${hasText}` as TextVariantModifiers],
+    [
+      'text',
+      `text--is-${hasText}` as TextVariantModifiers,
+      hasFloat ? (`helper--is-on-${hasFloat}` as HelperFloatModifiers) : null,
+    ],
     {
       variants,
       helpers,

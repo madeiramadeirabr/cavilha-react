@@ -33,6 +33,23 @@ export default function () {
   </div>
 </div>`
 
+const dialogAutoWidth = `<div class="dialog dialog--is-open dialog--is-transparent dialog--is-relative dialog--is-auto-with">
+  <div class="dialog__container">
+    <div class="dialog__header">
+      <h5 class="helper--has-color-secondary helper--has-text-semibold">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit
+      </h5>
+    </div>
+    <div class="dialog__body">
+      <p class="text text--is-body-one-regular">Lorem...</p>
+    </div>
+    <div class="dialog__footer">
+      <button type="button" class="button button--is-secondary  button--is-outline">Cancel</button>
+      <button type="button" class="button button--is-primary">Ok</button>
+    </div>
+  </div>
+</div>`
+
   const helpersTableData: TableDataProps = {
     columns: ["CSS Helper Classes", "Description"],
     rows: [
@@ -63,11 +80,31 @@ export default function () {
             </Dialog.Footer>
           </Dialog.Container>
         </Dialog>
-
       </Block>
-
       <Block helpers={["helper--has-margin-top"]}>
         <Code language="html" code={dialogDefaults} />
+      </Block>
+
+
+      <Intro title="Auto width" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+      <Block helpers={["helper--has-gap"]}>
+        <Dialog isOpen isRelative isTransparent isAutoWidth>
+          <Dialog.Container>
+            <Dialog.Header>
+              <H5 hasWeight="semibold" hasColor="secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit</H5>
+            </Dialog.Header>
+            <Dialog.Body>
+              <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Text>
+            </Dialog.Body>
+            <Dialog.Footer>
+              <Button isOutline hasColor="secondary" onClick={closeDialog}>Cancel</Button>
+              <Button hasColor="primary" onClick={confirmDialog}>Ok</Button>
+            </Dialog.Footer>
+          </Dialog.Container>
+        </Dialog>
+      </Block>
+      <Block helpers={["helper--has-margin-top"]}>
+        <Code language="html" code={dialogAutoWidth} />
       </Block>
 
       <Block helpers={["helper--has-margin-vertical"]}>

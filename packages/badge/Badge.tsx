@@ -1,6 +1,10 @@
 import React, { HTMLProps, HTMLAttributes } from 'react';
 import { classNames } from '../core/utils/classNames';
-import { HelperMarginModifiers, HelperDisplayModifiers } from '../cavilha';
+import {
+  HelperMarginModifiers,
+  HelperDisplayModifiers,
+  HelperFloatModifiers,
+} from '../cavilha';
 
 export type BadgeColorModifier =
   | 'primary'
@@ -23,13 +27,18 @@ export type BadgeVariantModifiers =
 
 export type BadgeProps = {
   variants?: string[];
-  helpers?: (HelperMarginModifiers | HelperDisplayModifiers)[];
+  helpers?: (
+    | HelperMarginModifiers
+    | HelperDisplayModifiers
+    | HelperFloatModifiers
+  )[];
   hasClassName?: string;
   hasColor?: BadgeColorModifier;
   isPill?: boolean;
   isFloating?: boolean;
   isOutline?: boolean;
   href?: string;
+  hasFloat?: 'left' | 'right';
 } & HTMLAttributes<HTMLSpanElement | HTMLAnchorElement>;
 
 function Badge({
@@ -42,6 +51,7 @@ function Badge({
   isFloating,
   isOutline,
   href,
+  hasFloat,
   ...props
 }: BadgeProps) {
   const className = classNames(
@@ -51,6 +61,7 @@ function Badge({
       isPill ? ('badge--is-pill' as BadgeVariantModifiers) : null,
       isFloating ? ('badge--is-floating' as BadgeVariantModifiers) : null,
       isOutline ? ('badge--is-outline' as BadgeVariantModifiers) : null,
+      hasFloat ? (`helper--is-on-${hasFloat}` as HelperFloatModifiers) : null,
     ],
     {
       variants,

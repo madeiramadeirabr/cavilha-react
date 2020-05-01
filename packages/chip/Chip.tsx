@@ -1,6 +1,10 @@
-import React, { ReactNode, HTMLProps, HTMLAttributes } from 'react';
+import React, { HTMLProps, HTMLAttributes } from 'react';
 import { classNames } from '../core/utils/classNames';
-import { HelperMarginModifiers, HelperDisplayModifiers } from '../cavilha';
+import {
+  HelperMarginModifiers,
+  HelperDisplayModifiers,
+  HelperFloatModifiers,
+} from '../cavilha';
 
 export type ChipColorModifier =
   | 'primary'
@@ -21,11 +25,16 @@ export type ChipVariantModifiers =
 
 export type ChipProps = {
   variants?: string[];
-  helpers?: (HelperMarginModifiers | HelperDisplayModifiers)[];
+  helpers?: (
+    | HelperMarginModifiers
+    | HelperDisplayModifiers
+    | HelperFloatModifiers
+  )[];
   hasClassName?: string;
   hasColor?: ChipColorModifier;
   isOutline?: boolean;
   href?: string;
+  hasFloat?: 'left' | 'right';
 } & HTMLAttributes<HTMLSpanElement | HTMLAnchorElement>;
 
 export type CloseProps = {} & HTMLAttributes<HTMLButtonElement>;
@@ -38,6 +47,7 @@ function Chip({
   hasColor,
   isOutline,
   href,
+  hasFloat,
   ...props
 }: ChipProps) {
   const className = classNames(
@@ -45,6 +55,7 @@ function Chip({
       'chip',
       hasColor ? (`chip--is-${hasColor}` as ChipVariantModifiers) : null,
       isOutline ? ('chip--is-outline' as ChipVariantModifiers) : null,
+      hasFloat ? (`helper--is-on-${hasFloat}` as HelperFloatModifiers) : null,
     ],
     {
       variants,
