@@ -35,11 +35,7 @@ function TabWithRouter({
   );
 }
 
-function Tabs({
-  children,
-  current,
-  ...props
-}: HTMLAttributes<HTMLDivElement> & { current: number }) {
+function Tabs({ children, ...props }: HTMLAttributes<HTMLDivElement>) {
   return (
     <div {...(props as HTMLProps<HTMLDivElement>)} className={TabElements.tabs}>
       {children}
@@ -55,7 +51,7 @@ function Item({
   isDisabled,
   isActive,
   to,
-}: TabItemProps & LinkProps & { isActive?: boolean }) {
+}: Omit<TabItemProps, 'index'> & LinkProps & { isActive?: boolean }) {
   const className = classNames(
     [
       TabElements.item,
@@ -69,9 +65,11 @@ function Item({
     }
   );
 
-  <Link to={to} className={className}>
-    {children}
-  </Link>;
+  return (
+    <Link to={to} className={className}>
+      {children}
+    </Link>
+  );
 }
 
 TabWithRouter.Item = Item;
