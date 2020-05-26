@@ -11,6 +11,7 @@ import {
   ElementColorProps,
   HelperWidthModifiers,
   HelperHeightModifiers,
+  HelperScrollModifiers,
 } from '../cavilha';
 
 enum CollectionElements {
@@ -37,6 +38,7 @@ export type CollectionProps = {
     | HelperFlexAligmentModifiers
     | HelperWidthModifiers
     | HelperHeightModifiers
+    | HelperScrollModifiers
   )[];
   hasClassName?: string;
   children?: ReactNode;

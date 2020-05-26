@@ -1,11 +1,4 @@
-import React, {
-  HTMLProps,
-  HTMLAttributes,
-  createContext,
-  ReactNode,
-  useState,
-  useContext,
-} from 'react';
+import React, { HTMLProps, HTMLAttributes } from 'react';
 import { classNames } from '../core/utils/classNames';
 import {
   TabProps,
@@ -15,6 +8,7 @@ import {
   TabVariants,
   TabContentVariants,
 } from './types';
+import { TabProvider, useTab } from './context';
 
 function Tab({
   variants,
@@ -88,14 +82,16 @@ function Item({
   );
 
   if (href) {
-    <a
-      {...(props as HTMLProps<HTMLAnchorElement>)}
-      href={href}
-      className={className}
-      onClick={isDisabled ? null : () => setActive(index)}
-    >
-      {children}
-    </a>;
+    return (
+      <a
+        {...(props as HTMLProps<HTMLAnchorElement>)}
+        href={href}
+        className={className}
+        onClick={isDisabled ? null : () => setActive(index)}
+      >
+        {children}
+      </a>
+    );
   }
 
   return (
@@ -139,25 +135,3 @@ Tab.Tabs = Tabs;
 Tab.Content = Content;
 
 export { Tab };
-
-export type TabContext = {
-  active: number;
-  setActive: Function;
-};
-
-const TabContext = createContext({} as TabContext);
-
-function TabProvider({ children }: { children: ReactNode }) {
-  const [active, setActive] = useState<number>(0 as number);
-  return (
-    <TabContext.Provider value={{ active, setActive }}>
-      {children}
-    </TabContext.Provider>
-  );
-}
-
-function useTab() {
-  const context = useContext(TabContext);
-  const { active, setActive } = context;
-  return { active, setActive };
-}

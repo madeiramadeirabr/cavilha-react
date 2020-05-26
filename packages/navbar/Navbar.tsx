@@ -1,38 +1,11 @@
-import React, { HTMLProps, ButtonHTMLAttributes, HTMLAttributes } from 'react';
+import React, { ElementType, HTMLProps, HTMLAttributes } from 'react';
 import { classNames } from '../core/utils/classNames';
 import {
-  HelperBackgroundColorModifiers,
-  HelperShadowModifiers,
-  HelperDisplayModifiers,
-  ElementColorProps,
-} from '../cavilha';
-
-export type NavbarVariantModifiers =
-  | 'navbar--is-fixed-top'
-  | 'navbar--is-transparent';
-
-export enum NavbarElements {
-  'block' = 'navbar',
-  'container' = 'navbar__container',
-  'logo' = 'navbar__logo',
-  'menu' = 'navbar__menu',
-  'items' = 'navbar__items',
-  'item' = 'navbar__item',
-}
-
-export type NavbarProps = {
-  isFixedTop?: boolean;
-  isTransparent?: boolean;
-  variants?: NavbarVariantModifiers[];
-  helpers?: (HelperBackgroundColorModifiers | HelperShadowModifiers)[];
-  hasClassName?: string;
-} & Pick<ElementColorProps, 'hasBackground'> &
-  HTMLAttributes<HTMLDivElement>;
-
-export type NavbarMenuProps = {
-  isOpen?: boolean;
-  helpers?: HelperDisplayModifiers[];
-} & ButtonHTMLAttributes<HTMLButtonElement>;
+  NavbarElements,
+  NavbarMenuProps,
+  NavbarProps,
+  NavbarItemProps,
+} from './types';
 
 function Navbar({
   isFixedTop,
@@ -115,6 +88,25 @@ Navbar.Logo = function ({
 };
 
 /**
+ * Logo HOC component
+ */
+Navbar.LogoHOC = function ({
+  title,
+  src,
+  ...props
+}: {
+  title?: string;
+  src: string;
+}) {
+  const className = classNames([NavbarElements.logo], {});
+  return (Component: ElementType) => (
+    <Component {...props} className={className}>
+      <img src={src} alt={title || ''} />
+    </Component>
+  );
+};
+
+/**
  * Items component
  */
 Navbar.Items = function ({
@@ -153,6 +145,21 @@ Navbar.Item = function ({
     <a {...(props as HTMLProps<HTMLAnchorElement>)} className={className}>
       {children}
     </a>
+  );
+};
+
+/**
+ * Item HOC component
+ */
+Navbar.ItemHOC = function ({ isActive, children, ...props }: NavbarItemProps) {
+  const className = classNames(
+    [NavbarElements.item, isActive ? 'navbar__item--is-active' : null],
+    {}
+  );
+  return (Component: ElementType) => (
+    <Component {...props} className={className}>
+      {children}
+    </Component>
   );
 };
 

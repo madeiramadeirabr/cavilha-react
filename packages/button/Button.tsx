@@ -1,13 +1,11 @@
-import React, { HTMLProps, HTMLAttributes } from 'react';
-import { BaseButtonProps, baseButton } from './BaseButton';
+import React, { HTMLProps, HTMLAttributes, ElementType } from 'react';
+import { baseButton } from './BaseButton';
+import { ButtonProps } from './types';
 
-function Button({
-  ...props
-}: BaseButtonProps & HTMLAttributes<HTMLButtonElement>) {
+function Button({ ...props }: ButtonProps & HTMLAttributes<HTMLButtonElement>) {
   const { content, buttonProps, className } = baseButton(props);
   const { type, href } = buttonProps;
-
-  const Component = href ? 'a' : 'button';
+  const Component: ElementType = href ? 'a' : 'button';
   const componentProps = href
     ? buttonProps
     : {
@@ -22,4 +20,12 @@ function Button({
   );
 }
 
-export { Button };
+const ButtonHOC = (props: ButtonProps) => {
+  const { content, buttonProps } = baseButton(props);
+
+  return (Component: ElementType) => (
+    <Component {...buttonProps}>{content}</Component>
+  );
+};
+
+export { Button, ButtonHOC };

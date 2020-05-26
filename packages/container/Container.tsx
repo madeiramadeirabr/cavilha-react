@@ -6,6 +6,7 @@ import {
   HelperGapVerticalModifiers,
   HelperGapHorizontalModifiers,
   HelperFlexAligmentModifiers,
+  HelperScrollModifiers,
   ElementColorProps,
 } from '../cavilha';
 
@@ -23,6 +24,7 @@ export type ContainerProps = {
     | HelperGapVerticalModifiers
     | HelperGapHorizontalModifiers
     | HelperFlexAligmentModifiers
+    | HelperScrollModifiers
   )[];
   hasClassName?: string;
 } & Pick<ElementColorProps, 'hasBackground'> &

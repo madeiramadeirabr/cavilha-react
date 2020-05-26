@@ -5,8 +5,11 @@ import { Block } from "../../../packages/block/index"
 import { Row, Column } from "../../../packages/grid/index"
 import { H1, H3 } from "../../../packages/heading/index"
 import { Text } from "../../../packages/text/index"
-import { ButtonWithRouter } from "../../../packages/button/index"
+import { ButtonHOC, ButtonProps } from "../../../packages/button/index"
 import { GET_STARTED_ROUTE, DOCUMENTATION_ROUTE } from "../../routes"
+import { Link, LinkProps } from 'react-router-dom';
+
+const ButtonWithRouter = (props: ButtonProps & LinkProps) => ButtonHOC(props)(Link)
 
 export const Home = ({routerProps, ...props}: any) => {
 

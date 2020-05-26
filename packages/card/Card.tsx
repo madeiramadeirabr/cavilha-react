@@ -1,4 +1,4 @@
-import React, { HTMLProps, HTMLAttributes } from 'react';
+import React, { HTMLProps } from 'react';
 import { classNames } from '../core/utils/classNames';
 import { CardProps, CardVariantModifiers, CardElements } from './types';
 
@@ -20,7 +20,7 @@ function Wrapper(
     [
       el,
       hasShadow && hasShadow === 'no-shadow'
-        ? (`card--has-no-shadow` as CardVariantModifiers)
+        ? ('card--has-no-shadow' as CardVariantModifiers)
         : null,
       hasShadow
         ? (`card--has-shadow-${hasShadow}` as CardVariantModifiers)

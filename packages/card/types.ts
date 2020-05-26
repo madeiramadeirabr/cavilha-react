@@ -5,6 +5,7 @@ import {
   HelperGapModifiers,
   HelperDisplayModifiers,
   HelperFlexAligmentModifiers,
+  HelperScrollModifiers,
   ElementColorProps,
 } from '../cavilha';
 
@@ -31,6 +32,7 @@ export type CardProps = {
     | HelperGapModifiers
     | HelperDisplayModifiers
     | HelperFlexAligmentModifiers
+    | HelperScrollModifiers
   )[];
   hasClassName?: string;
   hasShadow?: 'no-shadow' | 'extra-small' | 'small' | 'large' | 'extra-large';

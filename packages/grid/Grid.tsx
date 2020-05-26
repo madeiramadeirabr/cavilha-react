@@ -5,6 +5,7 @@ import {
   HelperMarginVerticalModifiers,
   HelperGapVerticalModifiers,
   HelperFlexAligmentModifiers,
+  HelperScrollModifiers,
 } from '../cavilha';
 
 export type GridRowVariantModifiers =
@@ -18,6 +19,7 @@ export type GridRowProps = {
     | HelperGapVerticalModifiers
     | HelperDisplayModifiers
     | HelperFlexAligmentModifiers
+    | HelperScrollModifiers
   )[];
   hasClassName?: string;
   children: ReactNode;

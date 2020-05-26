@@ -1,2 +1,2 @@
 export * from './Navbar';
-export * from './NavbarWithrouter';
+export * from './types';
