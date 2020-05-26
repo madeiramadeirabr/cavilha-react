@@ -9,7 +9,7 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx']
   },
-  entry: path.join(__dirname, '../../site/index.tsx'),
+  entry: path.join(__dirname, '../../src/index.tsx'),
   module: {
     rules: [
       {
