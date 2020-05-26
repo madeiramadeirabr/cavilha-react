@@ -11,7 +11,3 @@ declare namespace Tab {
     }) => JSX.Element;
 }
 export { Tab };
-export declare type TabContext = {
-    active: number;
-    setActive: Function;
-};

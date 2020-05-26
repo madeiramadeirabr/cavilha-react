@@ -1,11 +1,11 @@
 {
-  "name": "@madeiramadeira/cavilha-react",
+  "name": "@cavilha-ui/components",
   "version": "1.0.0",
   "description": "A MadeiraMadeira React UI kit",
   "main": "lib/cavilha.js",
   "types": "lib/cavilha.d.ts",
   "author": "William Novak <williamnvk@gmail.com> (https://github.com/williamnvk)",
-  "homepage": "https://madeiramadeirabr.github.io/cavilha-react/",
+  "homepage": "https://cavilha-ui.github.io/components",
   "license": "MIT",
   "keywords": [
     "react",
@@ -13,11 +13,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/madeiramadeirabr/cavilha-react"
+    "url": "https://github.com/cavilha-ui/components"
   },
   "scripts": {
-    "packages:build": "rm -rf lib/*.* && tsc",
     "start": "webpack-dev-server --config config/webpack/server.js --open --mode development",
+    "dist": "rm -rf lib/*.* && tsc && rm -rf lib/packages",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src --color --fix",
     "format": "prettier --write packages/**/*.tsx"
   },
@@ -78,15 +78,12 @@
     "file-loader": "^6.0.0",
     "fork-ts-checker-webpack-plugin": "^4.1.3",
     "friendly-errors-webpack-plugin": "^1.7.0",
-    "gatsby": "^2.22.9",
-    "gh-pages": "^2.2.0",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^4.2.3",
     "install": "^0.13.0",
     "lint-staged": "^10.0.8",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.1",
-    "npm": "^6.14.4",
     "prettier": "2.0.1",
     "prettier-eslint": "9.0.1",
     "prettier-eslint-cli": "5.0.0",

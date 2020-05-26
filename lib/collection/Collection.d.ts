@@ -1,11 +1,11 @@
 import { ReactNode, HTMLAttributes } from 'react';
-import { HelperMarginModifiers, HelperDisplayModifiers, HelperGapModifiers, HelperBackgroundModifiers, HelperTextColorModifiers, HelperTextAlignModifiers, HelperFlexAligmentModifiers, ElementColorProps, HelperWidthModifiers, HelperHeightModifiers } from '../cavilha';
+import { HelperMarginModifiers, HelperDisplayModifiers, HelperGapModifiers, HelperBackgroundModifiers, HelperTextColorModifiers, HelperTextAlignModifiers, HelperFlexAligmentModifiers, ElementColorProps, HelperWidthModifiers, HelperHeightModifiers, HelperScrollModifiers } from '../cavilha';
 export declare type CollectionVariantModifiers = 'collection--is-horizontal' | 'collection--is-vertical';
 export declare type CollectionDirectionModifier = 'horizontal' | 'vertical';
 export declare type CollectionProps = {
     hasDirection?: CollectionDirectionModifier;
     variants?: string[];
-    helpers?: (HelperMarginModifiers | HelperGapModifiers | HelperDisplayModifiers | HelperTextAlignModifiers | HelperBackgroundModifiers | HelperTextColorModifiers | HelperFlexAligmentModifiers | HelperWidthModifiers | HelperHeightModifiers)[];
+    helpers?: (HelperMarginModifiers | HelperGapModifiers | HelperDisplayModifiers | HelperTextAlignModifiers | HelperBackgroundModifiers | HelperTextColorModifiers | HelperFlexAligmentModifiers | HelperWidthModifiers | HelperHeightModifiers | HelperScrollModifiers)[];
     hasClassName?: string;
     children?: ReactNode;
 } & ElementColorProps & HTMLAttributes<HTMLUListElement>;

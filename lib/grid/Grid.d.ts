@@ -1,9 +1,9 @@
 import { ReactNode, HTMLAttributes } from 'react';
-import { HelperDisplayModifiers, HelperMarginVerticalModifiers, HelperGapVerticalModifiers, HelperFlexAligmentModifiers } from '../cavilha';
+import { HelperDisplayModifiers, HelperMarginVerticalModifiers, HelperGapVerticalModifiers, HelperFlexAligmentModifiers, HelperScrollModifiers } from '../cavilha';
 export declare type GridRowVariantModifiers = 'grid__row--is-reverse' | 'grid__row--has-horizontal-scroll-mobile';
 export declare type GridRowProps = {
     variants?: GridRowVariantModifiers[];
-    helpers?: (HelperMarginVerticalModifiers | HelperGapVerticalModifiers | HelperDisplayModifiers | HelperFlexAligmentModifiers)[];
+    helpers?: (HelperMarginVerticalModifiers | HelperGapVerticalModifiers | HelperDisplayModifiers | HelperFlexAligmentModifiers | HelperScrollModifiers)[];
     hasClassName?: string;
     children: ReactNode;
     isReverse?: boolean;

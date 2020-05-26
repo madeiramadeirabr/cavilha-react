@@ -1,9 +1,9 @@
 import { HTMLAttributes } from 'react';
-import { HelperBackgroundModifiers, HelperMarginVerticalModifiers, HelperGapVerticalModifiers, HelperGapHorizontalModifiers, HelperFlexAligmentModifiers, ElementColorProps } from '../cavilha';
+import { HelperBackgroundModifiers, HelperMarginVerticalModifiers, HelperGapVerticalModifiers, HelperGapHorizontalModifiers, HelperFlexAligmentModifiers, HelperScrollModifiers, ElementColorProps } from '../cavilha';
 export declare type ContainerVariantModifiers = 'container--has-sidebar' | 'container--is-full-width' | 'container--is-full-width-tablet' | 'container--is-full-width-mobile';
 export declare type ContainerProps = {
     variants?: ContainerVariantModifiers[];
-    helpers?: (HelperBackgroundModifiers | HelperMarginVerticalModifiers | HelperGapVerticalModifiers | HelperGapHorizontalModifiers | HelperFlexAligmentModifiers)[];
+    helpers?: (HelperBackgroundModifiers | HelperMarginVerticalModifiers | HelperGapVerticalModifiers | HelperGapHorizontalModifiers | HelperFlexAligmentModifiers | HelperScrollModifiers)[];
     hasClassName?: string;
 } & Pick<ElementColorProps, 'hasBackground'> & HTMLAttributes<HTMLDivElement>;
 export declare const CONTAINER_BLOCK = "container";

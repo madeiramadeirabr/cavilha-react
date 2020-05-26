@@ -1,3 +1,2 @@
 export * from './Button';
-export * from './BaseButton';
-export * from './ButtonWithRouter';
+export * from './types';
